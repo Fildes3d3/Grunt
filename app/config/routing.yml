@@ -1,3 +1,31 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+grunt_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Grunt:home }
+grunt_garaj:
+    path:     /garaj
+    defaults: { _controller: AppBundle:Grunt:garaj }
+grunt_jurnal:
+    path:     /jurnal
+    defaults: { _controller: AppBundle:Grunt:jurnal }
+grunt_diy:
+    path:     /diy
+    defaults: { _controller: AppBundle:Grunt:diy }
+grunt_contact:
+    path:     /contact
+    defaults: { _controller: AppBundle:Grunt:contact }
+grunt_register:
+    path:     /register
+    defaults: { _controller: AppBundle:Grunt:register}
+grunt_admin:
+    path:     /admin
+    defaults: { _controller: AppBundle:Grunt:admin}
+security_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login}
+security_logout:
+    path:     /logout
+    defaults: { _controller: AppBundle:Security:login}

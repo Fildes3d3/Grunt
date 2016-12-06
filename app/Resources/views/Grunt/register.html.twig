@@ -1,0 +1,78 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>The Daily Grunt</h1>
+            <p class="text-right"><em>...daca vrei sa <strong>comentezi</strong> e musai sa te <strong>inregistrezi</strong> :) </em></p>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Inregistrare Utilizator</h3>
+            </div>
+
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="panel-heading">
+                    <div class="alert alert-warning alert-dismissable" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2>{{ flashMessage }}</h2>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="panel-body">
+                <form method="post" id="registerform" name="registerform" enctype="multipart/form-data" action="{{ path ('grunt_register') }}">
+                    <div class="row">
+                        <div class="col-md-2 padding-top-10">
+                            <label for="username" class="control-label"> Nume Utilizator</label>
+                        </div>
+                        <div class="col-md-4 padding-top-10">
+                            <input type="text" class="form-control" id="username" name="username" placeholder=" Nume Utilizator" />
+                        </div>
+                        <div class="col-md-2 padding-top-10">
+                            <label for="email" class="control-label"> eMail</label>
+                        </div>
+                        <div class="col-md-4 padding-top-10">
+                            <input type="email" class="form-control" id="email" name="email" placeholder=" eMail" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 padding-top-10">
+                            <label for="password" class="control-label"> Parola</label>
+                        </div>
+                        <div class="col-md-4 padding-top-10">
+                            <input type="password" class="form-control" id="password" name="password" placeholder=" Parola" />
+                        </div>
+                        <div class="col-md-2 padding-top-10">
+                            <label for="confirmpassword" class="control-label"> Reintroduceti Parola</label>
+                        </div>
+                        <div class="col-md-4 padding-top-10">
+                            <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder=" Reintroduceti Parola" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 padding-top-10">
+                            <label>
+                                <input type="checkbox" name="news" value="yes" /> Click pentru abonare la newsletter.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 padding-top-10">
+                            <button type="submit" class="btn btn-info">Salveaza Utilizator</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="footer">
+                Copyright 2015. FildEs Flight Co.
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

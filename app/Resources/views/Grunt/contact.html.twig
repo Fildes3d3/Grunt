@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>The Daily Grunt</h1>
+            <p class="text-right"><em>...daca vrei sa <strong>ma contactezi</strong> e musai sa te <strong><a href="{{ path ('grunt_register') }}">inregistrezi</a></strong> :) </em></p>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Houston we have <strong>Contact...</strong></h3>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 padding-top-10">
+                            <label for="coment-title" class="control-label"> Despre ce vorbim ?</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 padding-top-10">
+                            <input type="text" class="form-control" id="coment-title" placeholder=" Ideea generala sau mai exact despre ce povestim" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 padding-top-10">
+                            <label for="coment-body" class="control-label"> Detaliaza...</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 padding-top-10">
+                            <textarea rows="5" type="text" class="form-control" id="coment-body" placeholder=" tot ce ai vrea sa imi transmiti...pe larg...detaliat...sau orice doresti sa exprimi...da coerent :)"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 padding-top-10">
+                            <button class="btn btn-info">Engage</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="footer">
+                Copyright 2015. FildEs Flight Co.
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

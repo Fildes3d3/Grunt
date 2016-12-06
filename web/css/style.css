@@ -1,0 +1,39 @@
+#footer {
+	text-align: center;
+	margin-top: 5%;
+}
+ .center {
+     margin: 0 auto;
+     width: 65%;
+ }
+img {
+    width:100%;
+}
+.col-md-8 img {
+    width: 100%;
+}
+.navbar-brand {
+	max-width: 70px;
+	max-height: 70px;
+}
+body {
+	margin-top: 60px;
+}
+@media (max-width: 768px) {
+	.input-group {
+		margin-bottom: 50px;
+	}
+
+}
+@media (max-width: 1100px) {
+	
+	.jumbotron {
+    	margin-top: 5%;
+        padding: 4%;
+	}
+}
+
+.padding-top-10 {
+	padding-top: 10px;
+}
+
