@@ -33,12 +33,13 @@ class GruntController extends Controller
     {
         return $this->render('Grunt/contact.html.twig');
     }
-    public function registerAction()
+    /*public function registerAction()
     {
         return $this->render('Grunt/register.html.twig');
-    }
+    }*/
     public function adminAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Grunt/admin.html.twig');
     }
 }

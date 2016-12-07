@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -23,19 +24,21 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
 {
     private $em;
     private $router;
+    private $passwordEncoder;
 
-    public function __construct(EntityManager $em, RouterInterface $router)
+    public function __construct(EntityManager $em, RouterInterface $router, UserPasswordEncoder $passwordEncoder)
     {
 
         $this->em = $em;
         $this->router = $router;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function getCredentials(Request $request)
     {
         $isLoginSubmit = $request->getPathInfo() == '/login' && $request->isMethod('POST');
         if (!$isLoginSubmit) {
-            return ;
+            return null;
         }
 
         $data = ['username'=>$_POST['_username'], 'password'=>$_POST['_password']];
@@ -54,7 +57,7 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
         $username = $credentials['username'];
 
         return $this->em->getRepository('AppBundle:User')
-            ->findOneBy(['username'=> $username]);
+            ->findOneBy(['username' => $username]);
 
     }
 
@@ -62,7 +65,7 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
     {
         $password = $credentials['password'];
 
-        if ($password == 'parola') {
+        if ($this->passwordEncoder->isPasswordValid($user, $password)) {
             return true;
         }
         return false;

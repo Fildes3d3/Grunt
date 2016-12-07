@@ -7,6 +7,10 @@ services:
     app.security.login_form_authenticator:
         class: AppBundle\Security\LoginFormAuteticator
         autowire: true
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    app.doctrine.hash_password_listener:
+        class: AppBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+

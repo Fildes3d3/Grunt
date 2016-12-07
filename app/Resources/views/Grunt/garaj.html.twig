@@ -1,10 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>The Daily Grunt</h1>
-            <p class="text-right"><em>...daca vrei sa <strong>comentezi</strong> e musai sa te <strong><a href="{{ path ('grunt_register') }}">inregistrezi</a></strong> :) </em></p>
-        </div>
+    {{ parent() }}
         <div class="row">
 
             <div class="col-md-8">
@@ -41,7 +37,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+
+    {% if is_granted('ROLE_USER') %}
+                <div class="row ">
                     <div class="col-md-10">
                         <h3>Comentezi?! <h4><strong><em>...adica e plin de critici...toata lumea se pricepe....</em></strong></h4></h3>
                         <div class="panel-body">
@@ -66,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-
+    {% endif %}
             </div>
 
             <div class="col-md-4">

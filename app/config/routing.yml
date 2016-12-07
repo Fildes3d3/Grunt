@@ -19,7 +19,7 @@ grunt_contact:
     defaults: { _controller: AppBundle:Grunt:contact }
 grunt_register:
     path:     /register
-    defaults: { _controller: AppBundle:Grunt:register}
+    defaults: { _controller: AppBundle:Register:register}
 grunt_admin:
     path:     /admin
     defaults: { _controller: AppBundle:Grunt:admin}

@@ -11,6 +11,7 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -26,7 +27,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string")
      */
     private $username;
 
@@ -35,7 +36,25 @@ class User implements UserInterface
      */
     private $password;
 
+
     private $unsafePassword;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $roles = [];
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $news;
 
     public function getUsername()
     {
@@ -44,7 +63,11 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        if (!in_array('ROLE_USER', $roles)){
+            $roles[] = 'ROLE_USER';
+        }
+        return $roles;
     }
 
     public function getPassword()
@@ -59,7 +82,7 @@ class User implements UserInterface
 
        public function eraseCredentials()
     {
-
+        $this->unsafePassword = null;
     }
 
 
@@ -73,22 +96,40 @@ class User implements UserInterface
         $this->password = $password;
     }
 
-    /**
-     * @return mixed
-     */
     public function getUnsafePassword()
     {
         return $this->unsafePassword;
     }
 
-    /**
-     * @param mixed $unsafePassword
-     */
     public function setUnsafePassword($unsafePassword)
     {
         $this->unsafePassword = $unsafePassword;
         $this->password = null;
     }
 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getNews()
+    {
+        return $this->news;
+    }
+
+    public function setNews($news)
+    {
+        $this->news = $news;
+    }
 
 }

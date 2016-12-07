@@ -1,10 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>The Daily Grunt</h1>
-            <p class="text-right"><em>...daca vrei sa <strong>comentezi</strong> e musai sa te <strong><a href="{{ path ('grunt_register') }}">inregistrezi</a></strong> :) </em></p>
-        </div>
+    {{ parent() }}
         <div class="row">
 
             <div class="col-md-8">

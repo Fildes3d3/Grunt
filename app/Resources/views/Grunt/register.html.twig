@@ -20,13 +20,13 @@
             {% endfor %}
 
             <div class="panel-body">
-                <form method="post" id="registerform" name="registerform" enctype="multipart/form-data" action="{{ path ('grunt_register') }}">
+                <form method="post" id="registerform" name="registerform" enctype="multipart/form-data" action="{{ path('grunt_register') }}">
                     <div class="row">
                         <div class="col-md-2 padding-top-10">
                             <label for="username" class="control-label"> Nume Utilizator</label>
                         </div>
                         <div class="col-md-4 padding-top-10">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=" Nume Utilizator" />
+                            <input type="text" class="form-control" id="username" name="_username" placeholder=" Nume Utilizator" />
                         </div>
                         <div class="col-md-2 padding-top-10">
                             <label for="email" class="control-label"> eMail</label>
@@ -40,13 +40,13 @@
                             <label for="password" class="control-label"> Parola</label>
                         </div>
                         <div class="col-md-4 padding-top-10">
-                            <input type="password" class="form-control" id="password" name="password" placeholder=" Parola" />
+                            <input type="password" class="form-control" id="password" name="_unsafePassword" placeholder=" Parola" />
                         </div>
                         <div class="col-md-2 padding-top-10">
                             <label for="confirmpassword" class="control-label"> Reintroduceti Parola</label>
                         </div>
                         <div class="col-md-4 padding-top-10">
-                            <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder=" Reintroduceti Parola" />
+                            <input type="password" class="form-control" id="confirmpassword" name="confirmPassword" placeholder=" Reintroduceti Parola" />
                         </div>
                     </div>
                     <div class="row">

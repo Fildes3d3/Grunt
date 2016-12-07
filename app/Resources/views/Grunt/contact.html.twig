@@ -1,10 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>The Daily Grunt</h1>
-            <p class="text-right"><em>...daca vrei sa <strong>ma contactezi</strong> e musai sa te <strong><a href="{{ path ('grunt_register') }}">inregistrezi</a></strong> :) </em></p>
-        </div>
+    {{ parent() }}
+    {% if is_granted('ROLE_USER') %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>Houston we have <strong>Contact...</strong></h3>
@@ -41,7 +38,7 @@
             </div>
 
         </div>
-
+    {% endif %}
         <div class="row">
             <div class="col-md-12" id="footer">
                 Copyright 2015. FildEs Flight Co.
