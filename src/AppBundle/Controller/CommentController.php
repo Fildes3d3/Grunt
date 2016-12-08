@@ -10,7 +10,6 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Comment;
-use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -35,13 +34,14 @@ class CommentController extends Controller
 
         /*customize for posting user
         $this->get('session')->getFlashBag()->add('succes', 'Noah draga '. $user->getUsername() . ' ai reusit, de amu poti comenta...');*/
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')->findAll();
 
-        return $this->render(':Grunt:garaj.html.twig');
+        return $this->render(':Grunt:garaj.html.twig', [
+            'comments' => $comments
+        ]);
         }
         return $this->render(':Grunt:garaj.html.twig');
     }
 
-    public function showCommentAction(){
 
-    }
 }

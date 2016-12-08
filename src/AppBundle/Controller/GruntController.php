@@ -19,7 +19,10 @@ class GruntController extends Controller
     }
     public function garajAction()
     {
-        return $this->render('Grunt/garaj.html.twig');
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')->findAll();/*must be custom querry by category and date DESC*/
+        return $this->render(':Grunt:garaj.html.twig', [
+            'comments' => $comments
+        ]);
     }
     public function jurnalAction()
     {
