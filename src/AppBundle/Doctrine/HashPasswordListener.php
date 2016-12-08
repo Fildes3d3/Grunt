@@ -27,7 +27,8 @@ class HashPasswordListener implements EventSubscriber
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
-        if (!$entity instanceof User OR !$entity instanceof Comment && $entity->getUnsafePassowrd() != null ) {
+
+        if (!$entity instanceof User OR $entity instanceof Comment && $entity->getUnsafePassword() != null ) {
             return null;
         }
 
