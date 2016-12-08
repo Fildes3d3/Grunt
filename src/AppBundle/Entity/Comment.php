@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -24,7 +25,8 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", unique=true)
      */
     private $comment;
 
@@ -34,11 +36,13 @@ class Comment
     private $user_id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $comment_category;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
     private $comment_date;

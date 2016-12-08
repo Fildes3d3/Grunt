@@ -19,7 +19,9 @@ class GruntController extends Controller
     }
     public function garajAction()
     {
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')->findAll();/*must be custom querry by category and date DESC*/
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findBy(array('comment_category'=>'garaj'),
+                    array('comment_date'=>'DESC'));
         return $this->render(':Grunt:garaj.html.twig', [
             'comments' => $comments
         ]);
@@ -30,7 +32,12 @@ class GruntController extends Controller
     }
     public function diyAction()
     {
-        return $this->render('Grunt/diy.html.twig');
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findBy(array('comment_category'=>'diy'),
+                array('comment_date'=>'DESC'));
+        return $this->render(':Grunt:diy.html.twig', [
+            'comments' => $comments
+        ]);
     }
     public function contactAction()
     {
