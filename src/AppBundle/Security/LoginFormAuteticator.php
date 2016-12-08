@@ -36,19 +36,19 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
+
         $isLoginSubmit = $request->getPathInfo() == '/login' && $request->isMethod('POST');
         if (!$isLoginSubmit) {
             return null;
         }
 
-        $data = ['username'=>$_POST['_username'], 'password'=>$_POST['_password']];
-
-        $request->getSession()->set(
-            Security::LAST_USERNAME,
-            $data['username']
+        $username = $request->request->get('_username');
+        $request->getSession()->set(Security::LAST_USERNAME, $username);
+        $password = $request->request->get('_password');
+        return array(
+            'username' => $username,
+            'password' => $password
         );
-
-        return $data;
 
     }
 

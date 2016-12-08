@@ -58,6 +58,11 @@
                         {%  endif %}
                     </li>
                 </ul>
+                {% if app.request.attributes.get('_route') == 'security_login'  %}
+                    {% if error %}
+                        <div class="bad_cred">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -65,6 +70,7 @@
 {% block body %}
     {% block jumbo %}
 <div class="container">
+
     <div class="jumbotron">
         <h1>The Daily Grunt</h1>
         {% if is_granted('ROLE_USER') %}
