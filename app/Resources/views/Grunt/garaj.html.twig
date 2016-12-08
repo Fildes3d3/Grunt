@@ -50,6 +50,7 @@
                         </div>
                         <div class="panel-body">
                             {% for comment in comments %}
+                                <p>{{ comment.commentDate|date('Y') }}</p>
                                 <p>{{ comment.comment }}</p>
                                 <p>{{ comment.commentCategory }}</p>
                             {% endfor %}

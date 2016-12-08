@@ -29,7 +29,7 @@ class Comment
     private $comment;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $user_id;
 
@@ -37,6 +37,27 @@ class Comment
      * @ORM\Column(type="string")
      */
     private $comment_category;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $comment_date;
+
+    /**
+     * @return mixed
+     */
+    public function getCommentDate()
+    {
+        return $this->comment_date;
+    }
+
+    /**
+     * @param mixed $comment_date
+     */
+    public function setCommentDate($comment_date)
+    {
+        $this->comment_date = $comment_date;
+    }
 
     /**
      * @return mixed

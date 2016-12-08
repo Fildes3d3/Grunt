@@ -23,10 +23,12 @@ class CommentController extends Controller
             $comment_data = [ 'comment' => $_POST['comment'],
                                'comment_cat' => 'garaj'
                             ];
+            $comment_date = new \DateTime('now');
 
         $comment = new Comment();
         $comment->setComment($comment_data['comment']);
         $comment->setCommentCategory($comment_data['comment_cat']);
+        $comment->setCommentDate($comment_date);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
