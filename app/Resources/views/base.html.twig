@@ -45,7 +45,7 @@
 									<span class="input-group-addon">
 									<span class="glyphicon glyphicon-user"></span>
 									</span>
-                                    <input type="text" class="form-control" name="_username" id="_username" placeholder="Utilizator" />
+                                    <input type="text" class="form-control" {{ last_username is defined ? ' value=' ~ last_username ~ ' ' : '' }} name="_username" id="_username" placeholder="Utilizator" />
                                 </div>
                                 <div class="input-group">
 									<span class="input-group-addon">

@@ -23,9 +23,14 @@ grunt_register:
 grunt_admin:
     path:     /admin
     defaults: { _controller: AppBundle:Grunt:admin}
+comment_new:
+    path:     /comment/garaj
+    defaults: { _controller: AppBundle:Comment:newComment}
 security_login:
     path:     /login
     defaults: { _controller: AppBundle:Security:login}
 security_logout:
     path:     /logout
     defaults: { _controller: AppBundle:Security:login}
+
+

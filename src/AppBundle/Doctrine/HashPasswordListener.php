@@ -9,6 +9,7 @@
 namespace AppBundle\Doctrine;
 
 
+use AppBundle\Entity\Comment;
 use AppBundle\Entity\User;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -26,8 +27,8 @@ class HashPasswordListener implements EventSubscriber
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
-        if (!$entity instanceof User) {
-            return;
+        if (!$entity instanceof User OR !$entity instanceof Comment && $entity->getUnsafePassowrd() != null ) {
+            return null;
         }
 
         $this->encodePassword($entity);
