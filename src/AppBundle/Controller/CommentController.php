@@ -21,22 +21,22 @@ class CommentController extends Controller
 
         if ($isCommentSubmit) {
 
+            $url = explode("/",$request->getPathInfo());
+
             $comment_data = trim($_POST['comment']);
-            if ($request->getPathInfo() == '/comment/garaj') {
+
+            if (in_array($url['2'], ['garaj', 'diy', 'jurnal'])) {
+                $comment_cat = $url['2'];
+            }
+            /*if ($url['2'] == 'garaj') {
                 $comment_cat = 'garaj';
-            }elseif ($request->getPathInfo() == '/comment/diy') {
+            }elseif ($url['2'] == 'diy') {
                 $comment_cat = 'diy';
-            }elseif ($request->getPathInfo() == '/comment/jurnal') {
+            }elseif ($url['2'] == 'jurnal') {
                 $comment_cat = 'jurnal';
-            }/*explode pe getpathinfo si det commen_cat pe baza index din explode*/
+            }*/
 
             $comment_date = new \DateTime('now');
-
-            $pathInfo = $request->getPathInfo();/*might be useles*/
-            $requestUri = $request->getRequestUri();/* might be useles*/
-
-            $url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
-            $ex_url = explode("/", $url);
 
             $registredcomment = $this->getDoctrine()->getRepository('AppBundle:Comment')->findOneBy(array('comment' => $comment_data));
             if ($registredcomment) {
@@ -44,17 +44,17 @@ class CommentController extends Controller
                     'comment_exist',
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
-                return $this->redirectToRoute('grunt_'.$ex_url[2]);
+                return $this->redirectToRoute('grunt_'.$url[2]);
             }elseif (!$comment_data){
                 $this->get('session')->getFlashBag()->add(
                     'comment_exist',
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
-                return $this->redirectToRoute('grunt_'.$ex_url[2]);
+                return $this->redirectToRoute('grunt_'.$url[2]);
             }
 
         $comment = new Comment();
-        $comment->setComment($comment_data['comment']);
+        $comment->setComment($comment_data);
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
 
@@ -68,7 +68,7 @@ class CommentController extends Controller
 
 
 
-        return $this->redirectToRoute('grunt_'.$ex_url[2]);
+        return $this->redirectToRoute('grunt_'.$url[2]);
         }
     }
 
