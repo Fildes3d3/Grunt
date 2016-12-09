@@ -22,19 +22,11 @@ class CommentController extends Controller
         if ($isCommentSubmit) {
 
             $url = explode("/",$request->getPathInfo());
-
-            $comment_data = trim($_POST['comment']);
+            $comment_data = $request->request->get('comment');
 
             if (in_array($url['2'], ['garaj', 'diy', 'jurnal'])) {
                 $comment_cat = $url['2'];
             }
-            /*if ($url['2'] == 'garaj') {
-                $comment_cat = 'garaj';
-            }elseif ($url['2'] == 'diy') {
-                $comment_cat = 'diy';
-            }elseif ($url['2'] == 'jurnal') {
-                $comment_cat = 'jurnal';
-            }*/
 
             $comment_date = new \DateTime('now');
 
