@@ -20,9 +20,7 @@ class GruntController extends Controller
     public function garajAction()
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findBy(array('comment_category'=>'garaj'),
-                    array('comment_date'=>'DESC'),
-                    '3' );
+            ->findAllCommentsGarajSectionLimit();
         return $this->render(':Grunt:garaj.html.twig', [
             'comments' => $comments
         ]);
@@ -30,9 +28,7 @@ class GruntController extends Controller
     public function jurnalAction()
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findBy(array('comment_category'=>'jurnal'),
-                array('comment_date'=>'DESC'),
-                '3');
+            ->findAllCommentsJurnalSectionLimit();
         return $this->render(':Grunt:jurnal.html.twig', [
             'comments' => $comments
         ]);
@@ -40,9 +36,7 @@ class GruntController extends Controller
     public function diyAction()
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findBy(array('comment_category'=>'diy'),
-                array('comment_date'=>'DESC'),
-                '3');
+            ->findAllCommentsDiySectionLimit();
         return $this->render(':Grunt:diy.html.twig', [
             'comments' => $comments
         ]);
