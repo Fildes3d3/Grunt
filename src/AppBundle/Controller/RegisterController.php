@@ -21,29 +21,28 @@ class RegisterController extends Controller
         $isRegisterSubmit =  $request->isMethod('POST');
         if ($isRegisterSubmit) {
 
-            $userdata = ['username' => $_POST['_username'],
-                'password' => $_POST['_unsafePassword'],
-                'confirm' => $_POST['confirmPassword'],
-                'email' => $_POST['email'],
-                'news' => $_POST['news']
-            ];
+            $username = $request->request->get('_username');
+            $password = $request->request->get('_unsafePassword');
+            $confirmPassword = $request->request->get('confirmPassword');
+            $email = $request->request->get('email');
+            $news = $request->request->getBoolean('news');
 
+            $registreduser = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(array('username' => $username ));
+            $registredemail = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(array('email' => $email ));
 
-            $registredemail = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(array('email' => $userdata['email']));
-
-            if ($registredemail) {
+            if ($registreduser OR $registredemail) {
                 $this->get('session')->getFlashBag()->add(
                     'notice',
-                    'Prietene... Deja exista un utilizator cu emailu asta... Mai incerci ?...Sigur ?!'
+                    'Prietene... Deja exista un utilizator cu datele astea... Mai incerci ?...Sigur ?!'
                 );
                 return $this->render(':Grunt:register.html.twig');
-            } elseif ($userdata['password'] !== $userdata['confirm']) {
+            } elseif ($password !== $confirmPassword) {
                 $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Vezi ca nu ai nimerit... -Parola- , difera de -Reintroduceti Parola-'
                 );
                 return $this->render(':Grunt:register.html.twig');
-            } elseif ($userdata['username'] == $userdata['password']) {
+            } elseif ($username == $password) {
                 $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Nu e chiar ok ca parola sa fie aceeasi cu numele... Mai incearca odata :) '
@@ -54,10 +53,10 @@ class RegisterController extends Controller
 
 
             $user = new User();
-            $user->setUsername($userdata['username']);
-            $user->setUnsafePassword($userdata['password']);
-            $user->setEmail($userdata['email']);
-            $user->setNews($userdata['news']);
+            $user->setUsername($username);
+            $user->setUnsafePassword($password);
+            $user->setEmail($email);
+            $user->setNews($news);
 
 
 
