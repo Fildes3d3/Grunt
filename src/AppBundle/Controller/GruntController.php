@@ -21,7 +21,8 @@ class GruntController extends Controller
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
             ->findBy(array('comment_category'=>'garaj'),
-                    array('comment_date'=>'DESC'));
+                    array('comment_date'=>'DESC'),
+                    '3' );
         return $this->render(':Grunt:garaj.html.twig', [
             'comments' => $comments
         ]);
@@ -30,7 +31,8 @@ class GruntController extends Controller
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
             ->findBy(array('comment_category'=>'jurnal'),
-                array('comment_date'=>'DESC'));
+                array('comment_date'=>'DESC'),
+                '3');
         return $this->render(':Grunt:jurnal.html.twig', [
             'comments' => $comments
         ]);
@@ -39,7 +41,8 @@ class GruntController extends Controller
     {
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
             ->findBy(array('comment_category'=>'diy'),
-                array('comment_date'=>'DESC'));
+                array('comment_date'=>'DESC'),
+                '3');
         return $this->render(':Grunt:diy.html.twig', [
             'comments' => $comments
         ]);

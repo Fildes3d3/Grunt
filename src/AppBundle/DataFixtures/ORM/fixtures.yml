@@ -1,0 +1,5 @@
+AppBundle\Entity\Comment:
+    comment_{1..10}:
+        comment(unique): <sentence(45)>
+        comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
+        comment_date: <(new \DateTime('2016-02-02'))>

@@ -50,15 +50,11 @@ class RegisterController extends Controller
                 return $this->render(':Grunt:register.html.twig');
             }
 
-
-
             $user = new User();
             $user->setUsername($username);
             $user->setUnsafePassword($password);
             $user->setEmail($email);
             $user->setNews($news);
-
-
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
