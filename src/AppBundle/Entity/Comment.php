@@ -31,9 +31,34 @@ class Comment
     private $comment;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false, onDelete="cascade")
      */
-    private $user_id;
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @Assert\NotBlank()
@@ -90,18 +115,5 @@ class Comment
     {
         $this->comment = $comment;
     }
-
-
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-
-    public function setUserId($user_id)
-    {
-        $this->user_id = $user_id;
-    }
-
 
 }

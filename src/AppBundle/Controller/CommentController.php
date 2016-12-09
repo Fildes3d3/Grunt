@@ -44,11 +44,16 @@ class CommentController extends Controller
                 );
                 return $this->redirectToRoute('grunt_'.$url[2]);
             }
-
+        /*$user_id = $this->getUser()->getId();*/
         $comment = new Comment();
         $comment->setComment($comment_data);
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
+        $comment->setUser($this->getUser());
+            /*var_dump($comment);
+            die;*/
+
+
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);

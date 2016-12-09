@@ -46,7 +46,8 @@
                             <ul class="comment">
                                 {% for comment in comments %}
                                     <li>
-                                        <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span><em> {{ app.user.username }} /*rewrite to get post username*/</em></p>
+
+                                        <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span><em> {{ comment.user.username }} </em></p>
                                         <p><span class="glyphicon glyphicon-time"> din anul domnului: </span><em> {{ comment.commentDate|date('Y') }} </em></p>
                                         <p><span class="glyphicon glyphicon-comment"> care zice ca: </span><em> {{ comment.comment }} </em></p>
                                     </li>

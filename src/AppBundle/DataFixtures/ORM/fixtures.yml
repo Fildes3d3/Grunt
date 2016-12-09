@@ -1,5 +1,14 @@
+AppBundle\Entity\User:
+    user_{1..10}:
+        username: <userName()>
+        password: <password()>
+        roles: []
+        email: <safeEmail()>
+        news: <boolean(70)>
+
 AppBundle\Entity\Comment:
-    comment_{1..10}:
+    comment_{1..30}:
         comment(unique): <sentence(45)>
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         comment_date: <(new \DateTime('2016-02-02'))>
+        user: '@user_*'
