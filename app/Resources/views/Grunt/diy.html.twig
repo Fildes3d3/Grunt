@@ -6,37 +6,37 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="media">
-                    <h3>Ultimele Articole DYI <h4><strong><em>...adicalea ce faci tu cu mana ta...</em></strong></h4></h3>
-                    <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
-                            data-target="#picmodal1">
-                        <img src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
-                    </button>
+                        <h3>Ultimele Articole DYI <h4><strong><em>...adicalea ce faci tu cu mana ta...</em></strong></h4></h3>
+                        <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
+                                data-target="#picmodal1">
+                            <img src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
+                        </button>
 
-                    <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel">Campenesti Cluj</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
-                                </div>
-                                <div class="modal-footer">
-                                    <h5><em>...din fata blocului...<strong>Campenesti Cluj</strong>...</em></h5>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
+                        <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">Campenesti Cluj</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <h5><em>...din fata blocului...<strong>Campenesti Cluj</strong>...</em></h5>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="media-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula turpis, tincidunt nec nunc ut, luctus mollis diam. Sed ac ullamcorper orci, non iaculis magna. Vivamus malesuada est nisi, sed condimentum lorem vehicula a. Vivamus sed magna nec ex vehicula aliquam et id dolor. Morbi posuere varius nibh, eget condimentum nibh posuere quis.</p>
+                        <div class="media-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula turpis, tincidunt nec nunc ut, luctus mollis diam. Sed ac ullamcorper orci, non iaculis magna. Vivamus malesuada est nisi, sed condimentum lorem vehicula a. Vivamus sed magna nec ex vehicula aliquam et id dolor. Morbi posuere varius nibh, eget condimentum nibh posuere quis.</p>
 
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 {% if is_granted('ROLE_USER') %}

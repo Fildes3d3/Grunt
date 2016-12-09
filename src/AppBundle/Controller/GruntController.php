@@ -28,7 +28,12 @@ class GruntController extends Controller
     }
     public function jurnalAction()
     {
-        return $this->render('Grunt/jurnal.html.twig');
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findBy(array('comment_category'=>'jurnal'),
+                array('comment_date'=>'DESC'));
+        return $this->render(':Grunt:jurnal.html.twig', [
+            'comments' => $comments
+        ]);
     }
     public function diyAction()
     {
