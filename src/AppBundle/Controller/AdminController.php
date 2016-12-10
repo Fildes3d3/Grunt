@@ -12,6 +12,8 @@ namespace AppBundle\Controller;
 use AppBundle\Form\ArticleForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AdminController extends Controller
 {
@@ -23,6 +25,15 @@ class AdminController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
              $article = $form->getData();
+
+                $image = $article->getPicture();
+                $imageName = md5(uniqid()).'.'.$image->guessExtension();
+                $image->move(
+                    $this->getParameter('picture_directory'),
+                    $imageName
+                );
+            $article->setPicture($imageName);
+
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
