@@ -39,6 +39,9 @@
                     <li>
                         {% if is_granted('ROLE_USER') %}
                             <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-user"></span> {{ app.user.username  }} <span class="glyphicon glyphicon-off"></span> Logout </a>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('grunt_admin') }}"><button class="btn btn-success">Admin</button> </a>
+                            {% endif %}
                         {% else %}
                             <form class="navbar-form navbar-right" role="form" method="post" id="loginform" name="loginform" enctype="multipart/form-data" action="{{ path('security_login') }}" >
                                 <div class="input-group">
