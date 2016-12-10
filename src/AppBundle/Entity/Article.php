@@ -43,6 +43,29 @@ class Article
     private $post_data;
 
     /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Please, upload the picture image")
+     * @Assert\File(mimeTypes={"image/jpg", "image/jpeg" })
+     */
+    private $picture;
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
