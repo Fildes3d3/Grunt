@@ -43,14 +43,7 @@
                     <div class="row ">
                         <div class="col-md-10">
                             <h3>Comentezi?! <h4><strong><em>...adica e plin de critici...toata lumea se pricepe....</em></strong></h4></h3>
-                            {% for flashMessage in app.session.flashbag.get('succes') %}
-                                <div class="panel-heading">
-                                    <div class="alert alert-success alert-dismissable" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h2>{{ flashMessage }}</h2>
-                                    </div>
-                                </div>
-                            {% endfor %}
+
                             <div class="panel-body">
                                 <ul class="comment">
                                     {% for comment in comments %}

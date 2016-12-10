@@ -8,12 +8,12 @@
 
 namespace AppBundle\Controller;
 
-
+use AppBundle\Entity\Article;
 use AppBundle\Form\ArticleForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 
 class AdminController extends Controller
 {

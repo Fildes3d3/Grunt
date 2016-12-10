@@ -41,6 +41,7 @@ class GruntController extends Controller
             'comments' => $comments
         ]);
     }
+
     public function contactAction()
     {
         return $this->render('Grunt/contact.html.twig');

@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityRepository;
 class CommentRepository extends EntityRepository
 {
     /**
-     * @return Comment[]
+     * @return Comment
      */
     public  function findAllCommentsGarajSectionLimit()
     {
@@ -28,8 +28,9 @@ class CommentRepository extends EntityRepository
             ->execute();
 
     }
+
     /**
-     * @return Comment[]
+     * @return Comment
      */
     public  function findAllCommentsDiySectionLimit()
     {
@@ -42,8 +43,9 @@ class CommentRepository extends EntityRepository
             ->execute();
 
     }
+
     /**
-     * @return Comment[]
+     * @return Comment
      */
     public  function findAllCommentsJurnalSectionLimit()
     {
