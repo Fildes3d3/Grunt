@@ -23,7 +23,7 @@ class ArticleRepository extends EntityRepository
             ->andWhere('article_repository.post_category = :post_category')
             ->setParameter('post_category', 'garaj')
             ->orderBy('article_repository.article_date', 'DESC')
-            ->setMaxResults('3')
+            ->setMaxResults('1')
             ->getQuery()
             ->execute();
 
@@ -38,7 +38,7 @@ class ArticleRepository extends EntityRepository
             ->andWhere('article_repository.post_category = :post_category')
             ->setParameter('post_category', 'diy')
             ->orderBy('article_repository.article_date', 'DESC')
-            ->setMaxResults('3')
+            ->setMaxResults('1')
             ->getQuery()
             ->execute();
 
@@ -53,7 +53,7 @@ class ArticleRepository extends EntityRepository
             ->andWhere('article_repository.post_category = :post_category')
             ->setParameter('post_category', 'jurnal')
             ->orderBy('article_repository.article_date', 'DESC')
-            ->setMaxResults('3')
+            ->setMaxResults('1')
             ->getQuery()
             ->execute();
 

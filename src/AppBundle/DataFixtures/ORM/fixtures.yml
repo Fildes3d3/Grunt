@@ -10,8 +10,8 @@ AppBundle\Entity\Article:
     article_{1..10}:
         post_title: <text()>
         post_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
-        post_data: <sentence(45)>
-        picture: 'download.jpg'
+        post_data: <sentence(200)>
+        picture: <(array_rand(['campenesti.jpg' => 'campenesti.jpg', 'fairing.jpg' => 'fairing.jpg', 'jurnal.jpg' => 'jurnal.jpg'], 1))>
         article_date: <(new \DateTime('2016-02-02'))>
 
 AppBundle\Entity\Comment:

@@ -4,11 +4,12 @@
         <div class="row">
 
             <div class="col-md-8">
+                {% for articleGaraj in articlesGaraj %}
                 <div class="row">
                     <div class="media">
                         <h3>Ultimele Articole Garaj <h4><strong><em>...cu alte cuvinte cum reparam singuri fiindca suntem chitrosi si nu dam bani la mecanici care se pricep...sau nu....</em></strong></h4></h3>
                         <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                            <img src="{{ asset ('images/fairing.jpg') }}" alt="broken tengai fairing" />
+                            <img src="{{ asset ('upload/' ~ articleGaraj.Picture) }}" alt="broken tengai fairing" />
                         </button>
 
                         <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
@@ -21,7 +22,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Carena Tengai Sparta</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ asset ('images/fairing.jpg') }}" alt="broken tengai fairing" />
+                                        <img src="{{ asset ('upload/' ~ articleGaraj.Picture) }}" alt="broken tengai fairing" />
                                     </div>
                                     <div class="modal-footer">
                                         <h5><em>...sau de ce nu e bine sa mergi noaptea prin padure...</em></h5>
@@ -32,8 +33,8 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula turpis, tincidunt nec nunc ut, luctus mollis diam. Sed ac ullamcorper orci, non iaculis magna. Vivamus malesuada est nisi, sed condimentum lorem vehicula a. Vivamus sed magna nec ex vehicula aliquam et id dolor. Morbi posuere varius nibh, eget condimentum nibh posuere quis.</p>
-
+                            <p><em>{{ articleGaraj.postData }}</em></p>
+                            <p><em><strong>Scris maiastru in anul domnului: {{ articleGaraj.ArticleDate|date('Y') }}</strong></em></p>
                         </div>
                     </div>
                 </div>
@@ -89,6 +90,7 @@
                     </div>
                 </div>
     {% endif %}
+               {% endfor %}
             </div>
 
             <div class="col-md-4">
@@ -96,10 +98,11 @@
                     <div class="container-fluid">
 
                         <div class="thumbnail">
+                            {% for articleJurnal in articlesJurnal %}
                             <h4>Ultimele Articole Jurnal de Bord</h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
                                     data-target="#picmodal1">
-                                <img  src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
+                                <img  src="{{ asset ('upload/' ~ articleJurnal.Picture) }}" alt="campenesti cluj" />
                             </button>
 
                             <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
@@ -112,7 +115,7 @@
                                             <h4 class="modal-title" id="myModalLabel">Campenesti Cluj</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ asset ('images/campenesti.jpg') }}" alt="campenesti cluj" />
+                                            <img src="{{ asset ('upload/' ~ articleJurnal.Picture) }}" alt="campenesti cluj" />
                                         </div>
                                         <div class="modal-footer">
                                             <h5><em>...din fata blocului...<strong>Campenesti Cluj</strong>...</em></h5>
@@ -123,9 +126,11 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula turpis, tincidunt nec nunc ut, luctus mollis diam. Sed ac ullamcorper orci, non iaculis magna. Vivamus malesuada est nisi, sed condimentum lorem vehicula a. Vivamus sed magna nec ex vehicula aliquam et id dolor. Morbi posuere varius nibh, eget condimentum nibh posuere quis.</p>
+                                <p><em>{{ articleJurnal.postData }}</em></p>
+                                <p><em><strong>Scris maiastru in anul domnului: {{ articleJurnal.ArticleDate|date('Y') }}</strong></em></p>
                                 <a href="{{ path ('grunt_jurnal') }}" class="btn btn-info">Citeste mai departe...</a>
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -133,9 +138,10 @@
                     <div class="container-fluid">
 
                         <div class="thumbnail">
+                            {% for articleDiy in articlesDiy %}
                             <h4>Ultimele Articole DYI</h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                                <img src="{{ asset ('images/fairing.jpg') }}" alt="broken tengai fairing" />
+                                <img src="{{ asset ('upload/' ~ articleDiy.Picture) }}" alt="broken tengai fairing" />
                             </button>
 
                             <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
@@ -148,7 +154,7 @@
                                             <h4 class="modal-title" id="myModalLabel">Carena Tengai Sparta</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ asset ('images/fairing.jpg') }}" alt="broken tengai fairing" />
+                                            <img src="{{ asset ('upload/' ~ articleDiy.Picture) }}" alt="broken tengai fairing" />
                                         </div>
                                         <div class="modal-footer">
                                             <h5><em>...sau de ce nu e bine sa mergi noaptea prin padure...</em></h5>
@@ -159,9 +165,11 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula turpis, tincidunt nec nunc ut, luctus mollis diam. Sed ac ullamcorper orci, non iaculis magna. Vivamus malesuada est nisi, sed condimentum lorem vehicula a. Vivamus sed magna nec ex vehicula aliquam et id dolor. Morbi posuere varius nibh, eget condimentum nibh posuere quis.</p>
+                                <p><em>{{ articleDiy.postData }}</em></p>
+                                <p><em><strong>Scris maiastru in anul domnului: {{ articleDiy.ArticleDate|date('Y') }}</strong></em></p>
                                 <a href="{{ path ('grunt_diy') }}" class="btn btn-info">Citeste mai departe...</a>
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
