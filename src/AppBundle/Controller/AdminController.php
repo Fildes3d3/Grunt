@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use AppBundle\Form\ArticleForm;
+use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -23,6 +24,9 @@ class AdminController extends Controller
 
         $form->handleRequest($request);
 
+        $article_date = new \DateTime('now');
+
+
         if ($form->isSubmitted() && $form->isValid()) {
              $article = $form->getData();
 
@@ -33,9 +37,6 @@ class AdminController extends Controller
                     $imageName
                 );
             $article->setPicture($imageName);
-            $article->            ;
-            $article_date = new \DateTime('now');
-
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
