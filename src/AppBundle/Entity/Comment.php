@@ -37,6 +37,28 @@ class Comment
     private $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\JoinColumn(nullable=false, onDelete="cascade")
+     */
+    private $article;
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param mixed $article
+     */
+    public function setArticle(Article $article)
+    {
+        $this->article = $article;
+    }
+
+    /**
      * @return mixed
      */
     public function getUser()

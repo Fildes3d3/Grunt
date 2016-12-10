@@ -64,6 +64,7 @@ class User implements UserInterface
      */
     private $news;
 
+
     public function getUsername()
     {
         return $this->username;

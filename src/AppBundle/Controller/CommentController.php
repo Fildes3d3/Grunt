@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -50,6 +51,7 @@ class CommentController extends Controller
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
         $comment->setUser($this->getUser());
+        $comment->setArticle($articleId);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);

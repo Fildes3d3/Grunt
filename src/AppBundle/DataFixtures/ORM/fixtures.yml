@@ -6,9 +6,18 @@ AppBundle\Entity\User:
         email: <safeEmail()>
         news: <boolean(70)>
 
+AppBundle\Entity\Article:
+    article_{1..10}:
+        post_title: <text()>
+        post_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
+        post_data: <sentence(45)>
+        picture: 'download.jpg'
+        article_date: <(new \DateTime('2016-02-02'))>
+
 AppBundle\Entity\Comment:
     comment_{1..30}:
         comment(unique): <sentence(45)>
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         comment_date: <(new \DateTime('2016-02-02'))>
         user: '@user_*'
+        article: '@article_*'
