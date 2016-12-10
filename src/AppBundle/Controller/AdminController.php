@@ -28,7 +28,11 @@ class AdminController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('grunt_admin');/*will be changed to post list page*/
+            $this->addFlash('succes', 'Articol postat in categoria '
+                . $article->getPostCategory().
+                ' verifica pagina de destinatie pentru confirmare');
+
+            return $this->redirectToRoute('grunt_admin');
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');

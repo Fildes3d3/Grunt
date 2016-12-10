@@ -50,10 +50,6 @@ class CommentController extends Controller
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
         $comment->setUser($this->getUser());
-            /*var_dump($comment);
-            die;*/
-
-
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
