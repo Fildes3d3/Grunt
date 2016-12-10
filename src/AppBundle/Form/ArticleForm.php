@@ -10,7 +10,7 @@ class ArticleForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $buider
+        $builder
             ->add('post_category')
             ->add('post_title')
             ->add('post_data');
