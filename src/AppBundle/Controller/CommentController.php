@@ -24,6 +24,8 @@ class CommentController extends Controller
 
             $url = explode("/",$request->getPathInfo());
             $comment_data = trim($request->request->get('comment'));
+            $articleId = $request->request->get('articleId');
+
 
             if (in_array($url['2'], ['garaj', 'diy', 'jurnal'])) {
                 $comment_cat = $url['2'];
@@ -51,7 +53,8 @@ class CommentController extends Controller
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
         $comment->setUser($this->getUser());
-        $comment->setArticle($articleId);
+        $comment->setArticleId($articleId);
+
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);

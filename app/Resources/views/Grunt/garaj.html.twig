@@ -54,12 +54,13 @@
                         <div class="panel-body">
                             <ul class="comment">
                                 {% for comment in comments %}
+                                    {% if articleGaraj.Id == comment.ArticleId %}
                                     <li>
-
                                         <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span><em> {{ comment.user.username }} </em></p>
                                         <p><span class="glyphicon glyphicon-time"> din anul domnului: </span><em> {{ comment.commentDate|date('Y') }} </em></p>
                                         <p><span class="glyphicon glyphicon-comment"> care zice ca: </span><em> {{ comment.comment }} </em></p>
                                     </li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>
@@ -76,6 +77,9 @@
                         <div class="panel-body">
                             <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_garaj') }}">
                                 <h4>Baga Comentariul...</h4>
+
+                                        <input type="hidden"  name="articleId" value="{{ articleGaraj.Id }}">
+
                                     <textarea id="comment" name="comment" class="form-control" rows="4" >
 
                                     </textarea>

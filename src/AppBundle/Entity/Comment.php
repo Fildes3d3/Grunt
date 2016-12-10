@@ -37,25 +37,24 @@ class Comment
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
-     * @ORM\JoinColumn(nullable=false, onDelete="cascade")
+     * @ORM\Column(type="integer")
      */
-    private $article;
+    private $articleId;
 
     /**
      * @return mixed
      */
-    public function getArticle()
+    public function getArticleId()
     {
-        return $this->article;
+        return $this->articleId;
     }
 
     /**
-     * @param mixed $article
+     * @param mixed $articleId
      */
-    public function setArticle(Article $article)
+    public function setArticleId($articleId)
     {
-        $this->article = $article;
+        $this->articleId = $articleId;
     }
 
     /**
