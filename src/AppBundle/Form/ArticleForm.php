@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,13 +15,14 @@ class ArticleForm extends AbstractType
         $builder
             ->add('postCategory', ChoiceType::class, array(
                     'choices' => array(
-                        'garaj' => 'garaj',
-                        'diy' => 'diy',
-                        'jurnal' => 'jurnal',
-                    )
+                        'Public in categoria GARAJ' => 'garaj',
+                        'Public in categoria DIY' => 'diy',
+                        'Public in categoria JURNAL' => 'jurnal',
+                    ),
+                    'placeholder' => 'Alege categoria in care doresti sa publici ->'
                 ))
             ->add('postTitle')
-            ->add('postData');
+            ->add('postData', TextareaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
