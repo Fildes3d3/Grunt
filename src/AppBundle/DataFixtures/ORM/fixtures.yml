@@ -20,4 +20,4 @@ AppBundle\Entity\Comment:
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         comment_date: <(new \DateTime('2016-02-02'))>
         user: '@user_*'
-        article: '@article_*'
+        article_id: <numberBetween($min = 100, $max = 200)>
