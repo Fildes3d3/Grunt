@@ -15,9 +15,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends Controller
 {
-    public function newArticleAction()
+    public function newArticleAction(Request $request)
     {
         $form = $this->createForm(ArticleForm::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+             $article = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('grunt_admin');/*will be changed to post list page*/
+        }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:admin.html.twig', ['articleForm' => $form->createView()]);

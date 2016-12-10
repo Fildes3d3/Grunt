@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -24,16 +25,19 @@ class Article
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $post_category;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $post_title;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $post_data;
