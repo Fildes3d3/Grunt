@@ -33,19 +33,19 @@ class RegisterController extends Controller
                                     ->findOneBy(array('email' => $email ));
 
             if ($registreduser OR $registredemail) {
-                $this->get('session')->getFlashBag()->add(
+                $this->addFlash(
                     'notice',
                     'Prietene... Deja exista un utilizator cu datele astea... Mai incerci ?...Sigur ?!'
                 );
                 return $this->render(':Grunt:register.html.twig');
             } elseif ($password !== $confirmPassword) {
-                $this->get('session')->getFlashBag()->add(
+                $this->addFlash(
                     'notice',
                     'Vezi ca nu ai nimerit... -Parola- , difera de -Reintroduceti Parola-'
                 );
                 return $this->render(':Grunt:register.html.twig');
             } elseif ($username == $password) {
-                $this->get('session')->getFlashBag()->add(
+                $this->addFlash(
                     'notice',
                     'Nu e chiar ok ca parola sa fie aceeasi cu numele... Mai incearca odata :) '
                 );

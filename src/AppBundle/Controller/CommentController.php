@@ -32,19 +32,19 @@ class CommentController extends Controller
 
             $registredcomment = $this->getDoctrine()->getRepository('AppBundle:Comment')->findOneBy(array('comment' => $comment_data));
             if ($registredcomment) {
-                $this->get('session')->getFlashBag()->add(
+                $this->addFlash(
                     'comment_exist',
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
                 return $this->redirectToRoute('grunt_'.$url[2]);
             }elseif (!$comment_data){
-                $this->get('session')->getFlashBag()->add(
+                $this->addFlash(
                     'comment_exist',
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
                 return $this->redirectToRoute('grunt_'.$url[2]);
             }
-        /*$user_id = $this->getUser()->getId();*/
+
         $comment = new Comment();
         $comment->setComment($comment_data);
         $comment->setCommentCategory($comment_cat);
@@ -59,8 +59,7 @@ class CommentController extends Controller
         $em->persist($comment);
         $em->flush();
 
-        /*customize for posting user
-        $this->get('session')->getFlashBag()->add('succes', 'Noah draga '. $user->getUsername() . ' ai reusit, de amu poti comenta...');*/
+        $this->addFlash('succes', 'Bravo '. $this->getUser()->getUsername() . ' ai reusit, sa comentezi...');
 
 
 
