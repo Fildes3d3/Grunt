@@ -50,6 +50,29 @@ class Article
     private $picture;
 
     /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="datetime")
+     */
+    private $article_date;
+
+    /**
+     * @return mixed
+     */
+    public function getArticleDate()
+    {
+        return $this->article_date;
+    }
+
+    /**
+     * @param mixed $article_date
+     */
+    public function setArticleDate($article_date)
+    {
+        $this->article_date = $article_date;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getPicture()

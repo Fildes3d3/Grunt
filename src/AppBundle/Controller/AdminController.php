@@ -33,6 +33,8 @@ class AdminController extends Controller
                     $imageName
                 );
             $article->setPicture($imageName);
+            $article->            ;
+            $article_date = new \DateTime('now');
 
 
             $em = $this->getDoctrine()->getManager();
