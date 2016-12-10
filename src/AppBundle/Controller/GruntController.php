@@ -45,9 +45,9 @@ class GruntController extends Controller
     {
         return $this->render('Grunt/contact.html.twig');
     }
-    public function adminAction()
+    /*public function adminAction()
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Grunt/admin.html.twig');
-    }
+    }*/
 }
