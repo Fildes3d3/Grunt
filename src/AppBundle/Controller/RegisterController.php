@@ -27,8 +27,10 @@ class RegisterController extends Controller
             $email = $request->request->get('email');
             $news = $request->request->getBoolean('news');
 
-            $registreduser = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(array('username' => $username ));
-            $registredemail = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(array('email' => $email ));
+            $registreduser = $this->getDoctrine()->getRepository('AppBundle:User')
+                                    ->findOneBy(array('username' => $username ));
+            $registredemail = $this->getDoctrine()->getRepository('AppBundle:User')
+                                    ->findOneBy(array('email' => $email ));
 
             if ($registreduser OR $registredemail) {
                 $this->get('session')->getFlashBag()->add(
@@ -60,7 +62,8 @@ class RegisterController extends Controller
             $em->persist($user);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('succes', 'Noah draga '. $user->getUsername() . ' ai reusit, de amu poti comenta...');
+            $this->get('session')->getFlashBag()
+                    ->add('succes', 'Noah draga '. $user->getUsername() . ' ai reusit, de amu poti comenta...');
 
             return $this->get('security.authentication.guard_handler')
                ->authenticateUserAndHandleSuccess(
