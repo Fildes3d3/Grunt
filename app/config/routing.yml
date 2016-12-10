@@ -22,7 +22,7 @@ grunt_register:
     defaults: { _controller: AppBundle:Register:register}
 grunt_admin:
     path:     /admin
-    defaults: { _controller: AppBundle:Grunt:admin}
+    defaults: { _controller: AppBundle:Admin:newArticle}
 
 comment_garaj:
     path:     /comment/garaj
