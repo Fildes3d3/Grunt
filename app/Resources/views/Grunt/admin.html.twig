@@ -16,7 +16,9 @@
                 <div class="col-xs-6">
 
                     {{ form_start(articleForm) }}
+                        {{ form_row(articleForm.postCategory) }}
                         {{ form_row(articleForm.postTitle) }}
+                        {{ form_row(articleForm.postData) }}
                         <button class="btn btn-info">Posteaza</button>
                     {{ form_end(articleForm) }}
 

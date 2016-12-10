@@ -22,7 +22,12 @@ class ArticleForm extends AbstractType
                     'placeholder' => 'Alege categoria in care doresti sa publici ->'
                 ))
             ->add('postTitle')
-            ->add('postData', TextareaType::class);
+            ->add('postData', TextareaType::class, array(
+                'attr' => array(
+                    'cols' => '5',
+                    'rows' => '10'
+                )
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
