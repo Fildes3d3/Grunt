@@ -14,11 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GruntController extends Controller
 {
-    public function homeAction(Request $request)
+    public function showAction( Request $request)
     {
         $url = explode("/",$request->getPathInfo());
 
-        if (in_array($url['1'], ['garaj', 'diy', 'jurnal'])) {
+        if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
             $cat = $url['1'];
             $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
                 ->findAllCommentsLimit($cat);
@@ -26,28 +26,30 @@ class GruntController extends Controller
             $cat = 'home';
             $comments = null;
         }
-
-        $articlesGaraj = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit('garaj');
-        $articlesDiy = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit('diy');
-        $articlesJurnal = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit('jurnal');
+        $categories = ['garaj', 'diy', 'jurnal'];
+        $key = array_search($cat, $categories);
+        unset($categories[$key]);
+        $side = array_values($categories);
 
 
+        $articlesMain = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAllArticlesLimit($cat);
+        $articlesSide = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAllArticlesLimit($side['0']);
+        $articlesAside = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAllArticlesLimit($side['1']);
 
 
-        return $this->render(':Grunt:'.$cat.'.html.twig', [
+
+
+
+        return $this->render(':Grunt:garaj.html.twig', [
             'comments' => $comments,
-            'articlesGaraj' => $articlesGaraj,
-            'articlesDiy' => $articlesDiy,
-            'articlesJurnal' => $articlesJurnal
+            'Main' => $articlesMain,
+            'Side' => $articlesSide,
+            'Aside' => $articlesAside,
+            'category' => ucfirst($cat),
         ]);
-    }
-
-    public function contactAction()
-    {
-        return $this->render('Grunt/contact.html.twig');
     }
 
 }
