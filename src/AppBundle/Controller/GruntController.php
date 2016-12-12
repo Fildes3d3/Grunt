@@ -10,61 +10,38 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class GruntController extends Controller
 {
-    public function homeAction()
+    public function homeAction(Request $request)
     {
-        $articlesGaraj = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesGarajSectionLimit();
-        $articlesDiy = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesDiySectionLimit();
-        $articlesJurnal = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesJurnalSectionLimit();
+        $url = explode("/",$request->getPathInfo());
 
-        return $this->render(':Grunt:home.html.twig', [
-            'articlesGaraj' => $articlesGaraj,
-            'articlesDiy' => $articlesDiy,
-            'articlesJurnal' => $articlesJurnal
-        ]);
-    }
-    public function garajAction()
-    {
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAllCommentsGarajSectionLimit();
+        if (in_array($url['1'], ['garaj', 'diy', 'jurnal'])) {
+            $cat = $url['1'];
+            $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+                ->findAllCommentsLimit($cat);
+        }else{
+            $cat = 'home';
+            $comments = null;
+        }
+
         $articlesGaraj = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesGarajSectionLimit();
+            ->findAllArticlesLimit('garaj');
         $articlesDiy = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesDiySectionLimit();
+            ->findAllArticlesLimit('diy');
         $articlesJurnal = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesJurnalSectionLimit();
-        return $this->render(':Grunt:garaj.html.twig', [
+            ->findAllArticlesLimit('jurnal');
+
+
+
+
+        return $this->render(':Grunt:'.$cat.'.html.twig', [
             'comments' => $comments,
             'articlesGaraj' => $articlesGaraj,
             'articlesDiy' => $articlesDiy,
             'articlesJurnal' => $articlesJurnal
-        ]);
-    }
-    public function jurnalAction()
-    {
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAllCommentsJurnalSectionLimit();
-        $articlesJurnal = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesJurnalSectionLimit();
-        return $this->render(':Grunt:jurnal.html.twig', [
-            'comments' => $comments,
-            'articlesJurnal' => $articlesJurnal
-        ]);
-    }
-    public function diyAction()
-    {
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAllCommentsDiySectionLimit();
-        $articlesDiy = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesDiySectionLimit();
-        return $this->render(':Grunt:diy.html.twig', [
-            'comments' => $comments,
-            'articlesDiy' => $articlesDiy
         ]);
     }
 

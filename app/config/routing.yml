@@ -7,13 +7,13 @@ grunt_homepage:
     defaults: { _controller: AppBundle:Grunt:home }
 grunt_garaj:
     path:     /garaj
-    defaults: { _controller: AppBundle:Grunt:garaj }
+    defaults: { _controller: AppBundle:Grunt:home }
 grunt_jurnal:
     path:     /jurnal
-    defaults: { _controller: AppBundle:Grunt:jurnal }
+    defaults: { _controller: AppBundle:Grunt:home }
 grunt_diy:
     path:     /diy
-    defaults: { _controller: AppBundle:Grunt:diy }
+    defaults: { _controller: AppBundle:Grunt:home }
 grunt_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Grunt:contact }

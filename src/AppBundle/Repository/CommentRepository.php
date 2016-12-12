@@ -17,41 +17,11 @@ class CommentRepository extends EntityRepository
     /**
      * @return Comment
      */
-    public  function findAllCommentsGarajSectionLimit()
+    public  function findAllCommentsLimit($cat)
     {
         return $this->createQueryBuilder('comment_repository')
             ->andWhere('comment_repository.comment_category = :comment_category')
-            ->setParameter('comment_category', 'garaj')
-            ->orderBy('comment_repository.comment_date', 'DESC')
-            ->setMaxResults('3')
-            ->getQuery()
-            ->execute();
-
-    }
-
-    /**
-     * @return Comment
-     */
-    public  function findAllCommentsDiySectionLimit()
-    {
-        return $this->createQueryBuilder('comment_repository')
-            ->andWhere('comment_repository.comment_category = :comment_category')
-            ->setParameter('comment_category', 'diy')
-            ->orderBy('comment_repository.comment_date', 'DESC')
-            ->setMaxResults('3')
-            ->getQuery()
-            ->execute();
-
-    }
-
-    /**
-     * @return Comment
-     */
-    public  function findAllCommentsJurnalSectionLimit()
-    {
-        return $this->createQueryBuilder('comment_repository')
-            ->andWhere('comment_repository.comment_category = :comment_category')
-            ->setParameter('comment_category', 'jurnal')
+            ->setParameter('comment_category', $cat)
             ->orderBy('comment_repository.comment_date', 'DESC')
             ->setMaxResults('3')
             ->getQuery()
