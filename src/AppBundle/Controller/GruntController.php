@@ -20,10 +20,12 @@ class GruntController extends Controller
 
         if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
             $cat = $url['1'];
+            $page = 'garaj';
             $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
                 ->findAllCommentsLimit($cat);
         }else{
-            $cat = 'home';
+            $cat = 'garaj';
+            $page = 'home';
             $comments = null;
         }
         $categories = ['garaj', 'diy', 'jurnal'];
@@ -43,13 +45,17 @@ class GruntController extends Controller
 
 
 
-        return $this->render(':Grunt:garaj.html.twig', [
+        return $this->render(':Grunt:'.$page.'.html.twig', [
             'comments' => $comments,
             'Main' => $articlesMain,
             'Side' => $articlesSide,
             'Aside' => $articlesAside,
             'category' => ucfirst($cat),
         ]);
+    }
+    public function contactAction ()
+    {
+        return $this->render('Grunt/contact.html.twig');
     }
 
 }

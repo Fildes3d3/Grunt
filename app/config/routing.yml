@@ -14,9 +14,10 @@ grunt_jurnal:
 grunt_diy:
     path:     /diy
     defaults: { _controller: AppBundle:Grunt:show }
+
 grunt_contact:
     path:     /contact
-    defaults: { _controller: AppBundle:Grunt:show }
+    defaults: { _controller: AppBundle:Grunt:contact }
 
 grunt_register:
     path:     /register
