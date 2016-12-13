@@ -19,6 +19,7 @@
                 <h2>Articles List:</h2>
                 <table class="table table-responsive table-hover">
                     <tr>
+                        <th>Article ID</th>
                         <th>Article Title</th>
                         <th>Article Category</th>
                         <th>Article Date</th>
@@ -27,11 +28,12 @@
                     </tr>
                     {% for article in articles %}
                         <tr>
+                            <td> {{ article.Id}}</td>
                             <td> {{ article.PostTitle|truncate(10, true)}}</td>
                             <td> {{ article.postCategory  }}</td>
                             <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
                             <td> {{ article.postData|truncate(40, true) }}</td>
-                            <td> <input class="btn-success" value="Edit" type="button" name="edit_button"> </td>
+                            <td> <a href="{{ path('grunt_delete') }}"> <input class="btn-success" value="Edit" type="button" name="edit_button"> </a></td>
                             <td> <input class="btn-danger" value="Delete" type="button" name="delete_button"> </td>
                         </tr>
                     {%  endfor %}

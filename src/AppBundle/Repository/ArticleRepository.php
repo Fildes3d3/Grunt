@@ -29,7 +29,7 @@ class ArticleRepository extends EntityRepository
 
     }
 
-    public function finAllArticles()
+    public function findAllArticles()
     {
         return $this->createQueryBuilder('article_repository')
             ->orderBy('article_repository.article_date', 'DESC')

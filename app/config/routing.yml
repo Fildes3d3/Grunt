@@ -29,6 +29,9 @@ grunt_admin:
 grunt_list:
     path:     /list
     defaults: { _controller: AppBundle:Admin:listArticle}
+grunt_delete:
+    path:     /delete
+    defaults: { _controller: AppBundle:Admin:deleteArticle}
 
 grunt_user:
     path:     /user

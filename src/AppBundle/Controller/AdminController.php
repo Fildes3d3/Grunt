@@ -57,17 +57,40 @@ class AdminController extends Controller
     public function listArticleAction()
     {
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->finAllArticles();
+            ->findAllArticles();
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:list.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
         ]);
     }
+
+    public function deleteArticleAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('AppBundle:Article')->findAllArticles();
+
+        if (!$article) {
+            throw $this->createNotFoundException(
+                'No article found for id '.$id
+            );
+        }
+
+        $em->remove($article);
+        $em->flush();
+
+        return $this->redirectToRoute('grunt_delete');
+
+
+    }
+
+
 
     public  function  listUserAction()
     {
         $users = $this->getDoctrine()->getRepository('AppBundle:User')
             ->findAll();
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:listUsers.html.twig', [
             'users' => $users
         ]);

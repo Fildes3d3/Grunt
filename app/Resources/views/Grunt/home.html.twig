@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="media-body">
-                        <p><em>{{ articleMain.postData }}</em></p>
+                        <p><em>{{ articleMain.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_garaj') }}" class="btn btn-info">Citeste mai departe...</a>
                     </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="media-body">
-                        <p><em>{{ articleSide.postData }}</em></p>
+                        <p><em>{{ articleSide.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_jurnal') }}" class="btn btn-info"> Citeste mai departe...</a>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="media-body">
-                        <p><em>{{ articleAside.postData }}</em></p>
+                        <p><em>{{ articleAside.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_diy') }}" class="btn btn-info">Citeste mai departe...</a>
                     </div>
