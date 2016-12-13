@@ -10,7 +10,9 @@
             </div>
         {% endfor %}
         <div class="row">
+    {% if app.request.attributes.get('_route') == 'security_login'%}
 
+    {% else %}
             <div class="col-md-4">
                 {% for articleMain in Main %}
                 <h3>Ultimele Articole </h3>
@@ -125,6 +127,7 @@
                 {% endfor %}
             </div>
         </div>
+    {%  endif %}
         <div class="row">
             <div class="col-md-12" id="footer">
                 Copyright 2016. FildEs Flight Co.

@@ -64,11 +64,6 @@
                         {% endif %}
                     </li>
                 </ul>
-                {% if app.request.attributes.get('_route') == 'security_login'  %}
-                    {% if error %}
-                        <div class="bad_cred">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
-                {% endif %}
             </div>
         </div>
 
@@ -79,6 +74,14 @@
 <div class="container">
 
     <div class="jumbotron">
+        {% if app.request.attributes.get('_route') == 'security_login'  %}
+            {% if error %}
+                <div class="alert alert-danger alert-dismissible" role="alert" style="text-align: right">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
+                </div>
+            {% endif %}
+        {% endif %}
         <h1>The Daily Grunt</h1>
         {% if is_granted('ROLE_USER') %}
             <p class="text-right"><em>...noah bine ca esti  <strong>autentificat</strong> amu poti <strong> comenta </strong> :) </em></p>
