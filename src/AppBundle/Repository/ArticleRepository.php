@@ -28,4 +28,13 @@ class ArticleRepository extends EntityRepository
             ->execute();
 
     }
+
+    public function finAllArticles()
+    {
+        return $this->createQueryBuilder('article_repository')
+            ->orderBy('article_repository.article_date', 'DESC')
+            ->setMaxResults('10')
+            ->getQuery()
+            ->execute();
+    }
 }

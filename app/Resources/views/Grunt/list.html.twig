@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>The Daily Grunt Post Management</h1>
+                <a href="{{ path('grunt_user') }}">
+                    <button class="btn btn-primary">Manage Users</button>
+                </a>
+        </div>
+        <div class="panel-info">
+            <a href="{{ path('grunt_admin') }}">
+                <button class="btn btn-primary">New Article</button>
+            </a>
+        </div>
+        <div class="panel-body">
+            <section>
+                <h2>Articles List:</h2>
+                <table class="table table-responsive table-hover">
+                    <tr>
+                        <th>Article Title</th>
+                        <th>Article Category</th>
+                        <th>Article Date</th>
+                        <th>Article Content</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    {% for article in articles %}
+                        <tr>
+                            <td> {{ article.PostTitle|truncate(10, true)}}</td>
+                            <td> {{ article.postCategory  }}</td>
+                            <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
+                            <td> {{ article.postData|truncate(40, true) }}</td>
+                            <td> <input class="btn-success" value="Edit" type="button" name="edit_button"> </td>
+                            <td> <input class="btn-danger" value="Delete" type="button" name="delete_button"> </td>
+                        </tr>
+                    {%  endfor %}
+                </table>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="footer">
+            Copyright 2016. FildEs Flight Co.
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>The Daily Grunt Post Management</h1>
+                <a href="{{ path('grunt_list') }}">
+                    <button class="btn btn-primary">Manage Articles</button>
+                </a>
+        </div>
+        <div class="panel-body">
+            <section>
+                <h2>Articles List:</h2>
+                <table class="table table-responsive table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>News</th>
+                        <th>Roles</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    {% for user in users %}
+                        <tr>
+                            <td> {{ user.Username}}</td>
+                            <td> {{ user.Email }}</td>
+                            <td> {{ user.News ? 'Yes' : 'No' }}</td>
+                            <td> {{ user.Roles|json_encode }}</td>
+                            <td> <input class="btn-success" value="Edit" type="button" name="edit_button"> </td>
+                            <td> <input class="btn-danger" value="Delete" type="button" name="delete_button"> </td>
+                        </tr>
+                    {%  endfor %}
+                </table>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="footer">
+            Copyright 2016. FildEs Flight Co.
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

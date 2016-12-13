@@ -26,6 +26,13 @@ grunt_register:
 grunt_admin:
     path:     /admin
     defaults: { _controller: AppBundle:Admin:newArticle}
+grunt_list:
+    path:     /list
+    defaults: { _controller: AppBundle:Admin:listArticle}
+
+grunt_user:
+    path:     /user
+    defaults: { _controller: AppBundle:Admin:listUser}
 
 comment_garaj:
     path:     /comment/garaj

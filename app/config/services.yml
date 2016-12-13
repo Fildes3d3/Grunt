@@ -14,3 +14,7 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }

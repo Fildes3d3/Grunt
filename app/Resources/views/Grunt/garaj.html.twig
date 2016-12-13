@@ -105,7 +105,7 @@
 
                         <div class="thumbnail">
                             {% for articleSide in Side %}
-                            <h4>Ultimele Articole {{ articleSide.postCategory }} </h4>
+                            <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
                                     data-target="#picmodal1">
                                 <img  src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="campenesti cluj" />
@@ -145,7 +145,7 @@
 
                         <div class="thumbnail">
                             {% for articleAside in Aside %}
-                            <h4>Ultimele Articole {{ articleAside.postCategory }}</h4>
+                            <h4>Ultimele Articole {{ articleAside.postCategory|capitalize}}</h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
                                 <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="broken tengai fairing" />
                             </button>

@@ -26,6 +26,5 @@ class CommentRepository extends EntityRepository
             ->setMaxResults('3')
             ->getQuery()
             ->execute();
-
     }
 }
