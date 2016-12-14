@@ -14,6 +14,7 @@
                 <h2>Articles List:</h2>
                 <table class="table table-responsive table-hover">
                     <tr>
+                        <th>User Id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>News</th>
@@ -22,12 +23,13 @@
                     </tr>
                     {% for user in users %}
                         <tr>
+                            <td> {{ user.Id}}</td>
                             <td> {{ user.Username}}</td>
                             <td> {{ user.Email }}</td>
                             <td> {{ user.News ? 'Yes' : 'No' }}</td>
                             <td> {{ user.Roles|json_encode }}</td>
-                            <td> <input class="btn-success" value="Edit" type="button" name="edit_button"> </td>
-                            <td> <input class="btn-danger" value="Delete" type="button" name="delete_button"> </td>
+                            <td> <a href="{{ path('grunt_user_admin', {'id': user.Id }) }}"> <button class=" btn btn-succes"  type="button">Make Admin</button> </a></td>
+                            <td> <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}"> <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                         </tr>
                     {%  endfor %}
                 </table>

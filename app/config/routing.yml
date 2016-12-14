@@ -39,6 +39,12 @@ grunt_delete:
 grunt_user:
     path:     /user
     defaults: { _controller: AppBundle:Admin:listUser}
+grunt_user_admin:
+    path:     /adminuser/{id}
+    defaults: { _controller: AppBundle:Admin:adminUser}
+grunt_user_delete:
+    path:     /deleteuser/{id}
+    defaults: { _controller: AppBundle:Admin:deleteUser}
 
 comment_garaj:
     path:     /comment/garaj

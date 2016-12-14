@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\User;
 use AppBundle\Form\ArticleForm;
 use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -70,32 +71,16 @@ class AdminController extends Controller
         $form = $this->createForm(ArticleForm::class);
         $form->handleRequest($request);
 
+        if ($form->isSubmitted()) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
+            $form->getData();
 
-            $article = $form->getData();
-
-            $image = $article->getPicture();
-                if ($image) {
-                    $imageName = md5(uniqid()).'.'.$image->guessExtension();
-                    $image->move(
-                        $this->getParameter('picture_directory'),
-                        $imageName
-                             );
-                    $article->setPicture($imageName);
-                            }
-
-            $em = $this->getDoctrine()->getManager();
-            /*$em->persist($article);*/
             $em->flush();
-
-           $this->addFlash('succes', 'Articol modificat in categoria '
-                . $article->getPostCategory().
-                ' verifica pagina de destinatie pentru confirmare');
 
             return $this->redirectToRoute('grunt_list');
 
         }
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:admin.html.twig', [
             'articleForm' => $form->createView(),
             'article' => $article
@@ -111,7 +96,6 @@ class AdminController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('grunt_list');
-
     }
 
 
@@ -124,5 +108,28 @@ class AdminController extends Controller
         return $this->render(':Grunt:listUsers.html.twig', [
             'users' => $users
         ]);
+    }
+
+    public function adminUserAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->findOneById($id);
+
+        $user->setRoles(["","ROLE_ADMIN"]);
+
+        $em->flush();
+
+        return $this->redirectToRoute('grunt_user');
+    }
+
+    public function deleteUserAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->findOneById($id);
+
+        $em->remove($user);
+        $em->flush();
+
+        return $this->redirectToRoute('grunt_user');
     }
 }
