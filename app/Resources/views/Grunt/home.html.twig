@@ -34,7 +34,7 @@
                                     <img src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="broken tengai fairing" />
                                 </div>
                                 <div class="modal-footer">
-                                    <h5><em>...sau de ce nu e bine sa mergi noaptea prin padure...</em></h5>
+                                    <h5><em>{{ articleMain.PostTitle }}</em></h5>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                     </button>
                                 </div>
@@ -43,6 +43,7 @@
                     </div>
 
                     <div class="media-body">
+                        <p><strong>{{ articleMain.postTitle }}</strong></p>
                         <p><em>{{ articleMain.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_garaj') }}" class="btn btn-info">Citeste mai departe...</a>
@@ -72,7 +73,7 @@
                                     <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="campenesti cluj" />
                                 </div>
                                 <div class="modal-footer">
-                                    <h5><em>...din fata blocului...<strong>Campenesti Cluj</strong>...</em></h5>
+                                    <h5><em>{{ articleSide.PostTitle }}</em></h5>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                     </button>
                                 </div>
@@ -81,6 +82,7 @@
                     </div>
 
                     <div class="media-body">
+                        <p><strong>{{ articleSide.postTitle }}</strong></p>
                         <p><em>{{ articleSide.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_jurnal') }}" class="btn btn-info"> Citeste mai departe...</a>
@@ -110,7 +112,7 @@
                                     <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="broken tengai fairing" />
                                 </div>
                                 <div class="modal-footer">
-                                    <h5><em>...sau de ce nu e bine sa mergi noaptea prin padure...</em></h5>
+                                    <h5><em>{{ articleAside.PostTitle }}</em></h5>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                     </button>
                                 </div>
@@ -119,6 +121,7 @@
                     </div>
 
                     <div class="media-body">
+                        <p><strong>{{ articleAside.postTitle }}</strong></p>
                         <p><em>{{ articleAside.postData|truncate(400, true) }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path ('grunt_diy') }}" class="btn btn-info">Citeste mai departe...</a>
