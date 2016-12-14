@@ -89,6 +89,10 @@ class AdminController extends Controller
                 $article->setPicture($oldimage);
             }
 
+            $this->addFlash('succes', 'Articol modificat articolul '. $article->getPostTitle() .' in categoria '
+                . $article->getPostCategory().
+                ' verifica pagina de destinatie pentru confirmare');
+
             $em->flush();
             return $this->redirectToRoute('grunt_list');
         }

@@ -4,8 +4,8 @@
     <list default="true" id="ba31400a-09e0-4249-a533-fb334d2b28fd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/admin.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/admin.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/ArticleForm.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ArticleForm.php" />
     </list>
     <ignored path="Grunt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +29,11 @@
       <file leaf-file-name="admin.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/admin.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="90">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <element signature="e#12#28#0#Twig" expanded="true" />
-                <element signature="e#2140#2425#0#HTML" expanded="false" />
+                <element signature="e#1608#1893#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -42,20 +42,20 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+            <state relative-caret-position="405">
+              <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
               <folding>
                 <element signature="e#123#152#0#PHP" expanded="true" />
                 <element signature="e#1413#1425#1#PHP" expanded="true" />
                 <element signature="e#2074#2093#1#PHP" expanded="true" />
-                <element signature="e#2933#2945#1#PHP" expanded="true" />
-                <element signature="e#3042#3066#0#PHP" expanded="true" />
-                <element signature="e#3446#3458#1#PHP" expanded="true" />
-                <element signature="e#3568#3584#1#PHP" expanded="true" />
-                <element signature="e#3907#3923#1#PHP" expanded="true" />
-                <element signature="e#4048#4060#1#PHP" expanded="true" />
-                <element signature="e#4203#4219#1#PHP" expanded="true" />
-                <element signature="e#4330#4342#1#PHP" expanded="true" />
+                <element signature="e#3095#3107#1#PHP" expanded="true" />
+                <element signature="e#3204#3228#0#PHP" expanded="true" />
+                <element signature="e#3608#3620#1#PHP" expanded="true" />
+                <element signature="e#3730#3746#1#PHP" expanded="true" />
+                <element signature="e#4069#4085#1#PHP" expanded="true" />
+                <element signature="e#4210#4222#1#PHP" expanded="true" />
+                <element signature="e#4365#4381#1#PHP" expanded="true" />
+                <element signature="e#4492#4504#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,12 +86,12 @@
       <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="288">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding>
                 <element signature="e#12#28#0#Twig" expanded="true" />
-                <element signature="e#1499#1509#0#Twig" expanded="true" />
-                <element signature="e#1646#1658#0#Twig" expanded="true" />
+                <element signature="e#2031#2041#0#Twig" expanded="true" />
+                <element signature="e#2178#2190#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,7 +184,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig" />
         <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/ArticleRepository.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Article.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" />
@@ -193,6 +192,7 @@
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ArticleForm.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/admin.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       </list>
     </option>
@@ -408,6 +408,66 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="db">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Grunt">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="var">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cache">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dev">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="profiler">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="b0">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Grunt">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="var">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cache">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dev">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="profiler">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="8f">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -469,6 +529,36 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="60">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Grunt">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="var">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cache">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dev">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="profiler">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="5d">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -985,12 +1075,12 @@
       <workItem from="1481463811567" duration="1609000" />
       <workItem from="1481532240378" duration="20062000" />
       <workItem from="1481621176886" duration="14709000" />
-      <workItem from="1481640358395" duration="34177000" />
+      <workItem from="1481640358395" duration="34452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219276000" />
+    <option name="totallyTimeSpent" value="219551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="2495" height="1056" extended-state="6" />
@@ -1321,18 +1411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-            <element signature="e#1499#1509#0#Twig" expanded="true" />
-            <element signature="e#1646#1658#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1366,31 +1444,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/admin.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <element signature="e#12#28#0#Twig" expanded="true" />
-            <element signature="e#2140#2425#0#HTML" expanded="false" />
+            <element signature="e#1608#1893#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#12#28#0#Twig" expanded="true" />
+            <element signature="e#2031#2041#0#Twig" expanded="true" />
+            <element signature="e#2178#2190#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+        <state relative-caret-position="405">
+          <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
           <folding>
             <element signature="e#123#152#0#PHP" expanded="true" />
             <element signature="e#1413#1425#1#PHP" expanded="true" />
             <element signature="e#2074#2093#1#PHP" expanded="true" />
-            <element signature="e#2933#2945#1#PHP" expanded="true" />
-            <element signature="e#3042#3066#0#PHP" expanded="true" />
-            <element signature="e#3446#3458#1#PHP" expanded="true" />
-            <element signature="e#3568#3584#1#PHP" expanded="true" />
-            <element signature="e#3907#3923#1#PHP" expanded="true" />
-            <element signature="e#4048#4060#1#PHP" expanded="true" />
-            <element signature="e#4203#4219#1#PHP" expanded="true" />
-            <element signature="e#4330#4342#1#PHP" expanded="true" />
+            <element signature="e#3095#3107#1#PHP" expanded="true" />
+            <element signature="e#3204#3228#0#PHP" expanded="true" />
+            <element signature="e#3608#3620#1#PHP" expanded="true" />
+            <element signature="e#3730#3746#1#PHP" expanded="true" />
+            <element signature="e#4069#4085#1#PHP" expanded="true" />
+            <element signature="e#4210#4222#1#PHP" expanded="true" />
+            <element signature="e#4365#4381#1#PHP" expanded="true" />
+            <element signature="e#4492#4504#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
