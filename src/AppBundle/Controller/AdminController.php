@@ -14,7 +14,7 @@ use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-
+use Symfony\Component\HttpFoundation\Response;
 
 
 class AdminController extends Controller
@@ -24,9 +24,6 @@ class AdminController extends Controller
         $form = $this->createForm(ArticleForm::class);
 
         $form->handleRequest($request);
-
-        /*$article_date = new \DateTime('now'); = redundant, date is set in the form*/
-
 
         if ($form->isSubmitted() && $form->isValid()) {
              $article = $form->getData();
@@ -47,7 +44,7 @@ class AdminController extends Controller
                 . $article->getPostCategory().
                 ' verifica pagina de destinatie pentru confirmare');
 
-            return $this->redirectToRoute('grunt_admin');
+            return $this->redirectToRoute('grunt_list');
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -64,23 +61,56 @@ class AdminController extends Controller
         ]);
     }
 
-    public function deleteArticleAction($id)
+    public function  editArticleAction($id, Request $request)
     {
 
         $em = $this->getDoctrine()->getManager();
-        $article = $em->getRepository('AppBundle:Article')->findAllArticles();
+        $article = $em->getRepository('AppBundle:Article')->findOneById($id);
 
-        if (!$article) {
-            throw $this->createNotFoundException(
-                'No article found for id '.$id
-            );
+        $form = $this->createForm(ArticleForm::class);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $article = $form->getData();
+
+            $image = $article->getPicture();
+                if ($image) {
+                    $imageName = md5(uniqid()).'.'.$image->guessExtension();
+                    $image->move(
+                        $this->getParameter('picture_directory'),
+                        $imageName
+                             );
+                    $article->setPicture($imageName);
+                            }
+
+            $em = $this->getDoctrine()->getManager();
+            /*$em->persist($article);*/
+            $em->flush();
+
+           $this->addFlash('succes', 'Articol modificat in categoria '
+                . $article->getPostCategory().
+                ' verifica pagina de destinatie pentru confirmare');
+
+            return $this->redirectToRoute('grunt_list');
+
         }
+        return $this->render(':Grunt:admin.html.twig', [
+            'articleForm' => $form->createView(),
+            'article' => $article
+        ]);
+    }
+
+    public function deleteArticleAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('AppBundle:Article')->findOneById($id);
 
         $em->remove($article);
         $em->flush();
 
-        return $this->redirectToRoute('grunt_delete');
-
+        return $this->redirectToRoute('grunt_list');
 
     }
 

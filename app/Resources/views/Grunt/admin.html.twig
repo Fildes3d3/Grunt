@@ -16,20 +16,49 @@
         </div>
             <div class="panel-body">
                 <div class="col-xs-6">
+            {%  if article is defined %}
 
                     {{ form_start(articleForm) }}
+
+                    {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
+                    {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
+                    {{ form_row(articleForm.postData, {'value' : article.postData}) }}
+                    <button class="btn btn-info">Update</button>
+
+                </div>
+                <div class="col-xs-6">
+                    <div class="img-responsive">
+                        <img src="{{ asset ('upload/' ~ article.Picture) }}" />
+                    </div>
+                    {{ form_row(articleForm.picture, {'value': article.Picture}) }}
+                    <div class="hidden">
+                        {{ form_row(articleForm.articleDate) }}
+                    </div>
+                    {{ form_end(articleForm) }}
+                </div>
+
+
+
+            {% else %}
+                <div class="col-xs-6">
+                    {{ form_start(articleForm) }}
+
                         {{ form_row(articleForm.postCategory) }}
                         {{ form_row(articleForm.postTitle) }}
                         {{ form_row(articleForm.postData) }}
                         <button class="btn btn-info">Posteaza</button>
+
                 </div>
-                <div class="col-xs-6"
+                <div class="col-xs-6">
                         {{ form_row(articleForm.picture) }}
-                <div class="hidden">
-                    {{ form_row(articleForm.articleDate) }}
-                </div>
+                    <div class="hidden">
+                        {{ form_row(articleForm.articleDate) }}
+                    </div>
                     {{ form_end(articleForm) }}
                 </div>
+
+            {% endif %}
+
             </div>
         <div class="row">
             <div class="col-md-12" id="footer">

@@ -43,8 +43,7 @@ class Article
     private $post_data;
 
     /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Please, upload the picture image")
+     * @ORM\Column(type="string", nullable=true)
      * @Assert\File(mimeTypes={"image/jpg", "image/jpeg" })
      */
     private $picture;

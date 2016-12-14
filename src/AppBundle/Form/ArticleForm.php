@@ -38,7 +38,9 @@ class ArticleForm extends AbstractType
                 'label' => 'Articol... :'
             ))
             ->add('picture', FileType::class, array(
-                'label' => 'Fotografie:'
+                'label' => 'Fotografie:',
+                'required' => false
+
             ))
             ->add('articleDate', DateType::class , array(
                 'data' => new \DateTime('now')

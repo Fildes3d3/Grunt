@@ -29,8 +29,11 @@ grunt_admin:
 grunt_list:
     path:     /list
     defaults: { _controller: AppBundle:Admin:listArticle}
+grunt_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AppBundle:Admin:editArticle}
 grunt_delete:
-    path:     /delete
+    path:     /delete/{id}
     defaults: { _controller: AppBundle:Admin:deleteArticle}
 
 grunt_user:

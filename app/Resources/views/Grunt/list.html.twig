@@ -33,8 +33,8 @@
                             <td> {{ article.postCategory  }}</td>
                             <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
                             <td> {{ article.postData|truncate(40, true) }}</td>
-                            <td> <a href="{{ path('grunt_delete') }}"> <input class="btn-success" value="Edit" type="button" name="edit_button"> </a></td>
-                            <td> <input class="btn-danger" value="Delete" type="button" name="delete_button"> </td>
+                            <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}"> <button class="btn btn-success" >Edit</button></a> </td>
+                            <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}"> <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                         </tr>
                     {%  endfor %}
                 </table>
