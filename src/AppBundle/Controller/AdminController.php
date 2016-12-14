@@ -64,27 +64,41 @@ class AdminController extends Controller
 
     public function  editArticleAction($id, Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('AppBundle:Article')->findOneById($id);
+        $oldimage = $article->getPicture();
 
-        $form = $this->createForm(ArticleForm::class);
+        $form = $this->createForm(ArticleForm::class, $article);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
-            $form->getData();
+            $article = $form->getData();
+
+            $image = $article->getPicture();
+
+
+            if ($image != null) {
+                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('picture_directory'),
+                    $imageName
+                );
+                $article->setPicture($imageName);
+            }else{
+                $article->setPicture($oldimage);
+            }
 
             $em->flush();
-
             return $this->redirectToRoute('grunt_list');
-
         }
+
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:admin.html.twig', [
             'articleForm' => $form->createView(),
             'article' => $article
         ]);
+
     }
 
     public function deleteArticleAction($id)
@@ -115,7 +129,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->findOneById($id);
 
-        $user->setRoles(["","ROLE_ADMIN"]);
+        $user->setRoles(["ROLE_ADMIN"]);
 
         $em->flush();
 

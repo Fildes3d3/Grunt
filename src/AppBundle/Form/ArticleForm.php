@@ -39,7 +39,8 @@ class ArticleForm extends AbstractType
             ))
             ->add('picture', FileType::class, array(
                 'label' => 'Fotografie:',
-                'required' => false
+                'required' => false,
+                'data_class' => null,
 
             ))
             ->add('articleDate', DateType::class , array(

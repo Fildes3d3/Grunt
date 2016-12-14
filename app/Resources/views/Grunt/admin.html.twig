@@ -15,9 +15,8 @@
             {% endfor %}
         </div>
             <div class="panel-body">
-                <div class="col-xs-6">
             {%  if article is defined %}
-
+                <div class="col-xs-6">
                     {{ form_start(articleForm) }}
 
                     {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
@@ -30,7 +29,7 @@
                     <div class="img-responsive">
                         <img src="{{ asset ('upload/' ~ article.Picture) }}" />
                     </div>
-                    {{ form_row(articleForm.picture, {'value': article.Picture}) }}
+                        {{ form_row(articleForm.picture, {'value': article.Picture}) }}
                     <div class="hidden">
                         {{ form_row(articleForm.articleDate) }}
                     </div>
