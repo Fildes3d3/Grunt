@@ -55,6 +55,48 @@ class Article
     private $article_date;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $article_caption;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $picture_caption;
+
+    /**
+     * @return mixed
+     */
+    public function getPictureCaption()
+    {
+        return $this->picture_caption;
+    }
+
+    /**
+     * @param mixed $picture_caption
+     */
+    public function setPictureCaption($picture_caption)
+    {
+        $this->picture_caption = $picture_caption;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticleCaption()
+    {
+        return $this->article_caption;
+    }
+
+    /**
+     * @param mixed $article_caption
+     */
+    public function setArticleCaption($article_caption)
+    {
+        $this->article_caption = $article_caption;
+    }
+
+    /**
      * @return mixed
      */
     public function getArticleDate()

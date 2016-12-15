@@ -15,9 +15,14 @@
                     </div>
                 </div>
             {% endfor %}
+            {% if is_granted('ROLE_BOSS') %}
                 <a href="{{ path('grunt_user') }}">
                     <button class="btn btn-primary">Manage Users</button>
                 </a>
+                <a href="#">
+                    <button class="btn btn-primary">Manage Comments</button>
+                </a>
+            {% endif %}
         </div>
         <div class="panel-info">
             <a href="{{ path('grunt_admin') }}">

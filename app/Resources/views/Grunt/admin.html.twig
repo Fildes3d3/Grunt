@@ -10,6 +10,7 @@
                     {{ form_start(articleForm) }}
 
                     {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
+                    {{ form_row(articleForm.articleCaption, {'value' : article.articleCaption}) }}
                     {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
                     {{ form_row(articleForm.postData, {'value' : article.postData}) }}
                     <button class="btn btn-info">Update</button>
@@ -21,6 +22,7 @@
                         {{ 'upload/' ~ article.Picture}}
                     </div>
                         {{ form_row(articleForm.picture, {'value': article.Picture}) }}
+                    {{ form_row(articleForm.pictureCaption, {'value' : article.pictureCaption}) }}
                     <div class="hidden">
                         {{ form_row(articleForm.articleDate) }}
                     </div>
@@ -34,6 +36,7 @@
                     {{ form_start(articleForm) }}
 
                         {{ form_row(articleForm.postCategory) }}
+                        {{ form_row(articleForm.articleCaption) }}
                         {{ form_row(articleForm.postTitle) }}
                         {{ form_row(articleForm.postData) }}
                         <button class="btn btn-info">Posteaza</button>
@@ -41,6 +44,7 @@
                 </div>
                 <div class="col-xs-6">
                         {{ form_row(articleForm.picture) }}
+                        {{ form_row(articleForm.pictureCaption) }}
                     <div class="hidden">
                         {{ form_row(articleForm.articleDate) }}
                     </div>

@@ -28,6 +28,9 @@ class ArticleForm extends AbstractType
                     'label' => 'Categorie Articol:',
                     'placeholder' => 'Alege categoria in care doresti sa publici ->'
                 ))
+            ->add('articleCaption', TextType::class, array(
+                'label' => 'Descriere Categorie:'
+            ))
             ->add('postTitle', TextType::class, array(
                 'label' => 'Titlu Articol:'
             ))
@@ -43,6 +46,9 @@ class ArticleForm extends AbstractType
                 'required' => false,
                 'data_class' => null,
 
+            ))
+            ->add('pictureCaption', TextType::class, array(
+                'label' => 'Descriere Fotografie'
             ))
             ->add('articleDate', DateType::class , array(
                 'data' => new \DateTime('now')

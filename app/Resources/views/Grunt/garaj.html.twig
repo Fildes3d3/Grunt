@@ -8,9 +8,9 @@
 
                 <div class="row">
                     <div class="media">
-                        <h3>Ultimele Articole {{ category }} <h4><strong><em>...cu alte cuvinte cum reparam singuri fiindca suntem chitrosi si nu dam bani la mecanici care se pricep...sau nu....</em></strong></h4></h3>
+                        <h3>Ultimele Articole {{ category }} <h4><strong><em>{{ articleMain.articleCaption }}</em></strong></h4></h3>
                         <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                            <img src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="broken tengai fairing" />
+                            <img class="img-thumbnail" src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.pictureCaption }}"  />
                         </button>
 
                         <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
@@ -20,23 +20,23 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <h4 class="modal-title" id="myModalLabel">Carena Tengai Sparta</h4>
+                                        <h4 class="modal-title" id="myModalLabel">{{ articleMain.pictureCaption }}</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="broken tengai fairing" />
+                                        <img class="img-thumbnail" src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.pictureCaption }}" />
                                     </div>
                                     <div class="modal-footer">
-                                        <h5><em>{{ articleMain.PostTitle }}</em></h5>
+                                        <h5><em>{{ articleMain.pictureCaption }}</em></h5>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="media-body">
+                        <div class="caption">
                             <p><strong>{{ articleMain.PostTitle }}</strong></p>
                             <p><em>{{ articleMain.postData|truncate(1000, true) }}</em></p>
-                            <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
+                            <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                                     {% if articleMain.Id == comment.ArticleId %}
                                     <li>
                                         <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span><em> {{ comment.user.username }} </em></p>
-                                        <p><span class="glyphicon glyphicon-time"> din anul domnului: </span><em> {{ comment.commentDate|date('Y') }} </em></p>
+                                        <p><span class="glyphicon glyphicon-time"> din anul domnului: </span><em> {{ comment.commentDate|date('Y d M') }} </em></p>
                                         <p><span class="glyphicon glyphicon-comment"> care zice ca: </span><em> {{ comment.comment }} </em></p>
                                     </li>
                                     {% endif %}
@@ -115,7 +115,7 @@
                             <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
                                     data-target="#picmodal1">
-                                <img  src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="campenesti cluj" />
+                                <img  src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.pictureCaption }}" />
                             </button>
 
                             <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
@@ -125,13 +125,13 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel">Campenesti Cluj</h4>
+                                            <h4 class="modal-title" id="myModalLabel">{{ articleSide.pictureCaption }}</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="campenesti cluj" />
+                                            <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.pictureCaption }}" />
                                         </div>
                                         <div class="modal-footer">
-                                            <h5><em>...din fata blocului...<strong>Campenesti Cluj</strong>...</em></h5>
+                                            <h5><em>{{ articleSide.pictureCaption }}<strong>{{ articleSide.pictureCaption }}</strong>...</em></h5>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                             </button>
                                         </div>
@@ -154,7 +154,7 @@
                             {% for articleAside in Aside %}
                             <h4>Ultimele Articole {{ articleAside.postCategory|capitalize}}</h4>
                             <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                                <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="broken tengai fairing" />
+                                <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.pictureCaption }}" />
                             </button>
 
                             <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
@@ -164,13 +164,13 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel">Carena Tengai Sparta</h4>
+                                            <h4 class="modal-title" id="myModalLabel">{{ articleAside.pictureCaption }}</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="broken tengai fairing" />
+                                            <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.pictureCaption }}" />
                                         </div>
                                         <div class="modal-footer">
-                                            <h5><em>...sau de ce nu e bine sa mergi noaptea prin padure...</em></h5>
+                                            <h5><em>{{ articleAside.pictureCaption }}</em></h5>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                             </button>
                                         </div>
