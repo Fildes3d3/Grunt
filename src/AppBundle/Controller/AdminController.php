@@ -36,7 +36,6 @@ class AdminController extends Controller
                     $imageName
                 );
             $article->setPicture($imageName);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();

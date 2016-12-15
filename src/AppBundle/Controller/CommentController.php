@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CommentController extends Controller
 {
-    public function newCommentAction(Request $request)
+    public function newCommentAction( Request $request)
     {
         $isCommentSubmit = $request->isMethod('POST');
 
