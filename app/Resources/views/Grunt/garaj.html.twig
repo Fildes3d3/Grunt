@@ -67,10 +67,10 @@
                             {% if category == 'Garaj' %}
                             <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_garaj') }}">
                                 {% elseif category == 'Jurnal' %}
-                                <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_jurnal') }}">
-                                    {% elseif category == 'Diy' %}
-                                    <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_diy') }}">
-                                        {% endif %}
+                            <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_jurnal') }}">
+                                {% elseif category == 'Diy' %}
+                            <form method="post" id="commentform" name="commentform" enctype="multipart/form-data" action="{{ path ('comment_diy') }}">
+                                {% endif %}
                                         <h4>Baga Comentariul...</h4>
 
                                         <input type="hidden"  name="articleId" value="{{ articleMain.Id }}">

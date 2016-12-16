@@ -11,8 +11,10 @@ AppBundle\Entity\Article:
         post_title: <text(15)>
         post_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         post_data: <sentence(200)>
-        picture: <(array_rand(['campenesti.jpg' => 'campenesti.jpg', 'fairing.jpg' => 'fairing.jpg', 'jurnal.jpg' => 'jurnal.jpg'], 1))>
+        picture: <(array_rand(['campenesti.jpg' => 'campenesti.jpg', 'fairing.jpg' => 'fairing.jpg', 'jurnal.jpeg' => 'jurnal.jpeg'], 1))>
         article_date: <(new \DateTime('2016-02-02'))>
+        article_caption: <text(10)>
+        picture_caption: <text(10)>
 
 AppBundle\Entity\Comment:
     comment_{1..30}:
@@ -20,4 +22,4 @@ AppBundle\Entity\Comment:
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         comment_date: <(new \DateTime('2016-02-02'))>
         user: '@user_*'
-        article_id: <numberBetween($min = 100, $max = 200)>
+        article_id: <numberBetween($min = 200, $max = 250)>
