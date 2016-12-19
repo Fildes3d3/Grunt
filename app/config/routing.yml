@@ -2,21 +2,15 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-grunt_homepage:
-    path:     /
-    defaults: { _controller: AppBundle:Grunt:show }
-grunt_garaj:
-    path:     /{page}
-    defaults: { _controller: AppBundle:Grunt:show }
-
+grunt_register:
+    path:     /register
+    defaults: { _controller: AppBundle:Register:register}
 
 grunt_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Grunt:contact }
 
-grunt_register:
-    path:     /register
-    defaults: { _controller: AppBundle:Register:register}
+
 
 grunt_admin:
     path:     /admin
@@ -42,14 +36,9 @@ grunt_user_delete:
     defaults: { _controller: AppBundle:Admin:deleteUser}
 
 comment_garaj:
-    path:     /comment/garaj
+    path:     /comment/{page}
     defaults: { _controller: AppBundle:Comment:newComment}
-comment_diy:
-    path:     /comment/diy
-    defaults: { _controller: AppBundle:Comment:newComment}
-comment_jurnal:
-    path:     /comment/jurnal
-    defaults: { _controller: AppBundle:Comment:newComment}
+
 
 security_login:
     path:     /login
@@ -58,12 +47,19 @@ security_logout:
     path:     /logout
     defaults: { _controller: AppBundle:Security:login}
 
-test:
-    path:     /test
-    defaults: { _controller: AppBundle:CKe:newPost}
-listTest:
-    path:     /listTest
-    defaults: { _controller: AppBundle:CKe:showPost}
+grunt_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Grunt:show }
+grunt_garaj:
+    path:     /{page}
+    defaults: { _controller: AppBundle:Grunt:show }
+grunt_article:
+    path: /{page}/{id}
+    defaults: { _controller: AppBundle:Grunt:show }
+
+
+
+
 
 
 

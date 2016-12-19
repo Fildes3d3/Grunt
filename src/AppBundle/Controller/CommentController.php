@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CommentController extends Controller
 {
-    public function newCommentAction( Request $request)
+    public function newCommentAction($page,  Request $request)
     {
         $isCommentSubmit = $request->isMethod('POST');
 
@@ -39,13 +39,13 @@ class CommentController extends Controller
                     'comment_exist',
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
-                return $this->redirectToRoute('grunt_'.$url[2]);
+                return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
             }elseif (!$comment_data){
                 $this->addFlash(
                     'comment_exist',
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
-                return $this->redirectToRoute('grunt_'.$url[2]);
+                return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
             }
 
         $comment = new Comment();
@@ -65,7 +65,7 @@ class CommentController extends Controller
 
 
 
-        return $this->redirectToRoute('grunt_'.$url[2]);
+        return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
         }
     }
 

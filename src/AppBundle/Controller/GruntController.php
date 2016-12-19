@@ -14,8 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GruntController extends Controller
 {
-    public function showAction($title,  Request $request)
+    public function showAction($id, Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $foundArticle = $em->getRepository('AppBundle:Article')->findOneById($id);
+
         $url = explode("/",$request->getPathInfo());
 
         if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
@@ -28,7 +31,7 @@ class GruntController extends Controller
             $cat = 'garaj';
             $page = 'home';
             $comments = null;
-            $limit = 3;
+            $limit = 2;
         }
         $categories = ['garaj', 'diy', 'jurnal'];
         $key = array_search($cat, $categories);
@@ -42,7 +45,6 @@ class GruntController extends Controller
             ->findAllArticlesLimit($side['0'], $limit);
         $articlesAside = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAllArticlesLimit($side['1'], $limit);
-
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAllArticles();
 
@@ -57,8 +59,11 @@ class GruntController extends Controller
             'Aside' => $articlesAside,
             'category' => ucfirst($cat),
             'article' => $articles,
+            'foundArticle' => $foundArticle,
         ]);
     }
+
+
     public function contactAction ()
     {
         return $this->render('Grunt/contact.html.twig');
