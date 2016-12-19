@@ -28,6 +28,15 @@ class ArticleRepository extends EntityRepository
             ->execute();
     }
 
+    public function findArticle($id)
+    {
+        return $this->createQueryBuilder('article_repository')
+            ->andWhere('article_repository.post_title = :post_title')
+            ->setParameter('post_title', $id)
+            ->getQuery()
+            ->execute();
+    }
+
     public function findAllArticles()
     {
         return $this->createQueryBuilder('article_repository')

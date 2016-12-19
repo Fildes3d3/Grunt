@@ -30,11 +30,16 @@ class AdminController extends Controller
              $article = $form->getData();
 
                 $image = $article->getPicture();
-                $imageName = md5(uniqid()).'.'.$image->guessExtension();
-                $image->move(
-                    $this->getParameter('picture_directory'),
-                    $imageName
-                );
+
+                if ($image) {
+                    $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+                    $image->move(
+                        $this->getParameter('picture_directory'),
+                        $imageName
+                    );
+                }else{
+                    $imageName = 'no_photo.png';
+                }
             $article->setPicture($imageName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
