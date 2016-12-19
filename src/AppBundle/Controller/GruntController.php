@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GruntController extends Controller
 {
-    public function showAction( Request $request)
+    public function showAction($title,  Request $request)
     {
         $url = explode("/",$request->getPathInfo());
 

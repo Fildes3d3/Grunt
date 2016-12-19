@@ -33,10 +33,10 @@
             <div class="çolapse nabar-collapse" id="navbar-container">
                 <ul class="nav navbar-nav">
                     <li{% if app.request.attributes.get('_route') == 'grunt_homepage'%} class = "active" {% endif%}><a href="{{ path ('grunt_homepage') }}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li{% if app.request.attributes.get('_route') == 'grunt_garaj'%} class = "active" {% endif%}><a href="{{ path ('grunt_garaj') }}"><span class="glyphicon glyphicon-wrench"></span> Garaj</a></li>
-                    <li{% if app.request.attributes.get('_route') == 'grunt_jurnal'%} class = "active" {% endif%}><a href="{{ path ('grunt_jurnal') }}"><span class="glyphicon glyphicon-road"></span> Jurnal de Bord</a></li>
-                    <li{% if app.request.attributes.get('_route') == 'grunt_diy'%} class = "active" {% endif%}><a href="{{ path ('grunt_diy') }}"><span class="glyphicon glyphicon-scissors"></span> Proiecte DYI</a></li>
-                    <li{% if app.request.attributes.get('_route') == 'grunt_contact'%} class = "active" {% endif%}><a href="{{ path ('grunt_contact') }}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+                    <li{% if app.request.uri == 'http://localhost:8000/garaj' %} class = "active" {% endif%}><a href="{{ path ('grunt_garaj', {'page' : 'garaj'}) }}"><span class="glyphicon glyphicon-wrench"></span> Garaj</a></li>
+                    <li{% if app.request.uri == 'http://localhost:8000/jurnal' %} class = "active" {% endif%}><a href="{{ path ('grunt_garaj', {'page' : 'jurnal'}) }}"><span class="glyphicon glyphicon-road"></span> Jurnal de Bord</a></li>
+                    <li{% if app.request.uri == 'http://localhost:8000/diy' %} class = "active" {% endif%}><a href="{{ path ('grunt_garaj', {'page' : 'diy'}) }}"><span class="glyphicon glyphicon-scissors"></span> Proiecte DYI</a></li>
+                    <li{% if app.request.uri == 'http://localhost:8000/contact' %} class = "active" {% endif%}><a href="{{ path ('grunt_garaj', {'page' : 'contact'}) }}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                     <li>
                         {% if is_granted('ROLE_USER') %}
                             <a href="{{ path('security_logout') }}">&nbsp<span class="glyphicon glyphicon-user"></span> {{ app.user.username }}<span> &nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="glyphicon glyphicon-off"></span> Logout </a>
