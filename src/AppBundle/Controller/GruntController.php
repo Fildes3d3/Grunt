@@ -23,10 +23,12 @@ class GruntController extends Controller
             $page = 'garaj';
             $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
                 ->findAllCommentsLimit($cat);
+            $limit = 1;
         }else{
             $cat = 'garaj';
             $page = 'home';
             $comments = null;
+            $limit = 3;
         }
         $categories = ['garaj', 'diy', 'jurnal'];
         $key = array_search($cat, $categories);
@@ -35,11 +37,14 @@ class GruntController extends Controller
 
 
         $articlesMain = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($cat);
+            ->findAllArticlesLimit($cat, $limit);
         $articlesSide = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($side['0']);
+            ->findAllArticlesLimit($side['0'], $limit);
         $articlesAside = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($side['1']);
+            ->findAllArticlesLimit($side['1'], $limit);
+
+        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAllArticles();
 
 
 
@@ -51,6 +56,7 @@ class GruntController extends Controller
             'Side' => $articlesSide,
             'Aside' => $articlesAside,
             'category' => ucfirst($cat),
+            'article' => $articles,
         ]);
     }
     public function contactAction ()

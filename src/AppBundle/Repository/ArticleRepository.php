@@ -17,16 +17,15 @@ class ArticleRepository extends EntityRepository
     /**
      * @return Article
      */
-    public  function findAllArticlesLimit($cat)
+    public  function findAllArticlesLimit($cat, $limit)
     {
         return $this->createQueryBuilder('article_repository')
             ->andWhere('article_repository.post_category = :post_category')
             ->setParameter('post_category', $cat)
             ->orderBy('article_repository.article_date', 'DESC')
-            ->setMaxResults('1')
+            ->setMaxResults($limit)
             ->getQuery()
             ->execute();
-
     }
 
     public function findAllArticles()
