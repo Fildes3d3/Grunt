@@ -2,16 +2,17 @@
 
 namespace AppBundle\Form;
 
+use Ivory\CKEditorBundle\IvoryCKEditorBundle;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+
+
 
 class ArticleForm extends AbstractType
 {
@@ -34,13 +35,22 @@ class ArticleForm extends AbstractType
             ->add('postTitle', TextType::class, array(
                 'label' => 'Titlu Articol:'
             ))
-            ->add('postData', TextareaType::class, array(
+           /* ->add('postData', TextareaType::class, array(
                 'attr' => array(
                     'cols' => '5',
                     'rows' => '10'
                 ),
                 'label' => 'Articol... :'
-            ))
+            ))*/
+           ->add('postData', CKEditorType::class, array(
+               'config' => array(
+                   'filebrowserBrowseRoute' => 'elfinder',
+                   'filebrowserBrowseRouteParameters' => array(
+                       'instance' => 'default',
+                       'homeFolder' => ''
+                   )
+               ),
+           ))
             ->add('picture', FileType::class, array(
                 'label' => 'Fotografie:',
                 'required' => false,

@@ -58,6 +58,9 @@ grunt_article:
     defaults: { _controller: AppBundle:Grunt:show }
 
 
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
 
 
 

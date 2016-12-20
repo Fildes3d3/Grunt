@@ -30,7 +30,9 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "twig/extensions": "^1.4",
-        "egeloen/ckeditor-bundle": "^4.0"
+        "egeloen/ckeditor-bundle": "^4.0",
+        "helios-ag/fm-elfinder-bundle": "^6.2"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -65,5 +67,8 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": null
+    },
+    "config": {
+        "component-dir": "web/assets"
     }
 }
