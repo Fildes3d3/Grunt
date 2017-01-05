@@ -6,23 +6,22 @@
         </div>
             <div class="panel-body">
             {%  if article is defined %}
-                <div class="col-xs-6">
-                    {{ form_start(articleForm) }}
-                    {{ form_errors(articleForm) }}
-                    {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
-                    {{ form_row(articleForm.articleCaption, {'value' : article.articleCaption}) }}
-                    {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
-                    {{ form_row(articleForm.postData, {'value' : article.postData}) }}
-                    <button class="btn btn-info">Update</button>
-
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form_start(articleForm) }}
+                        {{ form_errors(articleForm) }}
+                        {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
+                        {{ form_row(articleForm.articleCaption, {'value' : article.articleCaption}) }}
+                        {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form_row(articleForm.postData, {'value' : article.postData}) }}
+                        <button class="btn btn-info">Update</button>
+                    </div>
                 </div>
                 <div class="col-xs-6">
-                    <div class="img-responsive">
-                        <img src="{{ asset ('upload/' ~ article.Picture) }}" />
-                        {{ 'upload/' ~ article.Picture}}
-                    </div>
-                        {{ form_row(articleForm.picture, {'value': article.Picture}) }}
-                    {{ form_row(articleForm.pictureCaption, {'value' : article.pictureCaption}) }}
                     <div class="hidden">
                         {{ form_row(articleForm.articleDate) }}
                     </div>
@@ -32,19 +31,22 @@
 
 
             {% else %}
-                <div class="col-xs-6">
-                    {{ form_start(articleForm) }}
-
-                        {{ form_row(articleForm.postCategory) }}
-                        {{ form_row(articleForm.articleCaption) }}
-                        {{ form_row(articleForm.postTitle) }}
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form_start(articleForm) }}
+                            {{ form_row(articleForm.postCategory) }}
+                            {{ form_row(articleForm.articleCaption) }}
+                            {{ form_row(articleForm.postTitle) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
                         {{ form_row(articleForm.postData) }}
                         <button class="btn btn-info">Posteaza</button>
-
+                    </div>
                 </div>
                 <div class="col-xs-6">
-                        {{ form_row(articleForm.picture) }}
-                        {{ form_row(articleForm.pictureCaption) }}
+
                     <div class="hidden">
                         {{ form_row(articleForm.articleDate) }}
                     </div>

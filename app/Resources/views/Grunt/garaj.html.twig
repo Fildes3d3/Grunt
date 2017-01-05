@@ -9,33 +9,9 @@
                     <div class="row">
                         <div class="media">
                             <h3>Am gasit in categoria: {{ category }} <h4><strong><em>{{ foundArticle.PostTitle }}</em></strong></h4></h3>
-                            <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                                <img class="img-thumbnail" src="{{ asset ('upload/' ~ foundArticle.Picture) }}" alt="{{ foundArticle.pictureCaption }}"  />
-                            </button>
-
-                            <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h4 class="modal-title" id="myModalLabel">{{ foundArticle.pictureCaption }}</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img class="img-thumbnail" src="{{ asset ('upload/' ~ foundArticle.Picture) }}" alt="{{ foundArticle.pictureCaption }}" />
-                                        </div>
-                                        <div class="modal-footer">
-                                            <h5><em>{{ foundArticle.pictureCaption }}</em></h5>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="caption">
                                 <p><strong>{{ foundArticle.ArticleCaption }}</strong></p>
-                                <p><em>{{ foundArticle.postData|truncate(1000, true) }}</em></p>
+                                <p><em>{{ foundArticle.postData|truncate(1000, true)|raw }}</em></p>
                                 <p><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></p>
                             </div>
                         </div>
@@ -106,30 +82,6 @@
                 <div class="row">
                     <div class="media">
                         <h3>Ultimele Articole {{ category }} <h4><strong><em>{{ articleMain.articleCaption }}</em></strong></h4></h3>
-                        <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                            <img class="img-thumbnail" src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.pictureCaption }}"  />
-                        </button>
-
-                        <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h4 class="modal-title" id="myModalLabel">{{ articleMain.pictureCaption }}</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <img class="img-thumbnail" src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.pictureCaption }}" />
-                                    </div>
-                                    <div class="modal-footer">
-                                        <h5><em>{{ articleMain.pictureCaption }}</em></h5>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="caption">
                             <p><strong>{{ articleMain.PostTitle }}</strong></p>
                             <p><em>{{ articleMain.postData|raw }}</em></p>
@@ -206,33 +158,8 @@
                         <div class="thumbnail">
                             {% for articleSide in Side %}
                             <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
-                            <button type="button" class="img-thumbnail pull-left" data-toggle="modal"
-                                    data-target="#picmodal1">
-                                <img  src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.pictureCaption }}" />
-                            </button>
-
-                            <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h4 class="modal-title" id="myModalLabel">{{ articleSide.pictureCaption }}</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.pictureCaption }}" />
-                                        </div>
-                                        <div class="modal-footer">
-                                            <h5><em>{{ articleSide.pictureCaption }}<strong>{{ articleSide.pictureCaption }}</strong>...</em></h5>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="caption">
-                                <p><em>{{ articleSide.postData|truncate(200, true) }}</em></p>
+                                <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                                 <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                                 <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                             </div>
@@ -246,32 +173,8 @@
                         <div class="thumbnail">
                             {% for articleAside in Aside %}
                             <h4>Ultimele Articole {{ articleAside.postCategory|capitalize}}</h4>
-                            <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                                <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.pictureCaption }}" />
-                            </button>
-
-                            <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h4 class="modal-title" id="myModalLabel">{{ articleAside.pictureCaption }}</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.pictureCaption }}" />
-                                        </div>
-                                        <div class="modal-footer">
-                                            <h5><em>{{ articleAside.pictureCaption }}</em></h5>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="caption">
-                                <p><em>{{ articleAside.postData|truncate(200, true) }}</em></p>
+                                <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
                                 <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
                                 <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                             </div>

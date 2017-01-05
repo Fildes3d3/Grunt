@@ -35,13 +35,6 @@ class ArticleForm extends AbstractType
             ->add('postTitle', TextType::class, array(
                 'label' => 'Titlu Articol:'
             ))
-           /* ->add('postData', TextareaType::class, array(
-                'attr' => array(
-                    'cols' => '5',
-                    'rows' => '10'
-                ),
-                'label' => 'Articol... :'
-            ))*/
            ->add('postData', CKEditorType::class, array(
                'config' => array(
                    'filebrowserBrowseRoute' => 'elfinder',
@@ -51,15 +44,6 @@ class ArticleForm extends AbstractType
                    )
                ),
            ))
-            ->add('picture', FileType::class, array(
-                'label' => 'Fotografie:',
-                'required' => false,
-                'data_class' => null,
-
-            ))
-            ->add('pictureCaption', TextType::class, array(
-                'label' => 'Descriere Fotografie'
-            ))
             ->add('articleDate', DateType::class , array(
                 'data' => new \DateTime('now')
             ))

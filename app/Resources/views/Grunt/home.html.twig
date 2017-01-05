@@ -17,34 +17,9 @@
                 {% for articleMain in Main %}
                 <h3>{{ articleMain.PostTitle }}</h3>
                 <div class="media">
-                    <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                        <img src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.PictureCaption }}" />
-                    </button>
-
-                    <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel">{{ articleMain.PictureCaption }}</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="{{ asset ('upload/' ~ articleMain.Picture) }}" alt="{{ articleMain.PictureCaption }}" />
-                                </div>
-                                <div class="modal-footer">
-                                    <h5><em>{{ articleMain.PictureCaption }}</em></h5>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="media-body">
                         <p><strong>{{ articleMain.articleCaption }}</strong></p>
-                        <p><em>{{ articleMain.postData|truncate(200, true) }}</em></p>
+                        <p><em>{{ articleMain.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                     </div>
@@ -56,34 +31,9 @@
                 {% for articleSide in Side %}
                 <h3>{{ articleSide.PostTitle }}</h3>
                 <div class="media">
-                    <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal1">
-                        <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.PictureCaption }}" />
-                    </button>Side
-
-                    <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal1">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel">{{ articleSide.PictureCaption }}</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="{{ asset ('upload/' ~ articleSide.Picture) }}" alt="{{ articleSide.PictureCaption }}" />
-                                </div>
-                                <div class="modal-footer">
-                                    <h5><em>{{ articleSide.PictureCaption }}</em></h5>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="media-body">
                         <p><strong>{{ articleSide.articleCaption }}</strong></p>
-                        <p><em>{{ articleSide.postData|truncate(200, true) }}</em></p>
+                        <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info"> Citeste mai departe...</a>
                     </div>
@@ -95,34 +45,9 @@
             {% for articleAside in Aside %}
                 <h3>{{ articleAside.PostTitle }}</h3>
                 <div class="media">
-                    <button type="button" class="img-thumbnail pull-left" data-toggle="modal" data-target="#picmodal">
-                        <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.PictureCaption }}" />
-                    </button>
-
-                    <div class="modal fade" role="dialog" aria-hidden="true" id="picmodal">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel">{{ articleAside.PictureCaption }}</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="{{ asset ('upload/' ~ articleAside.Picture) }}" alt="{{ articleAside.PictureCaption }}" />
-                                </div>
-                                <div class="modal-footer">
-                                    <h5><em>{{ articleAside.PictureCaption }}</em></h5>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="media-body">
                         <p><strong>{{ articleAside.articleCaption }}</strong></p>
-                        <p><em>{{ articleAside.postData|truncate(200, true) }}</em></p>
+                        <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                     </div>

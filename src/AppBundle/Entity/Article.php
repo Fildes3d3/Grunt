@@ -43,12 +43,6 @@ class Article
     private $post_data;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Assert\File(mimeTypes={"image/jpg", "image/jpeg" })
-     */
-    private $picture;
-
-    /**
      * @Assert\NotBlank()
      * @ORM\Column(type="datetime")
      */
@@ -58,27 +52,6 @@ class Article
      * @ORM\Column(type="string")
      */
     private $article_caption;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $picture_caption;
-
-    /**
-     * @return mixed
-     */
-    public function getPictureCaption()
-    {
-        return $this->picture_caption;
-    }
-
-    /**
-     * @param mixed $picture_caption
-     */
-    public function setPictureCaption($picture_caption)
-    {
-        $this->picture_caption = $picture_caption;
-    }
 
     /**
      * @return mixed
@@ -110,23 +83,6 @@ class Article
     public function setArticleDate($article_date)
     {
         $this->article_date = $article_date;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param mixed $picture
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
     }
 
     /**

@@ -27,20 +27,7 @@ class AdminController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-             $article = $form->getData();
-
-                $image = $article->getPicture();
-
-                if ($image) {
-                    $imageName = md5(uniqid()) . '.' . $image->guessExtension();
-                    $image->move(
-                        $this->getParameter('picture_directory'),
-                        $imageName
-                    );
-                }else{
-                    $imageName = 'no_photo.png';
-                }
-            $article->setPicture($imageName);
+            $article = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
@@ -70,7 +57,6 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('AppBundle:Article')->findOneById($id);
-        $oldimage = $article->getPicture();
 
         $form = $this->createForm(ArticleForm::class, $article);
         $form->handleRequest($request);
@@ -78,20 +64,6 @@ class AdminController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $article = $form->getData();
-
-            $image = $article->getPicture();
-
-
-            if ($image != null) {
-                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
-                $image->move(
-                    $this->getParameter('picture_directory'),
-                    $imageName
-                );
-                $article->setPicture($imageName);
-            }else{
-                $article->setPicture($oldimage);
-            }
 
             $this->addFlash('succes', 'Articol modificat articolul '. $article->getPostTitle() .' in categoria '
                 . $article->getPostCategory().
