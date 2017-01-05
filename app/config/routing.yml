@@ -2,6 +2,8 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
 grunt_register:
     path:     /register
@@ -60,8 +62,7 @@ grunt_article:
     defaults: { _controller: AppBundle:Grunt:show }
 
 
-elfinder:
-     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
 
 
 

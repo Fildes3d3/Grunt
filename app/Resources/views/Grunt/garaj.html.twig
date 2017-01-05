@@ -132,8 +132,8 @@
                         </div>
                         <div class="caption">
                             <p><strong>{{ articleMain.PostTitle }}</strong></p>
-                            <p><em>{{ articleMain.postData|truncate(1000, true) }}</em></p>
-                            <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></p>
+                            <p><em>{{ articleMain.postData|raw }}</em></p>
+                            <p><em><strong>Scris maiastru in anul domnului nostru: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></p>
                         </div>
                     </div>
                 </div>
