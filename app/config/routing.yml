@@ -2,6 +2,7 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+
 grunt_register:
     path:     /register
     defaults: { _controller: AppBundle:Register:register}
@@ -49,10 +50,11 @@ security_logout:
 
 grunt_homepage:
     path:     /
-    defaults: { _controller: AppBundle:Grunt:show }
+    defaults: { _controller: AppBundle:Grunt:show, id: null}
+
 grunt_garaj:
     path:     /{page}
-    defaults: { _controller: AppBundle:Grunt:show }
+    defaults: { _controller: AppBundle:Grunt:show, id: null}
 grunt_article:
     path: /{page}/{id}
     defaults: { _controller: AppBundle:Grunt:show }

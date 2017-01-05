@@ -31,7 +31,8 @@
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "twig/extensions": "^1.4",
         "egeloen/ckeditor-bundle": "^4.0",
-        "helios-ag/fm-elfinder-bundle": "^6.2"
+        "helios-ag/fm-elfinder-bundle": "^6.2",
+        "barryvdh/elfinder-flysystem-driver": "^0.2.0"
 
     },
     "require-dev": {

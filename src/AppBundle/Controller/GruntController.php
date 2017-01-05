@@ -19,6 +19,7 @@ class GruntController extends Controller
         $em = $this->getDoctrine()->getManager();
         $foundArticle = $em->getRepository('AppBundle:Article')->findOneById($id);
 
+
         $url = explode("/",$request->getPathInfo());
 
         if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
@@ -38,7 +39,6 @@ class GruntController extends Controller
         unset($categories[$key]);
         $side = array_values($categories);
 
-
         $articlesMain = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAllArticlesLimit($cat, $limit);
         $articlesSide = $this->getDoctrine()->getRepository('AppBundle:Article')
@@ -47,10 +47,6 @@ class GruntController extends Controller
             ->findAllArticlesLimit($side['1'], $limit);
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAllArticles();
-
-
-
-
 
         return $this->render(':Grunt:'.$page.'.html.twig', [
             'comments' => $comments,
@@ -62,7 +58,6 @@ class GruntController extends Controller
             'foundArticle' => $foundArticle,
         ]);
     }
-
 
     public function contactAction ()
     {

@@ -74,12 +74,11 @@ swiftmailer:
     spool:     { type: memory }
 
 fm_elfinder:
-    #assets_path: / # default is /assets, this is where css/js elfinder files are
+    assets_path: web/assets # default is /assets, this is where css/js elfinder files are
     instances:
         default:
-            locale: %locale% # defaults to current request locale
-            editor: ckeditor # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
-            #editor_template: custom template for your editor # default null
+            locale: %locale%
+            editor: ckeditor
             #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
             #fullscreen: true|false # default is true, applies to simple and ckeditor editors
             #theme: smoothness # jquery theme, default is 'smoothness'
@@ -91,7 +90,8 @@ fm_elfinder:
                     uploads:
                         #show_hidden: true|false # defaults to false, hides dotfiles
                         driver: LocalFileSystem
-                        path: uploads
+                        path: ///home/fildes/PhpstormProjects/Grunt/web/upload
+
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
                         upload_deny: ['all']
                         upload_max_size: 2M # also file upload sizes restricted in php.ini
