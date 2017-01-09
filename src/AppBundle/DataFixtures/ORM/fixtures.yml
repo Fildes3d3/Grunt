@@ -10,7 +10,7 @@ AppBundle\Entity\Article:
     article_{1..10}:
         post_title: <text(50)>
         post_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
-        post_data: <sentence(200)>
+        post_data: <img src="<imageUrl($width = 640, $height = 480)>"><sentence(200)>
         article_date: <(new \DateTime('2016-02-02'))>
         article_caption: <text(10)>
 
@@ -20,4 +20,4 @@ AppBundle\Entity\Comment:
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
         comment_date: <(new \DateTime('2016-02-02'))>
         user: '@user_*'
-        article_id: <numberBetween($min = 200, $max = 250)>
+        article_id: <numberBetween($min = 130, $max = 170)>
