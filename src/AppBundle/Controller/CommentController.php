@@ -78,5 +78,16 @@ class CommentController extends Controller
         }
     }
 
+    public function listCommentAction() {
+
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findAllComments();
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('Grunt/listComments.html.twig', [
+            'comments' => $comments,
+        ]);
+
+    }
+
 
 }

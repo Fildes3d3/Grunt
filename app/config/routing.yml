@@ -41,6 +41,9 @@ grunt_user_delete:
 comment_garaj:
     path:     /comment/{page}
     defaults: { _controller: AppBundle:Comment:newComment}
+comment_list:
+    path: /listComments
+    defaults: { _controller: AppBundle:Comment:listComment}
 
 
 security_login:

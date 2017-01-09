@@ -27,4 +27,12 @@ class CommentRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+    public function findAllComments()
+    {
+        return $this->createQueryBuilder('comment_repository')
+            ->orderBy('comment_repository.comment_date', 'DESC')
+            ->setMaxResults('10')
+            ->getQuery()
+            ->execute();
+    }
 }
