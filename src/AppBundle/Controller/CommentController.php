@@ -13,6 +13,7 @@ use AppBundle\Entity\Comment;
 use AppBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Snipe\BanBuilder\CensorWords;
 
 class CommentController extends Controller
 {
@@ -24,6 +25,14 @@ class CommentController extends Controller
 
             $url = explode("/",$request->getPathInfo());
             $comment_data = trim($request->request->get('comment'));
+
+            //start censorship
+            $censor = new CensorWords;
+            $langs = array('fr','it', 'en-us', 'en-uk', 'ro');
+            $badwords = $censor->setDictionary($langs);
+            $censor->setReplaceChar("@*!^%#");
+            $string = $censor->censorString($comment_data);
+            //end censorship
             $articleId = $request->request->get('articleId');
 
 
@@ -49,7 +58,7 @@ class CommentController extends Controller
             }
 
         $comment = new Comment();
-        $comment->setComment($comment_data);
+        $comment->setComment($string["clean"]);
         $comment->setCommentCategory($comment_cat);
         $comment->setCommentDate($comment_date);
         $comment->setUser($this->getUser());

@@ -39,7 +39,8 @@
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
-        "nelmio/alice": "^2.2"
+        "nelmio/alice": "^2.2",
+        "snipe/banbuilder": "dev-master"
     },
     "scripts": {
         "symfony-scripts": [
