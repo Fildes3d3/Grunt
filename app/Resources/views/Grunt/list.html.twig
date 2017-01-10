@@ -47,7 +47,8 @@
                             <td> {{ article.PostTitle|truncate(10, true)}}</td>
                             <td> {{ article.postCategory  }}</td>
                             <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
-                            <td> {{ article.postData|truncate(40, true) }}</td>
+                            <td> {{ article.postData|truncate(40, true)|raw|
+                                replace({'<img src=': ''})}}</td>
                             <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}"> <button class="btn btn-success" >Edit</button></a> </td>
                             <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}"> <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                         </tr>

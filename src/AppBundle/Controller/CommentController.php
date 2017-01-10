@@ -12,8 +12,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Snipe\BanBuilder\CensorWords;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CommentController extends Controller
 {
@@ -82,6 +84,7 @@ class CommentController extends Controller
 
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
             ->findAllComments();
+
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Grunt/listComments.html.twig', [
             'comments' => $comments,
@@ -89,5 +92,43 @@ class CommentController extends Controller
 
     }
 
+    public function editCommentAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findAllComments();
+
+        $comment = $em->getRepository('AppBundle:Comment')->findOneById($id);
+
+        $form = $this->createFormBuilder($comment)
+            ->add('comment', TextareaType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment = $form->getData();
+            $em->flush();
+            return $this->redirectToRoute('comment_list');
+
+        }
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render(':Grunt:editComments.html.twig', [
+            'commentForm' => $form->createView(),
+        ]);
+    }
+
+    public function deleteCommentAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $comment = $em->getRepository('AppBundle:Comment')->findOneById($id);
+        $em->remove($comment);
+        $em->flush();
+
+        return $this->redirectToRoute('comment_list');
+
+    }
 
 }

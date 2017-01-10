@@ -14,8 +14,8 @@ use AppBundle\Form\ArticleForm;
 use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\HttpFoundation\Response;
+
+
 
 
 class AdminController extends Controller

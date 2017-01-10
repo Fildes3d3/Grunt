@@ -44,6 +44,12 @@ comment_garaj:
 comment_list:
     path: /listComments
     defaults: { _controller: AppBundle:Comment:listComment}
+comment_edit:
+    path:     /editcomment/{id}
+    defaults: { _controller: AppBundle:Comment:editComment}
+comment_delete:
+    path:     /deletecomment/{id}
+    defaults: { _controller: AppBundle:Comment:deleteComment}
 
 
 security_login:

@@ -34,8 +34,10 @@
                             <td> {{ comments.commentCategory }}</td>
                             <td> {{ comments.commentDate|date('Y d M')}}</td>
                             <td> {{ comments.comment }}</td>
-                            <td> <a href="#"> <button class=" btn btn-succes"  type="button">Make Admin</button> </a></td>
-                            <td> <a href="#"> <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                            <td> <a href="{{ path('comment_edit', {'id':comments.id}) }}">
+                                    <button class=" btn btn-succes"  type="button">Edit</button> </a></td>
+                            <td> <a href="{{ path('comment_delete', {'id':comments.id}) }}">
+                                    <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                         </tr>
                     {%  endfor %}
                 </table>
