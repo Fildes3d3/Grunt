@@ -4,7 +4,8 @@
         {% for flashMessage in app.session.flashbag.get('succes') %}
             <div class="panel-heading">
                 <div class="alert alert-success alert-dismissable" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
                     <h2>{{ flashMessage }}</h2>
                 </div>
             </div>
@@ -13,69 +14,71 @@
     {% if app.request.attributes.get('_route') == 'security_login'%}
 
     {% else %}
-            <div class="col-md-3">
-                {% for articleMain in Main %}
-                <h3>{{ articleMain.PostTitle }}</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <p><strong>{{ articleMain.articleCaption }}</strong></p>
-                        <p><em>{{ articleMain.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt_article', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}" class="btn btn-info">Citeste mai departe...</a>
-                    </div>
+        <div class="col-md-3">
+    {% for articleMain in Main %}
+            <h3>{{ articleMain.PostTitle }}</h3>
+            <div class="media">
+                <div class="media-body">
+                    <p><strong>{{ articleMain.articleCaption }}</strong></p>
+                    <p><em>{{ articleMain.postData|truncate(400, true)
+                            |raw }}</em></p>
+                    <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
+                    <a href="{{ path('grunt_article', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}"
+                       class="btn btn-info" > Citeste mai departe...</a>
                 </div>
-                {% endfor %}
             </div>
-
-            <div class="col-md-3">
-                {% for articleSide in Side %}
-                <h3>{{ articleSide.PostTitle }}</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <p><strong>{{ articleSide.articleCaption }}</strong></p>
-                        <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info"> Citeste mai departe...</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+    {% endfor %}
+        </div>
 
         <div class="col-md-3">
-            {% for articleAside in Aside %}
-                <h3>{{ articleAside.PostTitle }}</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <p><strong>{{ articleAside.articleCaption }}</strong></p>
-                        <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
-                    </div>
+    {% for articleSide in Side %}
+            <h3>{{ articleSide.PostTitle }}</h3>
+            <div class="media">
+                <div class="media-body">
+                    <p><strong>{{ articleSide.articleCaption }}</strong></p>
+                    <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
+                    <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
+                    <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info"> Citeste mai departe...</a>
                 </div>
-            {% endfor %}
-        </div>
-
-            <div class="col-md-3" id="side_main">
-                <h2>Arhiva</h2>
-                    {% for article in article %}
-                        <ul>
-                            <a href="{{ path('grunt_article', {'page': article.postCategory, 'id' : article.id }) }}"
-                            <li>
-                                <em>Din: </em>{{ article.ArticleDate|date('Y d M') }} </br>
-                                <em>Despre: </em>{{ article.PostTitle }} </br>
-                                <em>In categoria: </em> {{ article.PostCategory }} </br>
-                            </li>
-                            </a>
-                        </ul>
-                    {% endfor %}
-
-
             </div>
-
-
-
+    {% endfor %}
         </div>
+
+        <div class="col-md-3">
+    {% for articleAside in Aside %}
+            <h3>{{ articleAside.PostTitle }}</h3>
+            <div class="media">
+                <div class="media-body">
+                    <p><strong>{{ articleAside.articleCaption }}</strong></p>
+                    <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
+                    <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
+                    <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
+                </div>
+            </div>
+    {% endfor %}
+        </div>
+
+        <div class="col-md-3" id="side_main">
+            <h2>Arhiva</h2>
+    {% for article in article %}
+            <ul>
+                <a href="{{ path('grunt_article', {'page': article.postCategory, 'id' : article.id }) }}" >
+                <li>
+                    <em>Din: </em>{{ article.ArticleDate|date('Y d M') }} </br>
+                    <em>Despre: </em>{{ article.PostTitle }} </br>
+                    <em>In categoria: </em> {{ article.PostCategory }} </br>
+                </li>
+                </a>
+            </ul>
+    {% endfor %}
+        </div>
+
+
+    </div>
     {%  endif %}
+
+
+
         <div class="row">
             <div class="col-md-12" id="footer">
                 Copyright 2016. FildEs Flight Co.

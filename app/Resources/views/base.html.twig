@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>{% block title %}The Daily Grunt{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+
 
 </head>
 <body>
@@ -93,8 +95,24 @@
     {% endblock jumbo %}
 {% endblock %}
 {% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
     <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
+    <script>
+
+        $(".col-md-3 img").each(function() {
+            $(this).wrap('<a href="" data-lightbox="13a2"></a >');
+            var oldurl = '';
+            imgsrc = this.src;
+            $('a[href="' + oldurl + '"]').attr('href', imgsrc);
+
+        });
+
+
+
+
+
+    </script>
 {% endblock %}
 </body>
 </html>

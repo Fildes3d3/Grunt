@@ -57,7 +57,6 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('AppBundle:Article')->findOneById($id);
-
         $form = $this->createForm(ArticleForm::class, $article);
         $form->handleRequest($request);
 
