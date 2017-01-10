@@ -8,7 +8,8 @@ img {
     max-width:100%;
 }
 .col-md-8 img {
-    width: 96%;
+	float: left;
+    width: 60%;
 	height: 96%;
 	border: 1px solid lightgrey;
 	padding: 1%;
@@ -16,6 +17,11 @@ img {
 }
 
 .col-md-3 img {
+	max-width: 100%;
+	height: auto;
+}
+
+.col-md-4 img {
 	max-width: 100%;
 	height: auto;
 }
