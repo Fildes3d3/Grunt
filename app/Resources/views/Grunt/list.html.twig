@@ -1,67 +1,66 @@
 {% extends '::base.html.twig' %}
-
 {% block body %}
-
-    <div class="container">
-        <div class="jumbotron">
-            <h1>The Daily Grunt Post Management</h1>
-            {% for flashMessage in app.session.flashbag.get('succes') %}
-                <div class="panel-heading">
-                    <div class="alert alert-success alert-dismissable" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4>{{ flashMessage }}</h4>
-                    </div>
-                </div>
-            {% endfor %}
-            {% if is_granted('ROLE_BOSS') %}
-                <a href="{{ path('grunt_user') }}">
-                    <button class="btn btn-primary">Manage Users</button>
-                </a>
-                <a href="{{ path('comment_list') }}">
-                    <button class="btn btn-primary">Manage Comments</button>
-                </a>
-            {% endif %}
+<div class="container">
+    <div class="jumbotron">
+    <h1>The Daily Grunt Post Management</h1>
+    {% for flashMessage in app.session.flashbag.get('succes') %}
+        <div class="panel-heading">
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    <h4>{{ flashMessage }}</h4>
+            </div>
         </div>
-        <div class="panel-info">
-            <a href="{{ path('grunt_admin') }}">
-                <button class="btn btn-primary">New Article</button>
-            </a>
-        </div>
-        <div class="panel-body">
-            <section>
-                <h2>Articles List:</h2>
-                <table class="table table-responsive table-hover">
-                    <tr>
-                        <th>Article ID</th>
-                        <th>Article Title</th>
-                        <th>Article Category</th>
-                        <th>Article Date</th>
-                        <th>Article Content</th>
-                        <th colspan="2">Action</th>
-                    </tr>
-                    {% for article in articles %}
-                        <tr>
-                            <td> {{ article.Id}}</td>
-                            <td> {{ article.PostTitle|truncate(10, true)}}</td>
-                            <td> {{ article.postCategory  }}</td>
-                            <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
-                            <td> {{ article.postData|truncate(40, true)|raw|
-                                replace({'<img src=': ''})}}</td>
-                            <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}"> <button class="btn btn-success" >Edit</button></a> </td>
-                            <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}"> <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
-                        </tr>
-                    {%  endfor %}
-                </table>
-            </section>
-        </div>
+    {% endfor %}
+    {% if is_granted('ROLE_BOSS') %}
+        <a href="{{ path('grunt_user') }}">
+            <button class="btn btn-primary">Manage Users</button>
+        </a>
+        <a href="{{ path('comment_list') }}">
+            <button class="btn btn-primary">Manage Comments</button>
+        </a>
+    {% endif %}
     </div>
+    <div class="panel-info">
+        <a href="{{ path('grunt_admin') }}">
+            <button class="btn btn-primary">New Article</button>
+        </a>
+    </div>
+    <div class="panel-body">
+        <section>
+            <h2>Articles List:</h2>
+            <table class="table table-responsive table-hover">
+                <tr>
+                    <th>Article ID</th>
+                    <th>Article Title</th>
+                    <th>Article Category</th>
+                    <th>Article Date</th>
+                    <th>Article Content</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                {% for article in articles %}
+                <tr>
+                    <td> {{ article.Id}}</td>
+                    <td> {{ article.PostTitle|truncate(10, true)}}</td>
+                    <td> {{ article.postCategory  }}</td>
+                    <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
+                    <td> {{ article.postData|truncate(40, true)|raw|
+                            replace({'<img src=': ''})}}</td>
+                    <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}">
+                            <button class="btn btn-success" >Edit</button></a> </td>
+                    <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}">
+                            <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                </tr>
+                {%  endfor %}
+            </table>
+        </section>
+    </div>
+</div>
     <div class="row">
         <div class="col-md-12" id="footer">
-            Copyright 2016. FildEs Flight Co.
+            Copyright 2017. FildEs Flight Co.
         </div>
     </div>
-    </div>
-
+</div>
 {% endblock %}
