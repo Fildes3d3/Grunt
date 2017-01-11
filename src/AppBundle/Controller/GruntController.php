@@ -25,10 +25,13 @@ class GruntController extends Controller
             $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
                 ->findAllCommentsLimit($cat);
             $limit = 1;
+            $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
+                ->findAll();
         }else{
             $cat = 'garaj';
             $page = 'home';
             $comments = null;
+            $responses = null;
             $limit = 2;
         }
         $categories = ['garaj', 'diy', 'jurnal'];
@@ -46,6 +49,7 @@ class GruntController extends Controller
             ->findAllArticles();
 
         return $this->render(':Grunt:'.$page.'.html.twig', [
+            'responses' => $responses,
             'comments' => $comments,
             'Main' => $articlesMain,
             'Side' => $articlesSide,

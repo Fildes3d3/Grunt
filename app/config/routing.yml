@@ -38,6 +38,9 @@ grunt_user_delete:
 comment_garaj:
     path:     /comment/{page}
     defaults: { _controller: AppBundle:Comment:newComment}
+response_garaj:
+    path:     /response/{page}
+    defaults: { _controller: AppBundle:Response:newCommentResponse}
 comment_list:
     path: /listComments
     defaults: { _controller: AppBundle:Comment:listComment}
