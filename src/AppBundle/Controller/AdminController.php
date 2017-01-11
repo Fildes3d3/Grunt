@@ -23,7 +23,6 @@ class AdminController extends Controller
     public function newArticleAction(Request $request)
     {
         $form = $this->createForm(ArticleForm::class);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,7 +60,6 @@ class AdminController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $article = $form->getData();
 
             $this->addFlash('succes', 'Articol modificat articolul '. $article->getPostTitle() .' in categoria '
@@ -84,10 +82,10 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('AppBundle:Article')->findOneById($id);
-
         $em->remove($article);
         $em->flush();
 
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->redirectToRoute('grunt_list');
     }
 
@@ -97,7 +95,7 @@ class AdminController extends Controller
     {
         $users = $this->getDoctrine()->getRepository('AppBundle:User')
             ->findAll();
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_BOSS');
         return $this->render(':Grunt:listUsers.html.twig', [
             'users' => $users
         ]);
@@ -107,11 +105,10 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->findOneById($id);
-
         $user->setRoles(["ROLE_ADMIN"]);
-
         $em->flush();
 
+        $this->denyAccessUnlessGranted('ROLE_BOSS');
         return $this->redirectToRoute('grunt_user');
     }
 
@@ -119,10 +116,10 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->findOneById($id);
-
         $em->remove($user);
         $em->flush();
 
+        $this->denyAccessUnlessGranted('ROLE_BOSS');
         return $this->redirectToRoute('grunt_user');
     }
 }

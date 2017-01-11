@@ -93,8 +93,6 @@ class Article
         return $this->id;
     }
 
-
-
     /**
      * @return mixed
      */
@@ -142,6 +140,4 @@ class Article
     {
         $this->post_data = $post_data;
     }
-
-
 }

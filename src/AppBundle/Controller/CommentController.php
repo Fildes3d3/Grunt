@@ -15,11 +15,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Snipe\BanBuilder\CensorWords;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class CommentController extends Controller
 {
-    public function newCommentAction($page,  Request $request)
+    public function newCommentAction(Request $request)
     {
         $isCommentSubmit = $request->isMethod('POST');
 
@@ -35,8 +35,8 @@ class CommentController extends Controller
             $censor->setReplaceChar("@*!^%#");
             $string = $censor->censorString($comment_data);
             //end censorship
-            $articleId = $request->request->get('articleId');
 
+            $articleId = $request->request->get('articleId');
 
             if (in_array($url['2'], ['garaj', 'diy', 'jurnal'])) {
                 $comment_cat = $url['2'];
@@ -45,17 +45,21 @@ class CommentController extends Controller
             $comment_date = new \DateTime('now');
 
             $registredcomment = $this->getDoctrine()->getRepository('AppBundle:Comment')->findOneBy(array('comment' => $comment_data));
+
             if ($registredcomment) {
                 $this->addFlash(
                     'comment_exist',
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
+
                 return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
+
             }elseif (!$comment_data){
                 $this->addFlash(
                     'comment_exist',
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
+
                 return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
             }
 
@@ -73,10 +77,8 @@ class CommentController extends Controller
 
         $this->addFlash('succes', 'Bravo '. $this->getUser()->getUsername() . ' ai reusit, sa comentezi...');
 
-
-
-
         return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
+
         }
     }
 
@@ -86,6 +88,7 @@ class CommentController extends Controller
             ->findAllComments();
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('Grunt/listComments.html.twig', [
             'comments' => $comments,
         ]);
@@ -108,7 +111,6 @@ class CommentController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $comment = $form->getData();
             $em->flush();
             return $this->redirectToRoute('comment_list');
 
@@ -130,5 +132,4 @@ class CommentController extends Controller
         return $this->redirectToRoute('comment_list');
 
     }
-
 }

@@ -8,7 +8,6 @@
 
 namespace AppBundle\Repository;
 
-
 use AppBundle\Entity\Comment;
 use Doctrine\ORM\EntityRepository;
 
@@ -27,6 +26,10 @@ class CommentRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
+    /**
+     * @return mixed
+     */
     public function findAllComments()
     {
         return $this->createQueryBuilder('comment_repository')

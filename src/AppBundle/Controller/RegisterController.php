@@ -17,16 +17,13 @@ class RegisterController extends Controller
 {
     public function registerAction(Request $request)
     {
-
         $isRegisterSubmit =  $request->isMethod('POST');
         if ($isRegisterSubmit) {
-
             $username = $request->request->get('_username');
             $password = $request->request->get('_unsafePassword');
             $confirmPassword = $request->request->get('confirmPassword');
             $email = $request->request->get('email');
             $news = $request->request->getBoolean('news');
-
             $registreduser = $this->getDoctrine()->getRepository('AppBundle:User')
                                     ->findOneBy(array('username' => $username ));
             $registredemail = $this->getDoctrine()->getRepository('AppBundle:User')
@@ -44,11 +41,13 @@ class RegisterController extends Controller
                     'Vezi ca nu ai nimerit... -Parola- , difera de -Reintroduceti Parola-'
                 );
                 return $this->render(':Grunt:register.html.twig');
+
             } elseif ($username == $password) {
                 $this->addFlash(
                     'notice',
                     'Nu e chiar ok ca parola sa fie aceeasi cu numele... Mai incearca odata :) '
                 );
+
                 return $this->render(':Grunt:register.html.twig');
             }
 
@@ -74,7 +73,7 @@ class RegisterController extends Controller
                );
 
         }
+
         return $this->render(':Grunt:register.html.twig');
     }
-
 }

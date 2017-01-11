@@ -42,6 +42,18 @@ class Comment
     private $articleId;
 
     /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string")
+     */
+    private $comment_category;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="datetime")
+     */
+    private $comment_date;
+
+    /**
      * @return mixed
      */
     public function getArticleId()
@@ -80,18 +92,6 @@ class Comment
     {
         return $this->id;
     }
-
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string")
-     */
-    private $comment_category;
-
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="datetime")
-     */
-    private $comment_date;
 
     /**
      * @return mixed

@@ -18,11 +18,7 @@ class GruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $foundArticle = $em->getRepository('AppBundle:Article')->findOneById($id);
-
-
-
         $url = explode("/",$request->getPathInfo());
-
         if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
             $cat = $url['1'];
             $page = 'garaj';

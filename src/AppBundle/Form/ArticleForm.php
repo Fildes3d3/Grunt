@@ -11,8 +11,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
-
-
 class ArticleForm extends AbstractType
 {
 

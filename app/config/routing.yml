@@ -1,7 +1,6 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
@@ -12,8 +11,6 @@ grunt_register:
 grunt_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Grunt:contact }
-
-
 
 grunt_admin:
     path:     /admin

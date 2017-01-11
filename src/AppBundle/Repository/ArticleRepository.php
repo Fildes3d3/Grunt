@@ -28,6 +28,10 @@ class ArticleRepository extends EntityRepository
             ->execute();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function findArticle($id)
     {
         return $this->createQueryBuilder('article_repository')
@@ -37,6 +41,9 @@ class ArticleRepository extends EntityRepository
             ->execute();
     }
 
+    /**
+     * @return mixed
+     */
     public function findAllArticles()
     {
         return $this->createQueryBuilder('article_repository')

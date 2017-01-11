@@ -27,14 +27,6 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @ORM\Column(type="string")
      */
     private $username;
@@ -64,6 +56,13 @@ class User implements UserInterface
      */
     private $news;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getUsername()
     {
