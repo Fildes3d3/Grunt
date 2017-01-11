@@ -99,9 +99,6 @@ class CommentController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAllComments();
-
         $comment = $em->getRepository('AppBundle:Comment')->findOneById($id);
 
         $form = $this->createFormBuilder($comment)
