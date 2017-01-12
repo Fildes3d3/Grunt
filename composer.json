@@ -40,7 +40,8 @@
         "symfony/phpunit-bridge": "^3.0",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "nelmio/alice": "^2.2",
-        "snipe/banbuilder": "dev-master"
+        "snipe/banbuilder": "dev-master",
+        "phpunit/phpunit": "^5.7"
     },
     "scripts": {
         "symfony-scripts": [

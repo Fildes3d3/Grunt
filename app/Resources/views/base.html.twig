@@ -111,8 +111,27 @@
     <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
     <script>
 
+        lightbox.option({
+            'disableScrolling' : true,
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'fitImagesInViewport' : true,
+        })
+
         $(".media img").each(function() {
             $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
+        });
+
+        $(".media iframe").each(function(){
+            $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
+        });
+
+        $(".thumbnail img").each(function() {
+            $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
+        });
+
+        $(".thumbnail iframe").each(function(){
+            $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
         });
 
     </script>
