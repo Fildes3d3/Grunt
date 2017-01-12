@@ -7,6 +7,7 @@
 img {
     max-width:100%;
 }
+
 .col-md-8 img {
 	float: left;
     width: 60%;
@@ -23,7 +24,18 @@ img {
 
 .col-md-4 img {
 	max-width: 100%;
+	max-height: auto;
+}
+
+td img {
+	width: 20%;
 	height: auto;
+}
+
+td iframe {
+	float: left;
+	width: 178px;
+	height: 100px;
 }
 
 .col-md-3 button {
@@ -100,7 +112,12 @@ body {
 .response {
 	margin-left: 10%;
 }
-
+.table th, td {
+	text-align: center;
+}
+.table th {
+	font-size: 1.2em;
+}
 #side_main {
 	border-left: 2px solid black;
 }

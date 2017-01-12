@@ -42,11 +42,10 @@
                 {% for article in articles %}
                 <tr>
                     <td> {{ article.Id}}</td>
-                    <td> {{ article.PostTitle|truncate(10, true)}}</td>
+                    <td> {{ article.PostTitle}}</td>
                     <td> {{ article.postCategory  }}</td>
                     <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
-                    <td> {{ article.postData|truncate(40, true)|raw|
-                            replace({'<img src=': ''})}}</td>
+                    <td> {{ article.postData|truncate(500, true)|raw }}</td>
                     <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}">
                             <button class="btn btn-success" >Edit</button></a> </td>
                     <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}">

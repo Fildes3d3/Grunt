@@ -21,7 +21,7 @@
                     <th>Comment Category</th>
                     <th>Comment Date</th>
                     <th>Comment Content</th>
-                    <th colspan="2">Action</th>
+                    <th colspan="3">Actions</th>
                 </tr>
                 {% for comments in comments %}
                 <tr>
@@ -31,16 +31,62 @@
                     <td> {{ comments.commentCategory }}</td>
                     <td> {{ comments.commentDate|date('Y d M')}}</td>
                     <td> {{ comments.comment }}</td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#{{ comments.id }}">
+                            Vezi Raspunsuri
+                        </button></td>
                     <td> <a href="{{ path('comment_edit', {'id':comments.id}) }}">
                             <button class=" btn btn-succes"  type="button">Edit</button> </a></td>
                     <td> <a href="{{ path('comment_delete', {'id':comments.id}) }}">
                             <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                 </tr>
-                {%  endfor %}
+                {% endfor %}
             </table>
         </section>
     </div>
 </div>
+
+    {% for comments in comments %}
+        <div class="modal fade" id="{{ comments.id }}" tabindex="-1" role="dialog"
+             aria-labelledby="responseModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">
+                        Response for Comment with <strong>Id:{{ comments.id }}</strong> </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-responsive table-hover">
+                        <tr>
+                            <th>Response for Article ID</th>
+                            <th>User Name</th>
+                            <th>Response Category</th>
+                            <th>Response Date</th>
+                            <th>Response Content</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    {% for responses in responses if comments.id == responses.commentId.id %}
+                        <tr>
+                            <td> {{ responses.articleId}}</td>
+                            <td> {{ responses.user.username }}</td>
+                            <td> {{ responses.commentCategory }}</td>
+                            <td> {{ responses.commentDate|date('Y d M')}}</td>
+                            <td> {{ responses.commentresponse }}</td>
+                            <td> <a href="#">
+                                    <button class=" btn btn-succes"  type="button">Edit</button> </a></td>
+                            <td> <a href="#">
+                                    <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 <div class="row">
     <div class="col-md-12" id="footer">
         Copyright 2017. FildEs Flight Co.

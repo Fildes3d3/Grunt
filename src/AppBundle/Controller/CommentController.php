@@ -86,11 +86,14 @@ class CommentController extends Controller
 
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
             ->findAllComments();
+        $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
+            ->findAll();
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         return $this->render('Grunt/listComments.html.twig', [
             'comments' => $comments,
+            'responses' => $responses,
         ]);
 
     }

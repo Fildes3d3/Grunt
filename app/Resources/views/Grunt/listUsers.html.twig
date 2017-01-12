@@ -23,17 +23,32 @@
                     <th colspan="2">Action</th>
                 </tr>
                 {% for user in users %}
+                {% if user.Roles|json_encode != '["ROLE_ADMIN","ROLE_BOSS","ROLE_USER"]'%}
                 <tr>
                     <td> {{ user.Id}}</td>
                     <td> {{ user.Username}}</td>
                     <td> {{ user.Email }}</td>
                     <td> {{ user.News ? 'Yes' : 'No' }}</td>
-                    <td> {{ user.Roles|json_encode }}</td>
+                    <td>
+                        {% if user.Roles|json_encode == '["ROLE_USER"]' %}
+                        Standard User
+                        {% elseif user.Roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
+                        Administrator
+                        {% elseif user.Roles|json_encode == '["ROLE_ADMIN","ROLE_BOSS","ROLE_USER"]'%}
+                        GOD
+                        {% endif %}
+                    </td>
+                    {% if user.Roles|json_encode == '["ROLE_USER"]'  %}
                     <td> <a href="{{ path('grunt_user_admin', {'id': user.Id }) }}">
-                            <button class=" btn btn-succes"  type="button">Make Admin</button> </a></td>
+                            <button class=" btn btn-succes" id="upgrade_user" type="button">Make Admin  </button> </a></td>
+                    {% elseif user.Roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
+                        <td> <a href="{{ path('grunt_user_standard', {'id': user.Id }) }}">
+                                <button class=" btn btn-succes" id="upgrade_user" type="button">Remv Admin</button> </a></td>
+                    {% endif %}
                     <td> <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}">
-                            <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                            <button class=" btn btn-danger"  id="delete_user" type="button">Delete</button> </a></td>
                 </tr>
+                {% endif %}
                 {%  endfor %}
             </table>
         </section>

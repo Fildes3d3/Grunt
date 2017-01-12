@@ -112,6 +112,17 @@ class AdminController extends Controller
         return $this->redirectToRoute('grunt_user');
     }
 
+    public function standardUserAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->findOneById($id);
+        $user->setRoles(["ROLE_USER"]);
+        $em->flush();
+
+        $this->denyAccessUnlessGranted('ROLE_BOSS');
+        return $this->redirectToRoute('grunt_user');
+    }
+
     public function deleteUserAction($id)
     {
         $em = $this->getDoctrine()->getManager();
