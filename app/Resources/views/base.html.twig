@@ -44,10 +44,10 @@
                         <span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                 {% if is_granted('ROLE_USER') %}
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-user"></span>{{ app.user.username }}</a>
+                    <a href="#"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
                 </li>
                 <li>
-                    <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-user"></span>Logout</a>
+                    <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-off"> </span> Logout</a>
                 </li>
                 {% else %}
                 <li>
@@ -55,7 +55,7 @@
                               name="loginform" enctype="multipart/form-data" action="{{ path('security_login') }}" >
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="glyphicon glyphicon-user"> </span>
                                 </span>
                                 <input type="text" class="form-control"
                                         {% if last_username is defined %}
@@ -70,7 +70,7 @@
                                 <input type="password" class="form-control" name="_password"
                                        id="_password" placeholder="Parola" />
                             </div>
-                            <button type="submit" class="btn bnt-info">Autentifica</button>
+                            <button type="submit" class="btn bnt-info"> Autentifica</button>
                         </form>
                 </li>
                 {%  endif %}
