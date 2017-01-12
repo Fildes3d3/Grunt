@@ -11,7 +11,6 @@
                     {{ form_start(articleForm) }}
                     {{ form_errors(articleForm) }}
                     {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
-                    {{ form_row(articleForm.articleCaption, {'value' : article.articleCaption}) }}
                     {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
                 </div>
             </div>
@@ -32,7 +31,6 @@
                 <div class="col-xs-6">
                     {{ form_start(articleForm) }}
                     {{ form_row(articleForm.postCategory) }}
-                    {{ form_row(articleForm.articleCaption) }}
                     {{ form_row(articleForm.postTitle) }}
                 </div>
             </div>

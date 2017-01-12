@@ -42,12 +42,15 @@
                 <li{% if app.request.uri == 'http://localhost:8000/contact' %} class = "active" {% endif%}>
                     <a href="{{ path ('grunt_garaj', {'page' : 'contact'}) }}">
                         <span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+                {% if is_granted('ROLE_USER') %}
                 <li>
-                    {% if is_granted('ROLE_USER') %}
-                        <a href="{{ path('security_logout') }}">&nbsp<span class="glyphicon glyphicon-user"></span>
-                            {{ app.user.username }} <span>  &nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <span class="glyphicon glyphicon-off"></span> Logout </a>
-                    {% else %}
+                    <a href="#"><span class="glyphicon glyphicon-user"></span>{{ app.user.username }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-user"></span>Logout</a>
+                </li>
+                {% else %}
+                <li>
                         <form class="navbar-form navbar-right" role="form" method="post" id="loginform"
                               name="loginform" enctype="multipart/form-data" action="{{ path('security_login') }}" >
                             <div class="input-group">
@@ -69,8 +72,8 @@
                             </div>
                             <button type="submit" class="btn bnt-info">Autentifica</button>
                         </form>
-                    {%  endif %}
                 </li>
+                {%  endif %}
                 <li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('grunt_list') }}"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -113,6 +116,14 @@
     <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
     <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
     <script>
+
+        (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v2.8";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
 
         lightbox.option({
             'disableScrolling' : true,

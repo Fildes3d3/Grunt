@@ -6,11 +6,14 @@
     {% if foundArticle is not null %}
         <div class="row">
             <div class="media">
-                <h3>Am gasit in categoria: {{ category }} <h4><strong><em>{{ foundArticle.PostTitle }}</em></strong></h4></h3>
+                <h2>Am gasit in categoria: {{ category }} <h3><strong><em>{{ foundArticle.PostTitle }}</em></strong></h3></h2>
                     <div class="caption">
-                        <p><strong>{{ foundArticle.ArticleCaption }}</strong></p>
                         <p><em>{{ foundArticle.postData|truncate(1000, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></p>
+                        <h4><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></h4>
+                        <div class="fb-like" data-href="{{  app.request.uri  }}" data-layout="button"
+                             data-action="like" data-size="large" data-show-faces="true"
+                             data-share="true">
+                        </div>
                     </div>
             </div>
         </div>
@@ -89,11 +92,15 @@
         {% for articleMain in Main %}
         <div class="row">
             <div class="media">
-                <h3>Ultimele Articole {{ category }} <h4><strong><em>{{ articleMain.articleCaption }}</em></strong></h4></h3>
+                <h2>Ultimele Articole {{ category }}</h2>
                 <div class="caption">
-                    <h2><strong>{{ articleMain.PostTitle }}</strong></h2>
+                    <h3><strong>{{ articleMain.PostTitle }}</strong></h3>
                     <p><em>{{ articleMain.postData|raw }}</em></p>
-                    <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></p>
+                    <h4><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></h4>
+                    <div class="fb-like" data-href="{{  app.request.uri  }}" data-layout="button"
+                         data-action="like" data-size="large" data-show-faces="true"
+                         data-share="true">
+                    </div>
                 </div>
             </div>
         </div>

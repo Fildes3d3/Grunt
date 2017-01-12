@@ -18,7 +18,6 @@
                 <h3>{{ articleMain.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
-                        <p><strong>{{ articleMain.articleCaption }}</strong></p>
                         <p><em>{{ articleMain.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}"
@@ -32,7 +31,6 @@
                 <h3>{{ articleSide.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
-                        <p><strong>{{ articleSide.articleCaption }}</strong></p>
                         <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info"> Citeste mai departe...</a>
@@ -45,7 +43,6 @@
                 <h3>{{ articleAside.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
-                        <p><strong>{{ articleAside.articleCaption }}</strong></p>
                         <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
