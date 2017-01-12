@@ -30,13 +30,13 @@
                 <li{% if app.request.attributes.get('_route') == 'grunt_homepage'%} class = "active" {% endif%}>
                     <a href="{{ path ('grunt_homepage') }}">
                         <span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li{% if app.request.uri == 'http://localhost:8000/garaj' %} class = "active" {% endif%}>
+                <li{% if 'garaj' in app.request.uri %} class = "active" {% endif%}>
                     <a href="{{ path ('grunt_garaj', {'page' : 'garaj'}) }}">
                         <span class="glyphicon glyphicon-wrench"></span> Garaj</a></li>
-                <li{% if app.request.uri == 'http://localhost:8000/jurnal' %} class = "active" {% endif%}>
+                <li{% if 'jurnal' in app.request.uri %} class = "active" {% endif%}>
                     <a href="{{ path ('grunt_garaj', {'page' : 'jurnal'}) }}">
                         <span class="glyphicon glyphicon-road"></span> Jurnal de Bord</a></li>
-                <li{% if app.request.uri == 'http://localhost:8000/diy' %} class = "active" {% endif%}>
+                <li{% if 'diy' in app.request.uri %} class = "active" {% endif%}>
                     <a href="{{ path ('grunt_garaj', {'page' : 'diy'}) }}">
                         <span class="glyphicon glyphicon-scissors"></span> Proiecte DYI</a></li>
                 <li{% if app.request.uri == 'http://localhost:8000/contact' %} class = "active" {% endif%}>
@@ -54,7 +54,10 @@
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                                 </span>
-                                <input type="text" class="form-control" {{ last_username is defined ? ' value=' ~ last_username ~ ' ' : '' }}
+                                <input type="text" class="form-control"
+                                        {% if last_username is defined %}
+                                            value="{{ last_username }}"
+                                        {% endif %}
                                        name="_username" id="_username" placeholder="Utilizator" />
                             </div>
                             <div class="input-group">
