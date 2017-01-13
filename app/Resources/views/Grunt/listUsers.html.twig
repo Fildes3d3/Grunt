@@ -40,13 +40,15 @@
                     </td>
                     {% if user.Roles|json_encode == '["ROLE_USER"]'  %}
                     <td> <a href="{{ path('grunt_user_admin', {'id': user.Id }) }}">
-                            <button class=" btn btn-succes" id="upgrade_user" type="button">Make Admin  </button> </a></td>
+                            <button class=" btn btn-success" id="upgrade_user" type="button">Make Admin  </button> </a></td>
                     {% elseif user.Roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
                         <td> <a href="{{ path('grunt_user_standard', {'id': user.Id }) }}">
-                                <button class=" btn btn-succes" id="upgrade_user" type="button">Remv Admin</button> </a></td>
+                                <button class=" btn btn-success" id="upgrade_user" type="button">Remv Admin</button> </a></td>
                     {% endif %}
-                    <td> <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}">
-                            <button class=" btn btn-danger"  id="delete_user" type="button">Delete</button> </a></td>
+                    <td>
+                        <button class=" btn btn-danger"   data-toggle="modal"
+                                data-target="#deleteUserModal{{ user.Id}}" type="button">Delete</button>
+                    </td>
                 </tr>
                 {% endif %}
                 {%  endfor %}
@@ -54,6 +56,24 @@
         </section>
     </div>
 </div>
+    <!--DeleteUser Confirmation Modal -->
+    {% for user in users %}
+        <div class="modal fade" id="deleteUserModal{{ user.Id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ user.Id }}">
+            <div class="modal-dialog" role="document">
+
+                <div class="alert alert-danger" role="alert">
+                    <h2>Esti sigur ca stii ce faci !?</h2>
+                    <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
+
+                    <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}">
+                        <button type="button" class="btn btn-danger">Delete It!</button>
+                    </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!-- End DeleteUser Confirmation Modal -->
 <div class="row">
     <div class="col-md-12" id="footer">
         Copyright 2017. FildEs Flight Co.

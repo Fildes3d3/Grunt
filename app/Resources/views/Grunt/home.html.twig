@@ -56,9 +56,9 @@
                 <ul>
                     <a href="{{ path('grunt_article', {'page': article.postCategory, 'id' : article.id }) }}" >
                     <li>
-                        <em>Din: </em>{{ article.ArticleDate|date('Y d M') }} </br>
-                        <em>Despre: </em>{{ article.PostTitle }} </br>
-                        <em>In categoria: </em> {{ article.PostCategory }} </br>
+                        <em>Din: </em><stronger>{{ article.ArticleDate|date('Y d M') }} </stronger></br>
+                        <em>Despre: </em><strong>{{ article.PostTitle }} </strong></br>
+                        <em>In categoria: </em><strong>{{ article.PostCategory }} </strong></br>
                     </li>
                     </a>
                 </ul>

@@ -47,13 +47,33 @@
                     <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
                     <td> {{ article.postData|truncate(500, true)|raw }}</td>
                     <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}">
-                            <button class="btn btn-success" >Edit</button></a> </td>
-                    <td> <a href="{{ path('grunt_delete', {'id': article.Id }) }}">
-                            <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                            <button class="btn btn-success"  >Edit</button></a> </td>
+                    <td>
+                            <button class=" btn btn-danger" data-toggle="modal" data-target="#deleteArticleModal{{ article.Id}}"
+                                    type="button">Delete</button>
+                    </td>
                 </tr>
                 {%  endfor %}
             </table>
         </section>
+        <!--Delete Confirmation Modal -->
+        {% for article in articles %}
+        <div class="modal fade" id="deleteArticleModal{{ article.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal{{ article.Id}}">
+            <div class="modal-dialog" role="document">
+
+                        <div class="alert alert-danger" role="alert">
+                            <h2>Esti sigur ca stii ce faci !?</h2>
+                            <h4>Daca chiar vrei sa stergi articolul....</h4>
+
+                            <a href="{{ path('grunt_delete', {'id': article.Id }) }}">
+                            <button type="button" class="btn btn-danger">Delete It!</button>
+                            </a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!--End Delete Confirmation Modal -->
     </div>
 </div>
     <div class="row">

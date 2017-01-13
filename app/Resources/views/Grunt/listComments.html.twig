@@ -36,16 +36,18 @@
                             Vezi Raspunsuri
                         </button></td>
                     <td> <a href="{{ path('comment_edit', {'id':comments.id}) }}">
-                            <button class=" btn btn-succes"  type="button">Edit</button> </a></td>
-                    <td> <a href="{{ path('comment_delete', {'id':comments.id}) }}">
-                            <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                            <button class=" btn btn-success"  type="button">Edit</button> </a></td>
+                    <td>
+                        <button class=" btn btn-danger" data-toggle="modal"
+                                data-target="#deleteCommentModal{{ comments.Id}}" type="button">Delete</button>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
         </section>
     </div>
 </div>
-
+    <!--Comment Response Modal -->
     {% for comments in comments %}
         <div class="modal fade" id="{{ comments.id }}" tabindex="-1" role="dialog"
              aria-labelledby="responseModalLabel" aria-hidden="true">
@@ -59,6 +61,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <table class="table table-responsive table-hover">
                         <tr>
                             <th>Response for Article ID</th>
@@ -76,7 +79,7 @@
                             <td> {{ responses.commentDate|date('Y d M')}}</td>
                             <td> {{ responses.commentresponse }}</td>
                             <td> <a href="#">
-                                    <button class=" btn btn-succes"  type="button">Edit</button> </a></td>
+                                    <button class=" btn btn-success"  type="button">Edit</button> </a></td>
                             <td> <a href="#">
                                     <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
                         </tr>
@@ -87,6 +90,25 @@
         </div>
     </div>
     {% endfor %}
+    <!--End Comment Response Modal -->
+    <!--DeleteComment Confirmation Modal -->
+    {% for comments in comments %}
+        <div class="modal fade" id="deleteCommentModal{{ comments.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ comments.Id }}">
+            <div class="modal-dialog" role="document">
+
+                <div class="alert alert-danger" role="alert">
+                    <h2>Esti sigur ca stii ce faci !?</h2>
+                    <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
+
+                    <a href="{{ path('comment_delete', {'id':comments.id}) }}">
+                        <button type="button" class="btn btn-danger">Delete It!</button>
+                    </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!--End DeleteComment Confirmation Modal -->
 <div class="row">
     <div class="col-md-12" id="footer">
         Copyright 2017. FildEs Flight Co.

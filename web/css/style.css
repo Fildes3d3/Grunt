@@ -16,7 +16,6 @@ img {
 	padding: 1%;
 	margin: 2%;
 }
-
 .col-md-3 img {
 	max-width: 100%;
 	height: auto;
@@ -28,7 +27,8 @@ img {
 }
 
 td img {
-	width: 20%;
+	float: left;
+	width: 29.5%;
 	height: auto;
 }
 
@@ -123,6 +123,5 @@ body {
 }
 #side_main li {
 	list-style-type: none;
-	font-weight: bold;
 	font-size: 1.25em;
 }
