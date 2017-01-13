@@ -71,14 +71,29 @@
                             </li>
                         {% for responses in responses %}
                             {% if comment.id == responses.commentId.id %}
-                            <li class="response">
-                                <p><span class="glyphicon glyphicon-user"> Raspunsul lui: </span>
-                                    <em> {{ responses.user.username }} </em></p>
-                                <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
-                                    <em> {{ responses.commentDate|date('Y d M') }} </em></p>
-                                <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
-                                    <em> {{ responses.commentresponse }} </em></p>
-                            </li>
+                                <li class="response">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion1"
+                                                       href="#collapse{{ responses.id }}" aria-expanded="true" aria-controls="collapseOne">
+                                                        <em> Vezi raspunsul lui {{ responses.user.username }} </em></a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse{{ responses.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <p><span class="glyphicon glyphicon-user"> Raspunsul lui: </span>
+                                                        <em> {{ responses.user.username }} </em></p>
+                                                    <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
+                                                        <em> {{ responses.commentDate|date('Y d M') }} </em></p>
+                                                    <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
+                                                        <em> {{ responses.commentresponse }} </em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             {% endif %}
                         {% endfor%}
                         {% endif %}
@@ -159,12 +174,27 @@
                                 {% for responses in responses %}
                                     {% if comment.id == responses.commentId.id %}
                                     <li class="response">
-                                        <p><span class="glyphicon glyphicon-user"> Raspunsul lui: </span>
-                                            <em> {{ responses.user.username }} </em></p>
-                                        <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
-                                            <em> {{ responses.commentDate|date('Y d M') }} </em></p>
-                                        <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
-                                            <em> {{ responses.commentresponse }} </em></p>
+                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                    <h4 class="panel-title">
+                                                        <a role="button" data-toggle="collapse" data-parent="#accordion1"
+                                                           href="#collapse{{ responses.id }}" aria-expanded="true" aria-controls="collapseOne">
+                                                            <em> Vezi raspunsul lui {{ responses.user.username }} </em></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse{{ responses.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <p><span class="glyphicon glyphicon-user"> Raspunsul lui: </span>
+                                                            <em> {{ responses.user.username }} </em></p>
+                                                        <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
+                                                            <em> {{ responses.commentDate|date('Y d M') }} </em></p>
+                                                        <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
+                                                            <em> {{ responses.commentresponse }} </em></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
                                     {% endif %}
                                 {% endfor%}

@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="jumbotron">
         <h1>The Daily Grunt Post Management</h1>
             <a href="{{ path('grunt_list') }}">
@@ -78,10 +78,10 @@
                             <td> {{ responses.commentCategory }}</td>
                             <td> {{ responses.commentDate|date('Y d M')}}</td>
                             <td> {{ responses.commentresponse }}</td>
-                            <td> <a href="#">
+                            <td> <a href="{{ path('response_edit', {'id':responses.id}) }}">
                                     <button class=" btn btn-success"  type="button">Edit</button> </a></td>
-                            <td> <a href="#">
-                                    <button class=" btn btn-danger"  type="button">Delete</button> </a></td>
+                            <td> <button class=" btn btn-danger" data-toggle="modal"
+                                         data-target="#deleteResponseModal{{ responses.id}}" type="button">Delete</button>
                         </tr>
                     {% endfor %}
                     </table>
@@ -101,6 +101,23 @@
                     <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
 
                     <a href="{{ path('comment_delete', {'id':comments.id}) }}">
+                        <button type="button" class="btn btn-danger">Delete It!</button>
+                    </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!--End DeleteComment Confirmation Modal -->
+    <!--DeleteResponse Confirmation Modal -->
+    {% for responses in responses %}
+        <div class="modal fade" id="deleteResponseModal{{ responses.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ responses.Id }}">
+            <div class="modal-dialog" role="document">
+
+                <div class="alert alert-danger" role="alert">
+                    <h2>Esti sigur ca stii ce faci !?</h2>
+                    <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
+                    <a href="{{ path('response_delete', {'id':responses.id}) }}">
                         <button type="button" class="btn btn-danger">Delete It!</button>
                     </a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

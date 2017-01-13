@@ -49,7 +49,8 @@ class ResponseController extends Controller
 
             $response_date = new \DateTime('now');
 
-            $registredresponse = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')->findOneBy(array('commentresponse' => $response_data));
+            $registredresponse = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
+                ->findOneBy(array('commentresponse' => $response_data));
 
             if ($registredresponse) {
                 $this->addFlash(
@@ -87,6 +88,41 @@ class ResponseController extends Controller
         return $this->redirectToRoute('grunt_article', array('page' => $response_cat, 'id' => $articleId));
 
         }
+    }
+
+    public function editCommentResponseAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $response = $em->getRepository('AppBundle:CommentResponse')->findOneById($id);
+
+        $form = $this->createFormBuilder($response)
+            ->add('commentresponse', TextareaType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('comment_list');
+
+        }
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('Grunt/editResponses.html.twig', [
+            'responseForm' => $form->createView(),
+        ]);
+    }
+
+    public function deleteCommentResponseAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $response = $em->getRepository('AppBundle:CommentResponse')->findOneById($id);
+        $em->remove($response);
+        $em->flush();
+
+        return $this->redirectToRoute('comment_list');
+
     }
 
 
