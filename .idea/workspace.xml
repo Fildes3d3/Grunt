@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba31400a-09e0-4249-a533-fb334d2b28fd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/upload/.gitkeep" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/Grunt.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/symfony2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/upload/campenesti.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/upload/fairing.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/upload/jurnal.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/upload/no_photo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/upload/testup.jpeg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/list.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/listUsers.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/listUsers.html.twig" />
@@ -69,7 +54,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1008">
               <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1482436830253" expanded="true" signature="881:945" ph="&lt;IfModule mod_negotiation.c&gt;" />
+                <marker date="1482436830253" expanded="true" signature="947:2936" ph="&lt;IfModule mod_rewrite.c&gt;" />
+                <marker date="1482436830253" expanded="true" signature="2938:3318" ph="&lt;IfModule !mod_rewrite.c&gt;" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,8 +66,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="270">
+              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -99,7 +88,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="702">
               <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
-              <folding />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="false" />
+                <element signature="e#124#181#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,7 +111,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
               <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-              <folding />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="false" />
+                <element signature="e#124#153#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -664,8 +659,16 @@
       <workItem from="1484293917035" duration="17416000" />
       <workItem from="1484387298837" duration="7744000" />
       <workItem from="1484500697148" duration="35000" />
-      <workItem from="1484501076434" duration="1534000" />
+      <workItem from="1484501076434" duration="1767000" />
     </task>
+    <task id="LOCAL-00001" summary="add to gitignore: idea, upload.">
+      <created>1484502747629</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1484502747629</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -680,7 +683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="448739000" />
+    <option name="totallyTimeSpent" value="448972000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -746,6 +749,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add to gitignore: idea, upload." />
+    <option name="LAST_COMMIT_MESSAGE" value="add to gitignore: idea, upload." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -969,9 +976,9 @@
         <state relative-caret-position="1620">
           <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding>
-            <element signature="e#3275#3302#1#PHP" expanded="true" />
-            <element signature="e#3737#3768#0#PHP" expanded="true" />
-            <element signature="e#3996#4023#1#PHP" expanded="true" />
+            <element signature="e#3275#3302#1#PHP" expanded="false" />
+            <element signature="e#3737#3768#0#PHP" expanded="false" />
+            <element signature="e#3996#4023#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1078,7 +1085,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+            <element signature="e#124#153#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,7 +1096,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+            <element signature="e#124#181#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1110,14 +1123,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1482436830253" expanded="true" signature="881:945" ph="&lt;IfModule mod_negotiation.c&gt;" />
+            <marker date="1482436830253" expanded="true" signature="947:2936" ph="&lt;IfModule mod_rewrite.c&gt;" />
+            <marker date="1482436830253" expanded="true" signature="2938:3318" ph="&lt;IfModule !mod_rewrite.c&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="270">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
