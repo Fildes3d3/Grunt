@@ -48,7 +48,7 @@ class ArticleRepository extends EntityRepository
     {
         return $this->createQueryBuilder('article_repository')
             ->orderBy('article_repository.article_date', 'DESC')
-            /*->setMaxResults('10')*/
+            ->setMaxResults('3')
             ->getQuery()
             ->execute();
     }

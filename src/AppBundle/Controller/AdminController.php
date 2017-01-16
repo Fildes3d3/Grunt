@@ -44,9 +44,9 @@ class AdminController extends Controller
 
     public function listArticleAction()
     {
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticles();
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAll();
         return $this->render(':Grunt:list.html.twig', [
             'articles' => $articles,
         ]);
