@@ -14,6 +14,7 @@ use AppBundle\Form\ArticleForm;
 use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Paginator\Paginator;
 
 
 
@@ -45,10 +46,11 @@ class AdminController extends Controller
     public function listArticleAction()
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAll();
         return $this->render(':Grunt:list.html.twig', [
-            'articles' => $articles,
+            'articles' => $articles
         ]);
     }
 
