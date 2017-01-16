@@ -10,7 +10,6 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Comment;
-use AppBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;

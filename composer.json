@@ -33,7 +33,7 @@
         "egeloen/ckeditor-bundle": "^4.0",
         "helios-ag/fm-elfinder-bundle": "^6.2",
         "barryvdh/elfinder-flysystem-driver": "^0.2.0",
-        "snipe/banbuilder": "dev"
+        "snipe/banbuilder": "dev-master"
 
     },
     "require-dev": {
@@ -41,7 +41,7 @@
         "symfony/phpunit-bridge": "^3.0",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "nelmio/alice": "^2.2",
-        "snipe/banbuilder": "dev-master",
+
         "phpunit/phpunit": "^5.7"
     },
     "scripts": {
