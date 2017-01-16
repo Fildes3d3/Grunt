@@ -17,3 +17,5 @@
 /upload/*
 !/upload/.gitkeep
 /.idea
+
+!/web/bundles/
