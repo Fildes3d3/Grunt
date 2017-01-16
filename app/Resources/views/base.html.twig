@@ -111,15 +111,15 @@
     </div>
     {% endblock jumbo %}
 {% endblock %}
+{% block footer %}
+    <div class="row">
+        <div class="col-md-12" id="footer">
+            Copyright {{ "now"|date('Y') }}. FildEs Flight Co.
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    {#% set fullArticle = "" %}
-    {% if foundArticle is not null %}
-        {% set fullArticle = foundArticle.postData %}
-    {% else %}
-        {% for articleMain in Main %}
-            {% set fullArticle = articleMain.postData %}
-        {% endfor %}
-    {% endif %#}
 
 {% block javascripts %}
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
@@ -167,14 +167,7 @@
             $(this).find('.panel-collapse').stop().slideUp();
         });
 
-        /*$('#read_more').click(function(){
 
-            $('#read p').replaceWith( '{#{ fullArticle|raw }#}' );
-            $(this).attr('style', 'display:none');
-        });*/
-
-
-    </script>
 {% endblock %}
 </body>
 </html>

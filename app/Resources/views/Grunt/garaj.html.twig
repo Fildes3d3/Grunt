@@ -300,10 +300,22 @@
     </div>
 </div>
 {% endfor %}
-    <div class="row">
-        <div class="col-md-12" id="footer">
-            Copyright 2017. FildEs Flight Co.
-        </div>
-    </div>
-</div>
+{% endblock %}
+{% set fullArticle = "" %}
+    {% if foundArticle is not null %}
+        {% set fullArticle = foundArticle.postData %}
+    {% else %}
+        {% for articleMain in Main %}
+            {% set fullArticle = articleMain.postData %}
+        {% endfor %}
+    {% endif %}
+{% block javascripts %}
+    {{ parent() }}
+
+    $('#read_more').click(function(){
+
+        $('#read p').replaceWith( '{{ fullArticle|raw }}' );
+        $(this).attr('style', 'display:none');
+    });
+    </script>
 {% endblock %}
