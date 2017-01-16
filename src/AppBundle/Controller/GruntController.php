@@ -32,7 +32,7 @@ class GruntController extends Controller
             $page = 'home';
             $comments = null;
             $responses = null;
-            $limit = 2;
+            $limit = 1;
         }
         $categories = ['garaj', 'diy', 'jurnal'];
         $key = array_search($cat, $categories);
