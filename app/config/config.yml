@@ -97,3 +97,4 @@ fm_elfinder:
                         upload_max_size: 2M # also file upload sizes restricted in php.ini
                         attributes: #example of setting attributes permission
                             - { pattern: '/(.*?)/', read: true, write: true, locked: false }
+

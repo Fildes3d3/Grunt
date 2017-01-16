@@ -29,8 +29,7 @@ class CommentController extends Controller
 
             //start censorship
             $censor = new CensorWords;
-            $langs = array('fr','it', 'en-us', 'en-uk', 'ro');
-            $censor->setDictionary($langs);
+            $censor->setDictionary('../src/AppBundle/Dict/ro.php');
             $censor->setReplaceChar("@*!^%#");
             $string = $censor->censorString($comment_data);
             //end censorship

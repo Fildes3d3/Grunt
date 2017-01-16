@@ -111,14 +111,16 @@
     </div>
     {% endblock jumbo %}
 {% endblock %}
-    {% set fullArticle = "" %}
+
+    {#% set fullArticle = "" %}
     {% if foundArticle is not null %}
         {% set fullArticle = foundArticle.postData %}
     {% else %}
         {% for articleMain in Main %}
             {% set fullArticle = articleMain.postData %}
         {% endfor %}
-    {% endif %}
+    {% endif %#}
+
 {% block javascripts %}
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
@@ -165,11 +167,11 @@
             $(this).find('.panel-collapse').stop().slideUp();
         });
 
-        $('#read_more').click(function(){
+        /*$('#read_more').click(function(){
 
-            $('#read p').replaceWith( '{{ fullArticle|raw }}' );
+            $('#read p').replaceWith( '{#{ fullArticle|raw }#}' );
             $(this).attr('style', 'display:none');
-        });
+        });*/
 
 
     </script>

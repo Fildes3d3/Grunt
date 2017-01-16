@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
 
             new AppBundle\AppBundle(),

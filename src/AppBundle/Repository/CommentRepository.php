@@ -22,7 +22,7 @@ class CommentRepository extends EntityRepository
             ->andWhere('comment_repository.comment_category = :comment_category')
             ->setParameter('comment_category', $cat)
             ->orderBy('comment_repository.comment_date', 'DESC')
-            ->setMaxResults('3')
+            /*->setMaxResults('3')*/
             ->getQuery()
             ->execute();
     }
@@ -34,7 +34,7 @@ class CommentRepository extends EntityRepository
     {
         return $this->createQueryBuilder('comment_repository')
             ->orderBy('comment_repository.comment_date', 'DESC')
-            ->setMaxResults('10')
+            /*->setMaxResults('10')*/
             ->getQuery()
             ->execute();
     }
