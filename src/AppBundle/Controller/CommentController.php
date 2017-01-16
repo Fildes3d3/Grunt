@@ -31,7 +31,7 @@ class CommentController extends Controller
             //start censorship
             $censor = new CensorWords;
             $langs = array('fr','it', 'en-us', 'en-uk', 'ro');
-            $badwords = $censor->setDictionary($langs);
+            $censor->setDictionary($langs);
             $censor->setReplaceChar("@*!^%#");
             $string = $censor->censorString($comment_data);
             //end censorship

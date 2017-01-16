@@ -60,11 +60,9 @@
     {% for user in users %}
         <div class="modal fade" id="deleteUserModal{{ user.Id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ user.Id }}">
             <div class="modal-dialog" role="document">
-
                 <div class="alert alert-danger" role="alert">
                     <h2>Esti sigur ca stii ce faci !?</h2>
                     <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
-
                     <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}">
                         <button type="button" class="btn btn-danger">Delete It!</button>
                     </a>

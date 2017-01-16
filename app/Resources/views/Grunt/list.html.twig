@@ -60,16 +60,15 @@
         {% for article in articles %}
         <div class="modal fade" id="deleteArticleModal{{ article.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal{{ article.Id}}">
             <div class="modal-dialog" role="document">
+                <div class="alert alert-danger" role="alert">
+                    <h2>Esti sigur ca stii ce faci !?</h2>
+                    <h4>Daca chiar vrei sa stergi articolul....</h4>
 
-                        <div class="alert alert-danger" role="alert">
-                            <h2>Esti sigur ca stii ce faci !?</h2>
-                            <h4>Daca chiar vrei sa stergi articolul....</h4>
-
-                            <a href="{{ path('grunt_delete', {'id': article.Id }) }}">
-                            <button type="button" class="btn btn-danger">Delete It!</button>
-                            </a>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+                    <a href="{{ path('grunt_delete', {'id': article.Id }) }}">
+                    <button type="button" class="btn btn-danger">Delete It!</button>
+                    </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
         {% endfor %}
