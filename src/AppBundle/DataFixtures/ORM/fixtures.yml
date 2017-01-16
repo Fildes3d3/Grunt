@@ -7,17 +7,16 @@ AppBundle\Entity\User:
         news: <boolean(70)>
 
 AppBundle\Entity\Article:
-    article_{1..10}:
+    article_{1..50}:
         post_title: <text(50)>
         post_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
-        post_data: <img src="<imageUrl($width = 640, $height = 480)>"><sentence(200)>
-        article_date: <(new \DateTime('2016-02-02'))>
-        article_caption: <text(10)>
+        post_data: <img src="<imageUrl($width = 640, $height = 480)>"><sentence(1200)>
+        article_date: <dateTimeBetween($startDate = '-6 months', $endDate = 'now', $timezone = date_default_timezone_get())>
 
 AppBundle\Entity\Comment:
-    comment_{1..30}:
+    comment_{1..300}:
         comment(unique): <sentence(45)>
         comment_category: <(array_rand(['garaj' => 'garaj', 'jurnal' => 'jurnal', 'diy' => 'diy'], 1))>
-        comment_date: <(new \DateTime('2016-02-02'))>
+        comment_date: <dateTimeBetween($startDate = '-6 months', $endDate = 'now', $timezone = date_default_timezone_get())>
         user: '@user_*'
-        article_id: <numberBetween($min = 130, $max = 170)>
+        article_id: <numberBetween($min = 250, $max = 300)>

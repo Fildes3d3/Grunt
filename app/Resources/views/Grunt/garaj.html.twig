@@ -7,12 +7,15 @@
         <div class="row">
             <div class="media">
                 <h2>Am gasit in categoria: {{ category }} <h3><strong><em>{{ foundArticle.PostTitle }}</em></strong></h3></h2>
-                    <div class="caption">
+                    <div class="caption" id="read">
                         <p><em>{{ foundArticle.postData|truncate(1000, true)|raw }}</em></p>
                         <h4><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></h4>
                         <div class="fb-like" data-href="{{  app.request.uri  }}" data-layout="button"
                              data-action="like" data-size="large" data-show-faces="true"
                              data-share="true">
+                        </div>
+                        <div>
+                        <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
                         </div>
                     </div>
             </div>
@@ -110,14 +113,16 @@
         <div class="row">
             <div class="media">
                 <h2>Ultimele Articole {{ category }}</h2>
-                <div class="caption">
+                <div class="caption" id="read">
                     <h3><strong>{{ articleMain.PostTitle }}</strong></h3>
-                    <p><em>{{ articleMain.postData|raw }}</em></p>
+                    <p><em>{{ articleMain.postData|truncate(400)|raw }}</em></p>
                     <h4><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></h4>
                     <div class="fb-like" data-href="{{  app.request.uri  }}" data-layout="button"
                          data-action="like" data-size="large" data-show-faces="true"
                          data-share="true">
                     </div>
+                        <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
+
                 </div>
             </div>
         </div>

@@ -26,6 +26,11 @@ img {
 	max-height: auto;
 }
 
+#read_more {
+	margin-top: 1%;
+	float: left;
+}
+
 td img {
 	float: left;
 	width: 29.5%;
