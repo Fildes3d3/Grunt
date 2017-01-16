@@ -30,6 +30,8 @@ class ArticleForm extends AbstractType
                 'label' => 'Titlu Articol:'
             ))
            ->add('postData', CKEditorType::class, array(
+               'base_path' => 'ckeditor',
+               'js_path'   => 'ckeditor/ckeditor.js',
                'config' => array(
                    'filebrowserBrowseRoute' => 'elfinder',
                    'filebrowserBrowseRouteParameters' => array(
