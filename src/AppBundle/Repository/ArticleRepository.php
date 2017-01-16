@@ -46,9 +46,8 @@ class ArticleRepository extends EntityRepository
      */
     public function findAllArticles()
     {
-        return $this->createQueryBuilder('article_repository')
+        return $dql =  $this->createQueryBuilder('article_repository')
             ->orderBy('article_repository.article_date', 'DESC')
-            ->setMaxResults('3')
             ->getQuery()
             ->execute();
     }

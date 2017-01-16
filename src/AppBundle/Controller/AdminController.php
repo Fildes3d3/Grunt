@@ -14,7 +14,7 @@ use AppBundle\Form\ArticleForm;
 use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Paginator\Paginator;
+
 
 
 
@@ -43,14 +43,26 @@ class AdminController extends Controller
         return $this->render(':Grunt:admin.html.twig', ['articleForm' => $form->createView()]);
     }
 
-    public function listArticleAction()
+    public function listArticleAction(Request $request)
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $dql = "SELECT a FROM AppBundle:Article a";
+        $querry = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $querry,
+            $request->query->getInt('page', 1),
+            3
+        );
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAll();
         return $this->render(':Grunt:list.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
 

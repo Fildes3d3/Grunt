@@ -32,7 +32,8 @@
 
     <div class="panel-body">
         <section>
-            <h2>Articles List:</h2>
+            <h2>Articles List <span class="badge"> Count: {{ pagination.getTotalItemCount }}</span></h2>
+
             <table class="table table-responsive table-hover">
                 <tr>
                     <th>Article ID</th>
@@ -42,22 +43,29 @@
                     <th>Article Content</th>
                     <th colspan="2">Action</th>
                 </tr>
-                {% for article in articles %}
-                <tr>
-                    <td> {{ article.Id}}</td>
-                    <td> {{ article.PostTitle}}</td>
-                    <td> {{ article.postCategory  }}</td>
-                    <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
-                    <td> {{ article.postData|truncate(500, true)|raw }}</td>
-                    <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}">
-                            <button class="btn btn-success"  >Edit</button></a> </td>
-                    <td>
+
+                {# table body #}
+                {% for article in pagination %}
+                    <tr>
+                        <td> {{ article.Id}}</td>
+                        <td> {{ article.PostTitle}}</td>
+                        <td> {{ article.postCategory  }}</td>
+                        <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
+                        <td> {{ article.postData|truncate(500, true)|raw }}</td>
+                        <td> <a href="{{ path('grunt_edit', {'id': article.Id }) }}">
+                                <button class="btn btn-success"  >Edit</button></a> </td>
+                        <td>
                             <button class=" btn btn-danger" data-toggle="modal" data-target="#deleteArticleModal{{ article.Id}}"
                                     type="button">Delete</button>
-                    </td>
-                </tr>
-                {%  endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
             </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
         </section>
         <!--Delete Confirmation Modal -->
         {% for article in articles %}
