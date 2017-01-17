@@ -12,7 +12,7 @@
     </div>
     <div class="panel-body">
         <section>
-            <h2>Comments List:</h2>
+            <h2>Comments List <span class="badge"> Count: {{ comments.getTotalItemCount }}</span></h2>
             <table class="table table-responsive table-hover">
                 <tr>
                     <th>Comment ID</th>
@@ -31,10 +31,12 @@
                     <td> {{ comments.commentCategory }}</td>
                     <td> {{ comments.commentDate|date('Y d M')}}</td>
                     <td> {{ comments.comment }}</td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal"
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#{{ comments.id }}">
                             Vezi Raspunsuri
-                        </button></td>
+                        </button>
+                    </td>
                     <td> <a href="{{ path('comment_edit', {'id':comments.id}) }}">
                             <button class=" btn btn-success"  type="button">Edit</button> </a></td>
                     <td>
@@ -44,6 +46,9 @@
                 </tr>
                 {% endfor %}
             </table>
+            <div class="navigation">
+                {{ knp_pagination_render(comments) }}
+            </div>
         </section>
     </div>
 </div>

@@ -80,18 +80,32 @@ class CommentController extends Controller
         }
     }
 
-    public function listCommentAction() {
+    public function listCommentAction(Request $request) {
 
-        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAllComments();
-        $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
-            ->findAll();
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
+        $em = $this->get('doctrine.orm.entity_manager');
+        $comments = "SELECT a FROM AppBundle:Comment a";
+
+        $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
+            ->findAll();
+
+        $commentsquerry = $em->createQuery($comments);
+
+
+        $paginator = $this->get('knp_paginator');
+        $commentspagination = $paginator->paginate(
+            $commentsquerry,
+            $request->query->getInt('page', 1),
+            3
+        );
+
+
         return $this->render('Grunt/listComments.html.twig', [
-            'comments' => $comments,
             'responses' => $responses,
+            'comments' => $commentspagination
+
         ]);
 
     }

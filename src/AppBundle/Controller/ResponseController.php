@@ -33,8 +33,7 @@ class ResponseController extends Controller
 
             //start censorship
             $censor = new CensorWords;
-            $langs = array('fr','it', 'en-us', 'en-uk', 'ro');
-            $badwords = $censor->setDictionary($langs);
+            $badwords = $censor->setDictionary('../src/AppBundle/Dict/ro.php');
             $censor->setReplaceChar("@*!^%#");
             $string = $censor->censorString($response_data);
             //end censorship
