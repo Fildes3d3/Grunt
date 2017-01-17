@@ -1,0 +1,52 @@
+<!-- Comment Response Modal -->
+{% for comment in comments %}
+<div class="modal fade" id="commentRespModal{{ comment.id }}" tabindex="-1" role="dialog" aria-labelledby="commentRespModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            {% for articleMain in Main %}
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">
+                        <em>Zii tu....daca te pricepi mai bine....</em></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for flashMessage in app.session.flashbag.get('succes') %}
+                        <div class="panel-heading">
+                            <div class="alert alert-success alert-dismissable" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h2>{{ flashMessage }}</h2>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for flashMessage in app.session.flashbag.get('comment_exist') %}
+                        <div class="panel-body">
+                            <div class="panel-heading">
+                                <div class="alert alert-warning alert-dismissable" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h2>{{ flashMessage }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <form method="post" id="commentform" name="commentform" enctype="multipart/form-data"
+                          action="{{ path ('response_new', {'page' : articleMain.postCategory}) }}">
+                        <input type="hidden"  name="articleId" value="{{ articleMain.Id }}">
+                        <input type="hidden"  name="commentId" value="{{ comment.id }}">
+                        <textarea id="comment-response" name="comment-response" class="form-control" rows="4" ></textarea>
+                        <div class="row">
+                            <div class="col-xs-2 padding-top-10">
+                                <button type="submit" class="btn btn-info">Trimite Raspuns</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
