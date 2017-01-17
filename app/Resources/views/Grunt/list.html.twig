@@ -68,7 +68,7 @@
 
         </section>
         <!--Delete Confirmation Modal -->
-        {% for article in articles %}
+        {% for article in pagination %}
         <div class="modal fade" id="deleteArticleModal{{ article.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal{{ article.Id}}">
             <div class="modal-dialog" role="document">
                 <div class="alert alert-danger" role="alert">

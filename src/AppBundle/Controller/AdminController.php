@@ -55,13 +55,10 @@ class AdminController extends Controller
         $pagination = $paginator->paginate(
             $querry,
             $request->query->getInt('page', 1),
-            3
+            2
         );
 
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAll();
         return $this->render(':Grunt:list.html.twig', [
-            'articles' => $articles,
             'pagination' => $pagination
         ]);
     }
@@ -105,13 +102,24 @@ class AdminController extends Controller
 
 
 
-    public  function  listUserAction()
+    public  function  listUserAction(Request $request)
     {
-        $users = $this->getDoctrine()->getRepository('AppBundle:User')
-            ->findAll();
         $this->denyAccessUnlessGranted('ROLE_BOSS');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $dql = "SELECT a FROM AppBundle:USER a";
+        $querry = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $querry,
+            $request->query->getInt('page', 1),
+            8
+        );
+
         return $this->render(':Grunt:listUsers.html.twig', [
-            'users' => $users
+
+            'pagination' => $pagination
         ]);
     }
 

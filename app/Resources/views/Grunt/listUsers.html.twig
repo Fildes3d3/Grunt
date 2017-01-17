@@ -12,7 +12,7 @@
     </div>
     <div class="panel-body">
         <section>
-            <h2>Articles List:</h2>
+            <h2>Users List <span class="badge"> Count: {{ pagination.getTotalItemCount }}</span></h2>
             <table class="table table-responsive table-hover">
                 <tr>
                     <th>User Id</th>
@@ -22,7 +22,7 @@
                     <th>Roles</th>
                     <th colspan="2">Action</th>
                 </tr>
-                {% for user in users %}
+                {% for user in pagination %}
                 {% if user.Roles|json_encode != '["ROLE_ADMIN","ROLE_BOSS","ROLE_USER"]'%}
                 <tr>
                     <td> {{ user.Id}}</td>
@@ -53,11 +53,16 @@
                 {% endif %}
                 {%  endfor %}
             </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
         </section>
     </div>
 </div>
     <!--DeleteUser Confirmation Modal -->
-    {% for user in users %}
+    {% for user in pagination %}
         <div class="modal fade" id="deleteUserModal{{ user.Id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ user.Id }}">
             <div class="modal-dialog" role="document">
                 <div class="alert alert-danger" role="alert">
