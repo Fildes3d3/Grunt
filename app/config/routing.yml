@@ -12,36 +12,33 @@ grunt_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Grunt:contact }
 
-grunt_admin:
-    path:     /admin
+article_new:
+    path:     /article
     defaults: { _controller: AppBundle:Admin:newArticle}
-grunt_list:
+article_list:
     path:     /list
     defaults: { _controller: AppBundle:Admin:listArticle}
-grunt_edit:
+article_edit:
     path:     /edit/{id}
     defaults: { _controller: AppBundle:Admin:editArticle}
-grunt_delete:
+article_delete:
     path:     /delete/{id}
     defaults: { _controller: AppBundle:Admin:deleteArticle}
 
-grunt_user:
+user_list:
     path:     /user
     defaults: { _controller: AppBundle:Admin:listUser}
-grunt_user_admin:
+user_admin:
     path:     /adminuser/{id}
     defaults: { _controller: AppBundle:Admin:adminUser}
-grunt_user_standard:
+user_standard:
     path:     /standarduser/{id}
     defaults: { _controller: AppBundle:Admin:standardUser}
-grunt_user_delete:
+user_delete:
     path:     /deleteuser/{id}
     defaults: { _controller: AppBundle:Admin:deleteUser}
 
-comment_garaj:
-    path:     /comment/{page}
-    defaults: { _controller: AppBundle:Comment:newComment}
-response_garaj:
+response_new:
     path:     /response/{page}
     defaults: { _controller: AppBundle:Response:newCommentResponse}
 response_delete:
@@ -51,6 +48,9 @@ response_edit:
     path:     /editresponse/{id}
     defaults: { _controller: AppBundle:Response:editCommentResponse}
 
+comment_new:
+    path:     /comment/{page}
+    defaults: { _controller: AppBundle:Comment:newComment}
 comment_list:
     path: /listComments
     defaults: { _controller: AppBundle:Comment:listComment}
@@ -69,12 +69,9 @@ security_logout:
     path:     /logout
     defaults: { _controller: AppBundle:Security:login}
 
-grunt_garaj:
-    path:     /{page}
-    defaults: { _controller: AppBundle:Grunt:show, id: null}
-grunt_article:
+grunt:
     path: /{page}/{id}
-    defaults: { _controller: AppBundle:Grunt:show }
+    defaults: { _controller: AppBundle:Grunt:show, id: null}
 
 
 

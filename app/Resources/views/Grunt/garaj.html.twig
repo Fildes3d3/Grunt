@@ -47,7 +47,7 @@
                 {% endfor %}
                 <div class="panel-body">
                     <form method="post" id="commentform" name="commentform" enctype="multipart/form-data"
-                        action="{{ path ('comment_garaj', {'page' : foundArticle.PostCategory}) }}">
+                        action="{{ path ('comment_new', {'page' : foundArticle.PostCategory}) }}">
                     <h4>Baga Comentariul...</h4>
                         <input type="hidden"  name="articleId" value="{{ foundArticle.Id }}">
                         <textarea id="comment" name="comment" class="form-control" rows="4" ></textarea>
@@ -153,7 +153,7 @@
                         </div>
                         <div class="panel-body">
                             <form method="post" id="commentform" name="commentform" enctype="multipart/form-data"
-                                action="{{ path ('comment_garaj', {'page' : articleMain.postCategory}) }}">
+                                action="{{ path ('comment_new', {'page' : articleMain.postCategory}) }}">
                                 <h4>Baga Comentariul...</h4>
                                 <input type="hidden"  name="articleId" value="{{ articleMain.Id }}">
                                 <textarea id="comment" name="comment" class="form-control" rows="4" ></textarea>
@@ -224,7 +224,7 @@
                         <div class="caption">
                             <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                             <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
-                            <a href="{{ path('grunt_article', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info">Citeste mai departe...</a>
+                            <a href="{{ path('grunt', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                         </div>
                     {% endfor %}
                 </div>
@@ -238,7 +238,7 @@
                         <div class="caption">
                             <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
                             <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
-                            <a href="{{ path('grunt_article', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
+                            <a href="{{ path('grunt', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                         </div>
                     {% endfor %}
                 </div>
@@ -283,7 +283,7 @@
                     </div>
                 {% endfor %}
                     <form method="post" id="commentform" name="commentform" enctype="multipart/form-data"
-                          action="{{ path ('response_garaj', {'page' : articleMain.postCategory}) }}">
+                          action="{{ path ('response_new', {'page' : articleMain.postCategory}) }}">
                         <input type="hidden"  name="articleId" value="{{ articleMain.Id }}">
                         <input type="hidden"  name="commentId" value="{{ comment.id }}">
                         <textarea id="comment-response" name="comment-response" class="form-control" rows="4" ></textarea>

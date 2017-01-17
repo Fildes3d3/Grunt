@@ -3,7 +3,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>The Daily Grunt Post Management</h1>
-        <a href="{{ path('grunt_list') }}">
+        <a href="{{ path('article_list') }}">
             <button class="btn btn-primary">Manage Articles</button>
         </a>
         <a href="{{ path('comment_list') }}">
@@ -39,10 +39,10 @@
                         {% endif %}
                     </td>
                     {% if user.Roles|json_encode == '["ROLE_USER"]'  %}
-                    <td> <a href="{{ path('grunt_user_admin', {'id': user.Id }) }}">
+                    <td> <a href="{{ path('user_admin', {'id': user.Id }) }}">
                             <button class=" btn btn-success" id="upgrade_user" type="button">Make Admin  </button> </a></td>
                     {% elseif user.Roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
-                        <td> <a href="{{ path('grunt_user_standard', {'id': user.Id }) }}">
+                        <td> <a href="{{ path('user_standard', {'id': user.Id }) }}">
                                 <button class=" btn btn-success" id="upgrade_user" type="button">Remv Admin</button> </a></td>
                     {% endif %}
                     <td>
@@ -68,7 +68,7 @@
                 <div class="alert alert-danger" role="alert">
                     <h2>Esti sigur ca stii ce faci !?</h2>
                     <h4>Daca chiar vrei sa stergi utilizatorul....</h4>
-                    <a href="{{ path('grunt_user_delete', {'id': user.Id }) }}">
+                    <a href="{{ path('user_delete', {'id': user.Id }) }}">
                         <button type="button" class="btn btn-danger">Delete It!</button>
                     </a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

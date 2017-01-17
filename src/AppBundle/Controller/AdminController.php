@@ -36,7 +36,7 @@ class AdminController extends Controller
                 . $article->getPostCategory().
                 ' verifica pagina de destinatie pentru confirmare');
 
-            return $this->redirectToRoute('grunt_list');
+            return $this->redirectToRoute('article_list');
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -78,7 +78,7 @@ class AdminController extends Controller
                 ' verifica pagina de destinatie pentru confirmare');
 
             $em->flush();
-            return $this->redirectToRoute('grunt_list');
+            return $this->redirectToRoute('article_list');
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -97,7 +97,7 @@ class AdminController extends Controller
         $em->flush();
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        return $this->redirectToRoute('grunt_list');
+        return $this->redirectToRoute('article_list');
     }
 
 
@@ -131,7 +131,7 @@ class AdminController extends Controller
         $em->flush();
 
         $this->denyAccessUnlessGranted('ROLE_BOSS');
-        return $this->redirectToRoute('grunt_user');
+        return $this->redirectToRoute('user_list');
     }
 
     public function standardUserAction($id)
@@ -142,7 +142,7 @@ class AdminController extends Controller
         $em->flush();
 
         $this->denyAccessUnlessGranted('ROLE_BOSS');
-        return $this->redirectToRoute('grunt_user');
+        return $this->redirectToRoute('user_list');
     }
 
     public function deleteUserAction($id)
@@ -153,6 +153,6 @@ class AdminController extends Controller
         $em->flush();
 
         $this->denyAccessUnlessGranted('ROLE_BOSS');
-        return $this->redirectToRoute('grunt_user');
+        return $this->redirectToRoute('user_list');
     }
 }
