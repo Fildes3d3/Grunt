@@ -50,7 +50,7 @@ class CommentController extends Controller
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
 
-                return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
+                return $this->redirectToRoute('grunt', array('page' => $comment_cat, 'id' => $articleId));
 
             }elseif (!$comment_data){
                 $this->addFlash(
@@ -75,7 +75,7 @@ class CommentController extends Controller
 
         $this->addFlash('succes', 'Bravo '. $this->getUser()->getUsername() . ' ai reusit, sa comentezi...');
 
-        return $this->redirectToRoute('grunt_article', array('page' => $comment_cat, 'id' => $articleId));
+        return $this->redirectToRoute('grunt', array('page' => $comment_cat, 'id' => $articleId));
 
         }
     }
