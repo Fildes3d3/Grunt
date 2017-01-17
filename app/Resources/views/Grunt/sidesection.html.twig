@@ -2,26 +2,13 @@
     <div class="row">
         <div class="container-fluid">
             <div class="thumbnail">
-                {% for articleSide in Side %}
+
+                {% for articleSide in Main if articleSide.postCategory not in app.request.uri %}
                     <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
                     <div class="caption">
                         <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
                         <a href="{{ path('grunt', {'page' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info">Citeste mai departe...</a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="container-fluid">
-            <div class="thumbnail">
-                {% for articleAside in Aside %}
-                    <h4>Ultimele Articole {{ articleAside.postCategory|capitalize}}</h4>
-                    <div class="caption">
-                        <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt', {'page' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
                     </div>
                 {% endfor %}
             </div>

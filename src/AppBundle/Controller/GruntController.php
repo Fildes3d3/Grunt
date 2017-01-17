@@ -24,7 +24,6 @@ class GruntController extends Controller
             $page = 'garaj';
             $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
                 ->findAllCommentsLimit($cat);
-            $limit = 1;
             $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
                 ->findAll();
         }else{
@@ -32,30 +31,16 @@ class GruntController extends Controller
             $page = 'home';
             $comments = null;
             $responses = null;
-            $limit = 1;
+
         }
-        $categories = ['garaj', 'diy', 'jurnal'];
-        $key = array_search($cat, $categories);
-        unset($categories[$key]);
-        $side = array_values($categories);
 
         $articlesMain = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($cat, $limit);
-        $articlesSide = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($side['0'], $limit);
-        $articlesAside = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticlesLimit($side['1'], $limit);
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
-            ->findAllArticles();
+            ->findAll();
 
         return $this->render(':Grunt:'.$page.'.html.twig', [
             'responses' => $responses,
             'comments' => $comments,
             'Main' => $articlesMain,
-            'Side' => $articlesSide,
-            'Aside' => $articlesAside,
-            'category' => ucfirst($cat),
-            'article' => $articles,
             'foundArticle' => $foundArticle,
         ]);
     }

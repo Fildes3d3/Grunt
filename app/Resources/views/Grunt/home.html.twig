@@ -14,7 +14,7 @@
             {% if app.request.attributes.get('_route') == 'security_login'%}
             {% else %}
             <div class="col-md-3">
-            {% for articleMain in Main %}
+            {% for articleMain in Main if articleMain.postCategory == 'garaj' %}
                 <h3>{{ articleMain.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
@@ -27,7 +27,7 @@
             {% endfor %}
             </div>
             <div class="col-md-3">
-            {% for articleSide in Side %}
+            {% for articleSide in Main if articleSide.postCategory == 'jurnal' %}
                 <h3>{{ articleSide.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
@@ -39,7 +39,7 @@
             {% endfor %}
             </div>
             <div class="col-md-3">
-            {% for articleAside in Aside %}
+            {% for articleAside in Main if articleAside.postCategory == 'diy'%}
                 <h3>{{ articleAside.PostTitle }}</h3>
                 <div class="media">
                     <div class="media-body">
@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-3" id="side_main">
                 <h2>Arhiva</h2>
-            {% for article in article %}
+            {% for article in Main %}
                 <ul>
                     <a href="{{ path('grunt', {'page': article.postCategory, 'id' : article.id }) }}" >
                     <li>
