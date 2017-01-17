@@ -7,6 +7,7 @@
         {{ include(':Grunt:foundarticle.html.twig') }}
     {% else %}
         {% for articleMain in Main if articleMain.postCategory in app.request.uri %}
+        {% if loop.first %}
         <div class="row">
             <div class="media">
                 <h2>Ultimele Articole {{ articleMain.postCategory|upper }}</h2>
@@ -19,11 +20,25 @@
                          data-share="true">
                     </div>
                         <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
-
                 </div>
             </div>
         </div>
         {{ include(':Grunt:commentsection.html.twig') }}
+        {% else %}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="media">
+                    <div class="caption" id="read">
+                        <h4><strong>{{ articleMain.PostTitle }}</strong></h4>
+                        <p><em>{{ articleMain.postData|truncate(100)|raw }}</em></p>
+                        <h5><em><strong>Din: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></h5>
+
+                        <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     {% endif %}
     </div>

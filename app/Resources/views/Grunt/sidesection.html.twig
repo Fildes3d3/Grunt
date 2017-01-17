@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="thumbnail">
 
-                {% for articleSide in Main if articleSide.postCategory not in app.request.uri %}
+                {% for articleSide in Main|sort|slice(0, 3) if articleSide.postCategory not in app.request.uri %}
                     <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
                     <div class="caption">
                         <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
