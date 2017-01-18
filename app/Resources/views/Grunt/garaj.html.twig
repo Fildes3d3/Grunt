@@ -19,11 +19,11 @@
                          data-action="like" data-size="large" data-show-faces="true"
                          data-share="true">
                     </div>
-                        <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
+                    <a href="{{ path('grunt', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}"
+                       class="btn btn-info" > Citeste mai departe...</a>
                 </div>
             </div>
         </div>
-        {{ include(':Grunt:commentsection.html.twig') }}
         {% else %}
         <div class="row">
             <div class="col-md-4">
@@ -33,7 +33,8 @@
                         <p><em>{{ articleMain.postData|truncate(100)|raw }}</em></p>
                         <h5><em><strong>Din: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></h5>
 
-                        <button id="read_more" class="btn btn-info" > Citeste mai departe...</button>
+                        <a href="{{ path('grunt', {'page' : articleMain.postCategory, 'id' : articleMain.id }) }}"
+                           class="btn btn-info" > Citeste mai departe...</a>
                     </div>
                 </div>
             </div>

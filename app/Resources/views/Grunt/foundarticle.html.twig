@@ -1,8 +1,8 @@
 <div class="row">
     <div class="media">
-        <h2>Am gasit in categoria: {{ foundArticle.postCategory }} <h3><strong><em>{{ foundArticle.PostTitle }}</em></strong></h3></h2>
+        <h2>Am gasit in categoria: {{ foundArticle.postCategory }} {{ foundArticle.id }}<h3><strong><em>{{ foundArticle.PostTitle }}</em></strong></h3></h2>
         <div class="caption" id="read">
-            <p><em>{{ foundArticle.postData|truncate(1000, true)|raw }}</em></p>
+            <p><em>{{ foundArticle.postData|raw }}</em></p>
             <h4><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></h4>
             <div class="fb-like" data-href="{{  app.request.uri  }}" data-layout="button"
                  data-action="like" data-size="large" data-show-faces="true"
