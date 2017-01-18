@@ -69,8 +69,11 @@ security_logout:
     path:     /logout
     defaults: { _controller: AppBundle:Security:login}
 
+home:
+    path:     /home
+    defaults: { _controller: AppBundle:Grunt:home }
 grunt:
-    path: /{page}/{id}
+    path: /{pagina}/{id}
     defaults: { _controller: AppBundle:Grunt:show, id: null, page: null}
 
 

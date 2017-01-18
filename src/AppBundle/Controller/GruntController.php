@@ -18,30 +18,57 @@ class GruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $foundArticle = $em->getRepository('AppBundle:Article')->findOneById($id);
-        $url = explode("/",$request->getPathInfo());
-        if (in_array($url['1'], ['garaj', 'diy', 'jurnal', 'contact'])) {
-            $cat = $url['1'];
-            $page = 'garaj';
-            $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-                ->findAllCommentsLimit($cat);
-            $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
-                ->findAll();
-        }else{
-            $cat = 'garaj';
-            $page = 'home';
-            $comments = null;
-            $responses = null;
-
-        }
-
-        $articlesMain = $this->getDoctrine()->getRepository('AppBundle:Article')
+        $articles = $em->getRepository('AppBundle:Article')->findAll();
+        $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
+            ->findAll();
+        $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
             ->findAll();
 
-        return $this->render(':Grunt:'.$page.'.html.twig', [
+        $url = $request->get('pagina');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $dql = "SELECT a FROM AppBundle:Article a WHERE a.post_category = '$url' ";
+        $querry = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $querry,
+            $request->query->getInt('page', 1),
+           4
+        );
+
+
+
+        return $this->render(':Grunt:garaj.html.twig', [
+            'articles' => $articles,
             'responses' => $responses,
             'comments' => $comments,
-            'Main' => $articlesMain,
+            'Main' => $pagination,
             'foundArticle' => $foundArticle,
+        ]);
+    }
+
+    public function homeAction(Request $request)
+    {
+
+        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
+            ->findAll();
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $dql = "SELECT a FROM AppBundle:Article a";
+        $querry = $em->createQuery($dql);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $querry,
+            $request->query->getInt('page', 1),
+            3
+        );
+
+
+        return $this->render(':Grunt:home.html.twig', [
+            'Main' => $pagination,
+            'articles' => $articles
         ]);
     }
 
