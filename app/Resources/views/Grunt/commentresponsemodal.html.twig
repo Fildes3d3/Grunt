@@ -4,6 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             {% for articleMain in Main %}
+                {% if comment.articleId == articleMain.Id %}
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">
                         <em>Zii tu....daca te pricepi mai bine....</em></h3>
@@ -45,6 +46,7 @@
                     </form>
 
                 </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

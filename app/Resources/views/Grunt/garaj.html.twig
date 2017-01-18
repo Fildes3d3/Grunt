@@ -10,7 +10,7 @@
         {% if loop.first %}
         <div class="row">
             <div class="media">
-                <h2>Ultimele Articole {{ articleMain.postCategory|upper }}</h2>
+                <h2>Ultimele Articole {{ articleMain.postCategory|upper }}{{ articleMain.id }}</h2>
                 <div class="caption" id="read">
                     <h3><strong>{{ articleMain.PostTitle }}</strong></h3>
                     <p><em>{{ articleMain.postData|truncate(400)|raw }}</em></p>

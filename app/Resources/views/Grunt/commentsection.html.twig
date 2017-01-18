@@ -41,7 +41,7 @@
                 {% for comment in comments %}
                     {% if articleMain.Id == comment.ArticleId %}
                         <li>
-                            <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span>
+                            <p><span class="glyphicon glyphicon-user"> Comentariul lui: art{{ articleMain.Id }} comm{{ comment.ArticleId }} </span>
                                 <em> {{ comment.user.username }} </em></p>
                             <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
                                 <em> {{ comment.commentDate|date('Y d M') }} </em></p>
