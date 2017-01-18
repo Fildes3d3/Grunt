@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba31400a-09e0-4249-a533-fb334d2b28fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/foundarticle.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/foundarticle.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Grunt/sidesection.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Grunt/sidesection.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/GruntController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/GruntController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="Grunt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,12 +36,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="24" column="79" lean-forward="false" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
-              <folding />
+            <state relative-caret-position="368">
+              <caret line="31" column="44" lean-forward="false" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+              <folding>
+                <element signature="e#1203#1207#0#Twig" expanded="true" />
+                <element signature="e#1540#1544#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+              <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
               <folding>
                 <element signature="e#1880#1885#0#Twig" expanded="true" />
                 <element signature="e#2613#2618#0#Twig" expanded="true" />
@@ -74,7 +68,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
               <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-              <folding />
+              <folding>
+                <element signature="e#2180#2191#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +90,7 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
+            <state relative-caret-position="486">
               <caret line="69" column="54" lean-forward="false" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
               <folding />
             </state>
@@ -105,17 +101,19 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/sidesection.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-              <folding />
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+              <folding>
+                <element signature="e#633#638#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GruntController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GruntController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/GruntController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+              <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
               <folding>
                 <element signature="e#124#181#0#PHP" expanded="true" />
                 <element signature="e#425#444#1#PHP" expanded="true" />
@@ -137,7 +135,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ArticleRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
-              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+              <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -248,13 +246,13 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/garaj.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/foundarticle.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/GruntController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Grunt/sidesection.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       </list>
     </option>
   </component>
@@ -852,7 +850,7 @@
       <workItem from="1484670369676" duration="38000" />
       <workItem from="1484672585792" duration="16000" />
       <workItem from="1484674640197" duration="73000" />
-      <workItem from="1484767167636" duration="12675000" />
+      <workItem from="1484767167636" duration="13236000" />
     </task>
     <task id="LOCAL-00001" summary="add to gitignore: idea, upload.">
       <created>1484502747629</created>
@@ -901,7 +899,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="517263000" />
+    <option name="totallyTimeSpent" value="517824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1262,14 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="24" column="79" lean-forward="false" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -1282,14 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="677">
           <caret line="110" column="41" lean-forward="false" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="69" column="54" lean-forward="false" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1308,14 +1290,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-          <folding />
+          <folding>
+            <element signature="e#2180#2191#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ArticleRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1323,15 +1307,17 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/sidesection.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding />
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding>
+            <element signature="e#633#638#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Grunt/home.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
           <folding>
             <element signature="e#1880#1885#0#Twig" expanded="true" />
             <element signature="e#2613#2618#0#Twig" expanded="true" />
@@ -1343,7 +1329,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/GruntController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+          <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
           <folding>
             <element signature="e#124#181#0#PHP" expanded="true" />
             <element signature="e#425#444#1#PHP" expanded="true" />
@@ -1356,6 +1342,25 @@
             <marker date="1484779996097" expanded="true" signature="865:899" ph="SELECT a FRO... AppBundle" />
             <marker date="1484779996097" expanded="true" signature="865:929" ph="SELECT a FRO... AppBundle" />
             <marker date="1484779996097" expanded="true" signature="1667:1700" ph="SELECT a FRO... AppBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="69" column="54" lean-forward="false" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="31" column="44" lean-forward="false" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <element signature="e#1203#1207#0#Twig" expanded="true" />
+            <element signature="e#1540#1544#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

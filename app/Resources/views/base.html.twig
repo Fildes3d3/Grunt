@@ -22,14 +22,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id="brand" href="{{ path ('grunt', {'pagina' : 'home'}) }}">
+            <a class="navbar-brand" id="brand" href="{{ path ('home') }}">
                 <img src="{{ asset ('images/logo.png') }}" />
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-container">
             <ul class="nav navbar-nav">
                 <li{% if 'home' in app.request.uri %} class = "active" {% endif%}>
-                    <a href="{{ path ('grunt', {'pagina' : 'home'}) }}">
+                    <a href="{{ path ('home') }}">
                         <span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li{% if 'garaj' in app.request.uri %} class = "active" {% endif%}>
                     <a href="{{ path ('grunt', {'pagina' : 'garaj'}) }}">
