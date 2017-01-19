@@ -56,7 +56,7 @@ class ResponseController extends Controller
                     'Prietene... chiar este nevoie sa te repeti ?!'
                 );
 
-                return $this->redirectToRoute('grunt', array('page' => $response_cat, 'id' => $articleId));
+                return $this->redirectToRoute('grunt', array('pagina' => $response_cat, 'id' => $articleId));
 
             }elseif (!$response_data){
                 $this->addFlash(
@@ -64,7 +64,7 @@ class ResponseController extends Controller
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
 
-                return $this->redirectToRoute('grunt', array('page' => $response_cat, 'id' => $articleId));
+                return $this->redirectToRoute('grunt', array('pagina' => $response_cat, 'id' => $articleId));
             }
             /** @var EntityManager $em */
             $em = $this->getDoctrine()->getManager();
@@ -83,7 +83,7 @@ class ResponseController extends Controller
 
         $this->addFlash('succes', 'Bravo '. $this->getUser()->getUsername() . ' ai reusit, sa comentezi...');
 
-        return $this->redirectToRoute('grunt', array('page' => $response_cat, 'id' => $articleId));
+        return $this->redirectToRoute('grunt', array('pagina' => $response_cat, 'id' => $articleId));
 
         }
     }
