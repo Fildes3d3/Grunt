@@ -78,6 +78,6 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
 
     protected function getDefaultSuccessRedirectUrl()
     {
-        return $this->router->generate('grunt', ['page' => 'home']);
+        return $this->router->generate('home');
     }
 }
