@@ -10,49 +10,28 @@
             </div>
         </div>
     {% endfor %}
-        <div class="row">
+         <div class="row">
             {% if app.request.attributes.get('_route') != 'security_login'%}
-            {% for articleMain in Main if articleMain.postCategory == 'garaj' %}
-            <div class="col-md-3">
-                <h3>{{ articleMain.PostTitle }}</h3>
+            <div class="col-md-9 home">
+                {% for articleMain in Main %}
+                <a href="{{ path('grunt', {'pagina' : articleMain.postCategory, 'id' : articleMain.id }) }}">
+                <h2>{{ articleMain.PostTitle }}</h2>
                 <div class="media">
                     <div class="media-body">
                         <p><em>{{ articleMain.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt', {'pagina' : articleMain.postCategory, 'id' : articleMain.id }) }}"
-                           class="btn btn-info" > Citeste mai departe...</a>
+                        <button class="btn btn-info" > Citeste mai departe...</button>
                     </div>
                 </div>
+                </a>
+                    <hr>
+                {% endfor %}
             </div>
-            {% endfor %}
-            {% for articleSide in Main if articleSide.postCategory == 'jurnal' %}
-            <div class="col-md-3">
-                <h3>{{ articleSide.PostTitle }}</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt', {'pagina' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info"> Citeste mai departe...</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            {% for articleAside in Main if articleAside.postCategory == 'diy'%}
-            <div class="col-md-3">
-                <h3>{{ articleAside.PostTitle }}</h3>
-                <div class="media">
-                    <div class="media-body">
-                        <p><em>{{ articleAside.postData|truncate(400, true)|raw }}</em></p>
-                        <p><em><strong>Scris maiastru in anul domnului: {{ articleAside.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt', {'pagina' : articleAside.postCategory, 'id' : articleAside.id }) }}" class="btn btn-info">Citeste mai departe...</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+
             <div class="col-md-3" id="side_main">
                 <h2>Arhiva</h2>
-            {% for article in articles %}
                 <ul>
+                {% for article in articles %}
                     <a href="{{ path('grunt', {'pagina': article.postCategory, 'id' : article.id }) }}" >
                     <li>
                         <em>Din: </em><stronger>{{ article.ArticleDate|date('Y d M') }} </stronger></br>
@@ -60,8 +39,8 @@
                         <em>In categoria: </em><strong>{{ article.PostCategory }} </strong></br>
                     </li>
                     </a>
+                {% endfor %}
                 </ul>
-            {% endfor %}
             </div>
         </div>
 

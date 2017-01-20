@@ -85,11 +85,11 @@
         </div>
     </div>
 </nav>
+
 {% endblock %}
 {% block body %}
-    {% block jumbo %}
 <div class="container">
-
+    {% block jumbo %}
     <div class="jumbotron">
         {% if app.request.attributes.get('_route') == 'security_login'  %}
             {% if error %}
@@ -152,9 +152,9 @@
             $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
         });
 
-        $(".thumbnail img").each(function() {
+        /*$(".thumbnail img").each(function() {
             $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
-        });
+        });*/
 
         $(".thumbnail iframe").each(function(){
             $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');

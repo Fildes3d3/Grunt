@@ -5,11 +5,13 @@
 
                 {% for articleSide in articles|sort|slice(0, 3) if articleSide.postCategory not in app.request.uri %}
                     <h4>Ultimele Articole {{ articleSide.postCategory|capitalize }} </h4>
+                    <a href="{{ path('grunt', {'pagina' : articleSide.postCategory, 'id' : articleSide.id }) }}">
                     <div class="caption">
                         <p><em>{{ articleSide.postData|truncate(400, true)|raw }}</em></p>
                         <p><em><strong>Scris maiastru in anul domnului: {{ articleSide.ArticleDate|date('Y') }}</strong></em></p>
-                        <a href="{{ path('grunt', {'pagina' : articleSide.postCategory, 'id' : articleSide.id }) }}" class="btn btn-info">Citeste mai departe...</a>
+                        <button class="btn btn-info">Citeste mai departe...</button>
                     </div>
+                     </a>
                 {% endfor %}
             </div>
         </div>

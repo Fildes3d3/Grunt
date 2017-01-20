@@ -15,8 +15,8 @@
                     <h3><strong>{{ articleMain.PostTitle }}</strong></h3>
                     <p><em>{{ articleMain.postData|truncate(400)|raw }}</em></p>
                     <h4><em><strong>Scris maiastru in anul domnului: {{ articleMain.ArticleDate|date('Y d M') }}</strong></em></h4>
-                    <a href="{{ path('grunt', {'pagina' : articleMain.postCategory, 'id' : articleMain.id }) }}"
-                       class="btn btn-info" > Citeste mai departe...</a>
+                    <a href="{{ path('grunt', {'pagina' : articleMain.postCategory, 'id' : articleMain.id }) }}">
+                        <button class="btn btn-info" > Citeste mai departe...</button></a>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 #navbar-container{
 	max-height: 440px;
 }
+
 #footer {
 	text-align: center;
 	margin-top: 5%;
@@ -9,12 +10,31 @@
 img {
     max-width:100%;
 }
+#side_main {
+	float:right;
+}
+.thumbnail a  {
+	text-decoration: none;
+	color: inherit;
+}
+.home img {
+	float: right;
+	width: 20%;
+	height: auto;
+	border: 1px solid lightgrey;
+	/*padding: 0.5%;*/
+	margin: 2%;
+}
+.home a{
+	text-decoration: none;
+	color: inherit;
+}
 .col-md-8 img {
 	float: left;
     width: 60%;
 	height: 96%;
 	border: 1px solid lightgrey;
-	padding: 1%;
+	/*padding: 1%;*/
 	margin: 2%;
 }
 .col-md-3 img {
@@ -24,7 +44,7 @@ img {
 
 .col-md-4 img {
 	max-width: 100%;
-	max-height: auto;
+	height: auto;
 }
 
 #read_more {
