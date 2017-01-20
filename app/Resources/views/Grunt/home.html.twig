@@ -31,15 +31,63 @@
             <div class="col-md-3" id="side_main">
                 <h2>Arhiva</h2>
                 <ul>
-                {% for article in articles %}
-                    <a href="{{ path('grunt', {'pagina': article.postCategory, 'id' : article.id }) }}" >
-                    <li>
-                        <em>Din: </em><stronger>{{ article.ArticleDate|date('Y d M') }} </stronger></br>
-                        <em>Despre: </em><strong>{{ article.PostTitle }} </strong></br>
-                        <em>In categoria: </em><strong>{{ article.PostCategory }} </strong></br>
+
+                    <li class="response">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h3 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion1"
+                                           href="#collapseJan" aria-expanded="true"
+                                           aria-controls="collapseOne">
+                                            <em>  Ianuarie </em></a>
+                                    </h3>
+                                    </div>
+
+                                <div id="collapseJan" class="panel-collapse collapse"
+                                     role="tabpanel" aria-labelledby="headingOne">
+                                    {% for article in articles if article.ArticleDate|date('M') == 'Jan' %}
+                                    <a href="{{ path('grunt', {'pagina': article.postCategory, 'id' : article.id }) }}" >
+                                    <div class="panel-body">
+                                        <em>Din: </em><stronger>{{ article.ArticleDate|date('Y d M') }} </stronger></br>
+                                        <em>Despre: </em><strong>{{ article.PostTitle }} </strong></br>
+                                        <em>In categoria: </em><strong>{{ article.PostCategory }} </strong></br>
+                                    </div>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    </a>
-                {% endfor %}
+
+                    <li class="response">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h3 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion1"
+                                           href="#collapseFeb" aria-expanded="true"
+                                           aria-controls="collapseOne">
+                                            <em>  Februarie </em></a>
+                                    </h3>
+                                </div>
+
+                                <div id="collapseFeb" class="panel-collapse collapse"
+                                     role="tabpanel" aria-labelledby="headingOne">
+                                    {% for article in articles if article.ArticleDate|date('M') == 'Feb' %}
+                                        <a href="{{ path('grunt', {'pagina': article.postCategory, 'id' : article.id }) }}" >
+                                            <div class="panel-body">
+                                                <em>Din: </em><stronger>{{ article.ArticleDate|date('Y d M') }} </stronger></br>
+                                                <em>Despre: </em><strong>{{ article.PostTitle }} </strong></br>
+                                                <em>In categoria: </em><strong>{{ article.PostCategory }} </strong></br>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
         </div>

@@ -54,6 +54,7 @@ class GruntController extends Controller
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAll();
 
+
         $em = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM AppBundle:Article a";
         $querry = $em->createQuery($dql);
@@ -62,7 +63,7 @@ class GruntController extends Controller
         $pagination = $paginator->paginate(
             $querry,
             $request->query->getInt('page', 1),
-            3
+            2
         );
 
 
