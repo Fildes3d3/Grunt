@@ -2,7 +2,8 @@
 {% block body %}
 <div class="container">
     <div class="jumbotron">
-    <h1>The Daily Grunt Post Management</h1>
+        <h1 class="text-right">The Daily Grunt</h1>
+        <h1 class="text-right"> Post Management</h1>
     {% for flashMessage in app.session.flashbag.get('succes') %}
         <div class="panel-heading">
             <div class="alert alert-success alert-dismissable" role="alert">
@@ -13,6 +14,7 @@
             </div>
         </div>
     {% endfor %}
+    </div>
     {% if is_granted('ROLE_BOSS') %}
         <a href="{{ path('user_list') }}">
             <button class="btn btn-primary">Manage Users</button>
@@ -20,8 +22,8 @@
         <a href="{{ path('comment_list') }}">
             <button class="btn btn-primary">Manage Comments</button>
         </a>
+        <hr>
     {% endif %}
-    </div>
     <div class="panel-info">
         <a href="{{ path('article_new') }}">
             <button class="btn btn-primary">New Article</button>

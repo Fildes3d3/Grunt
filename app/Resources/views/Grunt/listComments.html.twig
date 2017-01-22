@@ -2,14 +2,16 @@
 {% block body %}
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="jumbotron">
-        <h1>The Daily Grunt Post Management</h1>
-            <a href="{{ path('article_list') }}">
-                <button class="btn btn-primary">Manage Articles</button>
-            </a>
-            <a href="#">
-                <button class="btn btn-primary">Manage Comments</button>
-            </a>
+        <h1 class="text-right">The Daily Grunt</h1>
+        <h1 class="text-right"> Post Management</h1>
     </div>
+    <a href="{{ path('article_list') }}">
+        <button class="btn btn-primary">Manage Articles</button>
+    </a>
+    <a href="#">
+        <button class="btn btn-primary">Manage Comments</button>
+    </a>
+    <hr>
     <div class="panel-body">
         <section>
             <h2>Comments List <span class="badge"> Count: {{ comments.getTotalItemCount }}</span></h2>
