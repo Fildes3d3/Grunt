@@ -131,20 +131,14 @@ body {
 .comment {
 	padding-left: 0;
 	list-style-type: none;
+	border: none;
 }
 .comment li {
-	padding: 1%;
 	text-align: left;
-	font-size: 1.45em;
-	border: 1px solid lightgrey;
-	border-radius: 1%;
-	margin-bottom: 3%;
-	-webkit-box-shadow: 7px 6px 5px -1px rgba(199,197,199,0.36);
-	-moz-box-shadow: 7px 6px 5px -1px rgba(199,197,199,0.36);
-	box-shadow: 7px 6px 5px -1px rgba(199,197,199,0.36);
+	font-size: 1.2em;
 }
-.response {
-	margin-left: 10%;
+.response a {
+	color: inherit;
 }
 .table th, td {
 	text-align: center;

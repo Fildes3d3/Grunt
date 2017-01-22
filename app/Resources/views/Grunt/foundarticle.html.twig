@@ -11,9 +11,10 @@
         </div>
     </div>
 </div>
+<hr>
 {% if is_granted('ROLE_USER') %}
     <div class="row ">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <h3>Comentezi?! <strong>
                     <em>...adica e plin de critici...toata lumea se pricepe....</em></strong></h3>
             {% for flashMessage in app.session.flashbag.get('succes') %}
@@ -49,53 +50,49 @@
                     </div>
                 </form>
             </div>
-            <div class="panel-body">
-                <ul class="comment">
-                    {% for comment in comments %}
-                        {% if foundArticle.Id == comment.ArticleId %}
-                            <li>
-                                <p><span class="glyphicon glyphicon-user"> Comentariul lui: </span>
-                                    <em> {{ comment.user.username }} </em></p>
-                                <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
-                                    <em> {{ comment.commentDate|date('Y d M') }} </em></p>
-                                <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
-                                    <em> {{ comment.comment }} </em></p>
-                                <button type="button" class="btn btn-info"
-                                        data-toggle="modal" data-target="#commentRespModal{{ comment.id }}" >Raspunde</button>
-                            </li>
-                            {% for responses in responses %}
-                                {% if comment.id == responses.commentId.id %}
-                                    <li class="response">
-                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="headingOne">
-                                                    <h4 class="panel-title">
-                                                        <a role="button" data-toggle="collapse" data-parent="#accordion1"
-                                                           href="#collapse{{ responses.id }}" aria-expanded="true"
-                                                           aria-controls="collapseOne">
-                                                            <em> Vezi raspunsul lui {{ responses.user.username }} </em></a>
-                                                    </h4>
-                                                </div>
-                                                <div id="collapse{{ responses.id }}" class="panel-collapse collapse"
-                                                     role="tabpanel" aria-labelledby="headingOne">
-                                                    <div class="panel-body">
-                                                        <p><span class="glyphicon glyphicon-user"> Raspunsul lui: </span>
-                                                            <em> {{ responses.user.username }} </em></p>
-                                                        <p><span class="glyphicon glyphicon-time"> din anul domnului: </span>
-                                                            <em> {{ responses.commentDate|date('Y d M') }} </em></p>
-                                                        <p><span class="glyphicon glyphicon-comment"> care zice ca: </span>
-                                                            <em> {{ responses.commentresponse }} </em></p>
-                                                    </div>
-                                                </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="comment">
+                {% for comment in comments %}
+                    {% if foundArticle.Id == comment.ArticleId %}
+                        <li>
+                            <span class="glyphicon glyphicon-user"> {{ comment.user.username }}</span> &nbsp
+                            <span class="glyphicon glyphicon-time">{{ comment.commentDate|date(' d M Y') }}</span></p>
+                            <p><span class="glyphicon glyphicon-comment"> {{ comment.comment }} </span></p>
+                            <button type="button" class="btn btn-info"
+                                    data-toggle="modal" data-target="#commentRespModal{{ comment.id }}" >Raspunde</button>
+                        </li>
+                        <hr>
+                        {% for responses in responses %}
+                            {% if comment.id == responses.commentId.id %}
+                                <li class="response col-md-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div>
+                                            <h5>
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse{{ responses.id }}" aria-expanded="true"
+                                                   aria-controls="collapseOne">
+                                                    <span class="glyphicon glyphicon-menu-down"> {{ responses.user.username }}</span></a>
+                                            </h5>
+                                            <div id="collapse{{ responses.id }}" class="panel-collapse collapse"
+                                                 role="tabpanel" aria-labelledby="headingOne">
+                                                    <p><span class="glyphicon glyphicon-user"> {{ responses.user.username }}</span>  &nbsp
+                                                    <span class="glyphicon glyphicon-time"> {{ responses.commentDate|date('d M Y') }}</span></p>
+                                                    <p><span class="glyphicon glyphicon-comment"> {{ responses.commentresponse }}</span></p>
                                             </div>
                                         </div>
-                                    </li>
-                                {% endif %}
-                            {% endfor%}
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
+                                    </div>
+                                    <hr>
+                                </li>
+
+                            {% endif %}
+                        {% endfor%}
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endif %}
