@@ -100,14 +100,14 @@
                 </div>
             {% endif %}
         {% endif %}
-        <h1>The Daily Grunt</h1>
+        <h1 class="text-right">The Daily Grunt</h1>
         {% if is_granted('ROLE_USER') %}
             <p class="text-right">
                 <em>...noah bine ca esti  <strong>autentificat</strong> amu poti <strong> comenta </strong> :) </em></p>
         {%  else %}
             <p class="text-right">
                 <em>...daca vrei sa <strong>comentezi</strong> e musai sa te <strong>
-                        <a href="{{ path ('grunt_register') }}">inregistrezi</a></strong> :) </em></p>
+                        <a href="{{ path ('grunt_register') }}" class="btn btn-info">inregistrezi</a></strong> </em></p>
         {% endif %}
     </div>
     {% endblock jumbo %}

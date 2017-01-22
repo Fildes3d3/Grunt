@@ -3,6 +3,14 @@
 	max-height: 440px;
 }
 
+.jumbotron {
+	border: 1px solid lightgrey;
+	/*background-color: transparent;*/
+	background-image: url("/upload/650.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
 #footer {
 	text-align: center;
 	margin-top: 5%;
