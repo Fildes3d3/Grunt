@@ -45,7 +45,7 @@
                         <span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                 {% if is_granted('ROLE_USER') %}
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
+                    <a href="{{ path('profile', {'id': app.user.Id }) }}"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
                 </li>
                 <li>
                     <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-off"> </span> Logout</a>

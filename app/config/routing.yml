@@ -4,6 +4,11 @@ app:
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
+profile:
+    path:     /profile/{id}
+    defaults: { _controller: AppBundle:UserProfile:ShowProfile}
+
+
 grunt_register:
     path:     /register
     defaults: { _controller: AppBundle:Register:register}

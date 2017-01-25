@@ -11,6 +11,16 @@
 	background-repeat: no-repeat;
 }
 
+#user_table th {
+	text-align: left;
+	font-size: 1.25em;
+}
+
+#user_table td {
+	text-align: left;
+	font-size: 1.25em;
+}
+
 #footer {
 	text-align: center;
 	margin-top: 5%;
@@ -140,10 +150,11 @@ body {
 .response a {
 	color: inherit;
 }
-.table th, td {
+.table td {
 	text-align: center;
 }
 .table th {
+	text-align: center;
 	font-size: 1.2em;
 }
 #side_main {
