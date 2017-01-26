@@ -25,6 +25,7 @@
                     <th>Comment Content</th>
                     <th colspan="3">Actions</th>
                 </tr>
+
                 {% for comments in comments %}
                 <tr>
                     <td> {{ comments.id}}</td>
@@ -34,10 +35,23 @@
                     <td> {{ comments.commentDate|date('Y d M')}}</td>
                     <td> {{ comments.comment }}</td>
                     <td>
+                    {% for responses in responses %}
+                        {% if comments.id == responses.commentId.id %}
+                        {% if loop.first %}
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#{{ comments.id }}">
                             Vezi Raspunsuri
                         </button>
+                        {% endif %}
+                        {% else %}
+                            {% if loop.first %}
+                            <button type="button" class="btn btn-primary disabled" data-toggle="modal"
+                                    data-target="#">
+                                <strike>Vezi Raspunsuri</strike>
+                            </button>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                     </td>
                     <td> <a href="{{ path('comment_edit', {'id':comments.id}) }}">
                             <button class=" btn btn-success"  type="button">Edit</button> </a></td>
