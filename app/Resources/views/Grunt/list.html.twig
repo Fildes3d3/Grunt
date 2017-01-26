@@ -38,11 +38,12 @@
 
             <table class="table table-responsive table-hover">
                 <tr>
-                    <th>Article ID</th>
-                    <th>Article Title</th>
-                    <th>Article Category</th>
-                    <th>Article Date</th>
-                    <th>Article Content</th>
+                    {# sorting of properties based on query components #}
+                    <th>{{ knp_pagination_sortable(pagination, 'Article Id', 'a.id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Article Title', 'a.post_title') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Article Category', 'a.post_category') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Article Date', 'a.article_date') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Article Content', 'a.post_data') }}</th>
                     <th colspan="2">Action</th>
                 </tr>
 
