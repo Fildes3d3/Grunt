@@ -57,6 +57,27 @@ class User implements UserInterface
     private $news;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $picture;
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()

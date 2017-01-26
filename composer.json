@@ -75,5 +75,6 @@
     },
     "config": {
         "component-dir": "web/assets"
+
     }
 }
