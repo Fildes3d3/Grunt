@@ -17,11 +17,12 @@
             <h2>Users List <span class="badge"> Count: {{ pagination.getTotalItemCount }}</span></h2>
             <table class="table table-responsive table-hover">
                 <tr>
-                    <th>User Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>News</th>
-                    <th>Roles</th>
+                    {# sorting of properties based on query components #}
+                    <th>{{ knp_pagination_sortable(pagination, 'User Id', 'a.id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Name', 'a.username') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Email', 'a.email') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'News', 'a.news') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Roles', 'a.roles') }}</th>
                     <th colspan="2">Action</th>
                 </tr>
                 {% for user in pagination %}
