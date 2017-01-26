@@ -17,13 +17,14 @@
             <h2>Comments List <span class="badge"> Count: {{ comments.getTotalItemCount }}</span></h2>
             <table class="table table-responsive table-hover">
                 <tr>
-                    <th>Comment ID</th>
-                    <th>Article ID</th>
-                    <th>User Name</th>
-                    <th>Comment Category</th>
-                    <th>Comment Date</th>
-                    <th>Comment Content</th>
-                    <th colspan="3">Actions</th>
+                    {# sorting of properties based on query components #}
+                    <th>{{ knp_pagination_sortable(comments, 'Comment Id', 'a.id') }}</th>
+                    <th>{{ knp_pagination_sortable(comments, 'Article ID', 'a.articleId') }}</th>
+                    <th>{{ knp_pagination_sortable(comments, 'User Name', 'a.id') }}</th>{# find solution to sort by username#}
+                    <th>{{ knp_pagination_sortable(comments, 'Comment Category', 'a.comment_category') }}</th>
+                    <th>{{ knp_pagination_sortable(comments, 'Comment Date', 'a.comment_date') }}</th>
+                    <th>{{ knp_pagination_sortable(comments, 'Comment Content', 'a.comment') }}</th>
+                    <th colspan="3">Action</th>
                 </tr>
 
                 {% for comments in comments %}

@@ -88,6 +88,7 @@ class CommentController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         $comments = "SELECT a FROM AppBundle:Comment a";
 
+
         $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
             ->findAll();
 
@@ -100,7 +101,6 @@ class CommentController extends Controller
             $request->query->getInt('page', 1),
             3
         );
-
 
         return $this->render('Grunt/listComments.html.twig', [
             'responses' => $responses,
