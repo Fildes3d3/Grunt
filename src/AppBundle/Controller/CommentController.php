@@ -112,6 +112,8 @@ class CommentController extends Controller
 
     public function editCommentAction($id, Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $em = $this->getDoctrine()->getEntityManager();
 
         $comment = $em->getRepository('AppBundle:Comment')->findOneById($id);
@@ -128,7 +130,6 @@ class CommentController extends Controller
 
         }
 
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render(':Grunt:editComments.html.twig', [
             'commentForm' => $form->createView(),
         ]);

@@ -6,7 +6,7 @@
 .jumbotron {
 	border: 1px solid lightgrey;
 	/*background-color: transparent;*/
-	background-image: url("/upload/650.jpg");
+	background-image: url("../upload/650.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 }
