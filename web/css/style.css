@@ -123,6 +123,10 @@ body {
 	padding-top: 10px;
 }
 
+#profile_pict{
+	max-width: 5%;
+}
+
 .navbar-nav {
 	font-size: 1em;
 	color: black;

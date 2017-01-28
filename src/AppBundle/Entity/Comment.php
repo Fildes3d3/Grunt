@@ -26,7 +26,7 @@ class Comment
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="binary", unique=true)
+     * @ORM\Column(type="string", unique=true)
      */
     private $comment;
 

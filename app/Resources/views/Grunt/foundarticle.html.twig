@@ -58,7 +58,7 @@
             <ul class="comment">
                 {% for comment in comments %}
                     {% if foundArticle.Id == comment.ArticleId %}
-                        <li>
+                        <li><p><span><img id="profile_pict" src="{{ comment.user.picture }}" class="img-circle img-responsive"></span>
                             <span class="glyphicon glyphicon-user"> {{ comment.user.username }}</span> &nbsp
                             <span class="glyphicon glyphicon-time">{{ comment.commentDate|date(' d M Y') }}</span></p>
                             <p><span class="glyphicon glyphicon-comment"> {{ comment.comment }} </span></p>
@@ -79,7 +79,8 @@
                                             </h5>
                                             <div id="collapse{{ responses.id }}" class="panel-collapse collapse"
                                                  role="tabpanel" aria-labelledby="headingOne">
-                                                    <p><span class="glyphicon glyphicon-user"> {{ responses.user.username }}</span>  &nbsp
+                                                    <p><span><img id="profile_pict" src="{{ comment.user.picture }}" class="img-circle img-responsive"></span>
+                                                    <span class="glyphicon glyphicon-user"> {{ responses.user.username }}</span>  &nbsp
                                                     <span class="glyphicon glyphicon-time"> {{ responses.commentDate|date('d M Y') }}</span></p>
                                                     <p><span class="glyphicon glyphicon-comment"> {{ responses.commentresponse }}</span></p>
                                             </div>
