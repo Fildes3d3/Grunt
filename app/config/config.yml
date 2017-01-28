@@ -108,12 +108,12 @@ fm_elfinder:
                     uploads:
                         show_hidden: false # defaults to false
                         driver: LocalFileSystem
-                        path: upload
+                        path: upload/user
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
                         upload_deny: ['all']
                         upload_max_size: 2M
                         attributes: #example of setting attributes permission
-                                                    - { pattern: '/(.*?)/', read: true, write: false, locked: false }
+                                                    - { pattern: '/(.*?)/', read: true, write: true, locked: true }
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control

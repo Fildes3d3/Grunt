@@ -7,6 +7,9 @@ elfinder:
 profile:
     path:     /profile/{id}
     defaults: { _controller: AppBundle:UserProfile:ShowProfile}
+profile_pict_delete:
+    path:     /profile/{id}/pict
+    defaults: { _controller: AppBundle:UserProfile:deleteProfilePict}
 
 
 grunt_register:

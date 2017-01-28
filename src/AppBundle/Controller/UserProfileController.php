@@ -38,7 +38,6 @@ class UserProfileController extends Controller
                 ))
             ->getForm();
 
-
         $userform->handleRequest($request);
 
         if ($userform->isSubmitted() && $userform->isValid()) {
@@ -55,6 +54,5 @@ class UserProfileController extends Controller
         ]);
 
     }
-
 
 }

@@ -141,8 +141,8 @@
             'disableScrolling' : true,
             'resizeDuration': 200,
             'wrapAround': true,
-            'fitImagesInViewport' : true,
-        })
+            'fitImagesInViewport' : true
+        });
 
         $(".media img").each(function() {
             $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
@@ -158,6 +158,10 @@
 
         $(".thumbnail iframe").each(function(){
             $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
+        });
+
+        $("#deletepic").click(function(){
+           $("#form_picture").attr('value', '/upload/no_photo.png');
         });
 
     </script>
