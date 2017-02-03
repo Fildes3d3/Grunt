@@ -58,7 +58,7 @@ class CommentController extends Controller
                     'Comentariul fara continut, e ca mancarea fara sare... DEGEABA'
                 );
 
-                return $this->redirectToRoute('grunt_article', array('pagina' => $comment_cat, 'id' => $articleId));
+                return $this->redirectToRoute('grunt', array('pagina' => $comment_cat, 'id' => $articleId));
             }
 
         $comment = new Comment();

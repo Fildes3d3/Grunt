@@ -20,7 +20,7 @@ class GruntController extends Controller
         $foundArticle = $em->getRepository('AppBundle:Article')->findOneById($id);
         $articles = $em->getRepository('AppBundle:Article')->findAll();
         $comments = $this->getDoctrine()->getRepository('AppBundle:Comment')
-            ->findAll();
+            ->findAllComments();
         $responses = $this->getDoctrine()->getRepository('AppBundle:CommentResponse')
             ->findAll();
 

@@ -16,13 +16,10 @@ class CommentRepository extends EntityRepository
     /**
      * @return Comment
      */
-    public  function findAllCommentsLimit($cat)
+    public  function findAllComments()
     {
         return $this->createQueryBuilder('comment_repository')
-            ->andWhere('comment_repository.comment_category = :comment_category')
-            ->setParameter('comment_category', $cat)
             ->orderBy('comment_repository.comment_date', 'DESC')
-            /*->setMaxResults('3')*/
             ->getQuery()
             ->execute();
     }
