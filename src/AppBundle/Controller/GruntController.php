@@ -50,7 +50,6 @@ class GruntController extends Controller
 
     public function homeAction(Request $request)
     {
-
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')
             ->findAll();
 
