@@ -61,7 +61,7 @@
                         <li><p><span><img id="profile_pict" src="{{ comment.user.picture }}" class="img-circle img-responsive"></span>
                             <span class="glyphicon glyphicon-user"> {{ comment.user.username }}</span> &nbsp
                             <span class="glyphicon glyphicon-time">{{ comment.commentDate|date(' d M Y') }}</span></p>
-                            <p><span class="glyphicon glyphicon-comment"> {{ comment.comment }} </span></p>
+                            <p><span class="glyphicon glyphicon-comment"> {{ comment.comment|wordwrap }} </span></p>
                             <button type="button" class="btn btn-info"
                                     data-toggle="modal" data-target="#commentRespModal{{ comment.id }}" >Raspunde</button>
                         </li>

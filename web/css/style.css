@@ -73,9 +73,19 @@ img {
 @media (max-width: 412px) {
 
 	.btn.btn-info {
-		width: 100%;
+		width: auto;
 		font-size: 2em;
 	}
+
+	.media {
+		padding: 4%;
+	}
+
+	.col-md-8 a img {
+		width: 96%;
+	}
+
+}
 .home a{
 	text-decoration: none;
 	color: inherit;
