@@ -11,6 +11,22 @@
 	background-repeat: no-repeat;
 }
 
+@media (max-width: 412px) {
+
+	.jumbotron {
+		background-image: none;
+		margin-top: 5%;
+		padding: 4%;
+	}
+	.jumbotron h1 {
+		text-align: center;
+	}
+	.jumbotron p {
+		text-align: center;
+		font-size: 18px;
+	}
+}
+
 #user_table th {
 	text-align: left;
 	font-size: 1.25em;
@@ -43,6 +59,23 @@ img {
 	/*padding: 0.5%;*/
 	margin: 2%;
 }
+@media (max-width: 412px) {
+
+	.home img {
+		float: right;
+		width: 100%;
+		height: auto;
+		border: 1px solid lightgrey;
+		/*padding: 0.5%;*/
+		/*margin: 2%;*/
+	}
+}
+@media (max-width: 412px) {
+
+	.btn.btn-info {
+		width: 100%;
+		font-size: 2em;
+	}
 .home a{
 	text-decoration: none;
 	color: inherit;
@@ -103,7 +136,8 @@ body {
 @media (min-width: 768px) {
 #brand {
 		margin-left: -60px;
-	}}
+	}
+}
 
 @media (max-width: 768px) {
 	.input-group {
@@ -164,6 +198,16 @@ body {
 #side_main {
 	border-left: 2px solid black;
 }
+
+@media (min-width: 412px) {
+	#side_main {
+		border: 0;
+	}
+	#side_main ul {
+		padding: 0;
+	}
+}
+
 #side_main li {
 	list-style-type: none;
 	font-size: 1.25em;
