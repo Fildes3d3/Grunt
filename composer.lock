@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8b136a33539355033cfa3544814df7b6",
+    "hash": "0c30408496429c728acf81bf2ebaf900",
     "content-hash": "ae8078af0508f76da6a42ebf91250fbd",
     "packages": [
         {
@@ -65,21 +65,21 @@
         },
         {
             "name": "components/elfinder",
-            "version": "2.1.5",
+            "version": "2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/elfinder-component.git",
-                "reference": "beb325b84ffcf7340a4fa2a5e397575128416e59"
+                "reference": "be24b2d2ab46fdc5d572b51f58a8c705fb136323"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/elfinder-component/zipball/beb325b84ffcf7340a4fa2a5e397575128416e59",
-                "reference": "beb325b84ffcf7340a4fa2a5e397575128416e59",
+                "url": "https://api.github.com/repos/helios-ag/elfinder-component/zipball/be24b2d2ab46fdc5d572b51f58a8c705fb136323",
+                "reference": "be24b2d2ab46fdc5d572b51f58a8c705fb136323",
                 "shasum": ""
             },
             "require": {
-                "components/jquery": "^1.8",
-                "components/jqueryui": "~1.11.1",
+                "components/jquery": ">=1.8 <4.0",
+                "components/jqueryui": ">1.11",
                 "robloach/component-installer": "*"
             },
             "type": "component",
@@ -118,20 +118,20 @@
                 "elfinder",
                 "file manager"
             ],
-            "time": "2016-02-19 14:27:33"
+            "time": "2017-04-21 02:46:28"
         },
         {
             "name": "components/jquery",
-            "version": "1.12.4",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "5dd7297d7603e11e53bdcca2a71074d92de37b8f"
+                "reference": "e5534d4ab8e80c159553d507e358ed20a806d3bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/5dd7297d7603e11e53bdcca2a71074d92de37b8f",
-                "reference": "5dd7297d7603e11e53bdcca2a71074d92de37b8f",
+                "url": "https://api.github.com/repos/components/jquery/zipball/e5534d4ab8e80c159553d507e358ed20a806d3bf",
+                "reference": "e5534d4ab8e80c159553d507e358ed20a806d3bf",
                 "shasum": ""
             },
             "type": "component",
@@ -143,8 +143,9 @@
                     "files": [
                         "jquery.min.js",
                         "jquery.min.map",
-                        "jquery-migrate.js",
-                        "jquery-migrate.min.js"
+                        "jquery.slim.js",
+                        "jquery.slim.min.js",
+                        "jquery.slim.min.map"
                     ]
                 }
             },
@@ -154,26 +155,25 @@
             ],
             "authors": [
                 {
-                    "name": "John Resig",
-                    "email": "jeresig@gmail.com"
+                    "name": "JS Foundation and other contributors"
                 }
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
-            "time": "2016-05-25 06:50:04"
+            "time": "2017-03-21 07:01:49"
         },
         {
             "name": "components/jqueryui",
-            "version": "1.11.4",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jqueryui.git",
-                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1"
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
-                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 }
             ],
             "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
-            "time": "2015-03-13 14:48:12"
+            "time": "2016-09-16 05:47:55"
         },
         {
             "name": "doctrine/annotations",
@@ -1263,16 +1263,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.3.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -1308,16 +1308,23 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "PSR-7 message implementation",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
                 "http",
                 "message",
+                "request",
+                "response",
                 "stream",
-                "uri"
+                "uri",
+                "url"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "helios-ag/fm-elfinder-bundle",
@@ -1390,16 +1397,16 @@
         },
         {
             "name": "helios-ag/fm-elfinder-php-connector",
-            "version": "2.5.5",
+            "version": "2.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/ElFinderPHP.git",
-                "reference": "49034befab7629521f6e4e8d9a18bfe40ad5ef82"
+                "reference": "46b2d9b9797f04d1a354ca7cf7e9d9ad2add9482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/ElFinderPHP/zipball/49034befab7629521f6e4e8d9a18bfe40ad5ef82",
-                "reference": "49034befab7629521f6e4e8d9a18bfe40ad5ef82",
+                "url": "https://api.github.com/repos/helios-ag/ElFinderPHP/zipball/46b2d9b9797f04d1a354ca7cf7e9d9ad2add9482",
+                "reference": "46b2d9b9797f04d1a354ca7cf7e9d9ad2add9482",
                 "shasum": ""
             },
             "require": {
@@ -1440,7 +1447,7 @@
                 "elfinder",
                 "filemanager"
             ],
-            "time": "2016-11-07 13:03:50"
+            "time": "2017-04-03 08:09:10"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1495,16 +1502,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.9",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "2bce9a59c43b868300b02a7d31a1e4aa67a200ae"
+                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/2bce9a59c43b868300b02a7d31a1e4aa67a200ae",
-                "reference": "2bce9a59c43b868300b02a7d31a1e4aa67a200ae",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/322a4ade249467179c50a3e50eda8760ff3af2a3",
+                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1521,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.2",
-                "phpunit/phpunit": "3.*"
+                "phpunit/phpunit": "^4.8 || ^5.7"
             },
             "suggest": {
                 "ext-gd": "to use GD library based image processing.",
@@ -1525,6 +1532,14 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.3-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Image": "Intervention\\Image\\Facades\\Image"
+                    }
                 }
             },
             "autoload": {
@@ -1539,8 +1554,8 @@
             "authors": [
                 {
                     "name": "Oliver Vogel",
-                    "email": "oliver@olivervogel.net",
-                    "homepage": "http://olivervogel.net/"
+                    "email": "oliver@olivervogel.com",
+                    "homepage": "http://olivervogel.com/"
                 }
             ],
             "description": "Image handling and manipulation library with support for Laravel integration",
@@ -1553,7 +1568,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-01-10 14:15:56"
+            "time": "2017-07-03 15:50:40"
         },
         {
             "name": "jdorn/sql-formatter",
