@@ -17,4 +17,5 @@
 /upload/*
 !/upload/.gitkeep
 /.idea
+/.idea/workspace.xml
 
