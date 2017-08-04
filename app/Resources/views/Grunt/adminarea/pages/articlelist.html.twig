@@ -1,0 +1,99 @@
+{% extends '::base.html.twig' %}
+{% block mainContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post">
+            {% for article in pagination %}
+                <div class="modal fade" id="deleteArticleModal{{ article.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal{{ article.Id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLabel">Sterge Articol</h3>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Esti sigur ca stii ce faci !?</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ path('article_delete', {'id': article.Id }) }}">
+                                    <button type="button" class="btn btn-default">Sterge!</button>
+                                </a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Inchide</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {% for flashMessage in app.session.flashbag.get('succes') %}
+            <div class="panel-heading">
+                <div class="alert alert-success alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4>{{ flashMessage }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+        {% include 'Grunt/adminarea/content/sidebar.html.twig' %}
+
+
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1">
+            <h2 class="sub-header">Lista Articole <span class="badge"> Count: {{ pagination.getTotalItemCount }}</span></h2>
+            <hr>
+            <a href="{{ path('article_new') }}">
+                <span class="glyphicon glyphicon-plus"> adauga</span>
+            </a>
+            <hr>
+
+            <div class="table-responsive">
+                <table class="table table-striped admin-table">
+                    <thead>
+                    <tr>
+                        <th>{{ knp_pagination_sortable(pagination, 'Articol', 'a.id') }}</th>
+                        <th>{{ knp_pagination_sortable(pagination, 'Titlu', 'a.post_title') }}</th>
+                        <th>{{ knp_pagination_sortable(pagination, 'Categorie', 'a.post_category') }}</th>
+                        <th>{{ knp_pagination_sortable(pagination, 'Data', 'a.article_date') }}</th>
+                        <th colspan="2">Actiuni</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in pagination %}
+                        <tr>
+                            <td> {{ article.Id}}</td>
+                            <td> {{ article.PostTitle}}</td>
+                            <td> {{ article.postCategory  }}</td>
+                            <td> {{ article.ArticleDate|date('d-m-Y') }}</td>
+                            <td>
+                                <a href="{{ path('article_view', {'id': article.Id }) }}">
+                                    <span class="glyphicon glyphicon-eye-open"> Vezi</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ path('article_edit', {'id': article.Id }) }}">
+                                    <span class="glyphicon glyphicon-pencil"> Modifica</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" data-toggle="modal" data-target="#deleteArticleModal{{ article.Id}}"
+                                        type="button">
+                                    <span class="glyphicon glyphicon-remove"> Sterge</span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

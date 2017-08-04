@@ -1,153 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>{% block title %}The Daily Grunt{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dayli Grunt Motorcycle Blog">
+    <meta name="author" content="FildEs">
+
+    <title>Daily Grunt</title>
+    <link rel="stylesheet" href="{{ asset('css/lightbox.css') }}"/>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-91367177-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
-{% block navbar %}
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
-    <div class="container" id="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-container" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" id="brand" href="{{ path ('home') }}">
-                <img src="{{ asset ('images/logo.png') }}" />
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-container">
-            <ul class="nav navbar-nav">
-                <li{% if 'home' in app.request.uri %} class = "active" {% endif%}>
-                    <a href="{{ path ('home') }}">
-                        <span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li{% if 'garaj' in app.request.uri %} class = "active" {% endif%}>
-                    <a href="{{ path ('grunt', {'pagina' : 'garaj'}) }}">
-                        <span class="glyphicon glyphicon-wrench"></span> Garaj</a></li>
-                <li{% if 'jurnal' in app.request.uri %} class = "active" {% endif%}>
-                    <a href="{{ path ('grunt', {'pagina' : 'jurnal'}) }}">
-                        <span class="glyphicon glyphicon-road"></span> Jurnal de Bord</a></li>
-                <li{% if 'diy' in app.request.uri %} class = "active" {% endif%}>
-                    <a href="{{ path ('grunt', {'pagina' : 'diy'}) }}">
-                        <span class="glyphicon glyphicon-scissors"></span> Proiecte DYI</a></li>
-                <li{% if app.request.uri == 'http://localhost:8000/contact' %} class = "active" {% endif%}>
-                    <a href="{{ path ('grunt', {'pagina' : 'contact'}) }}">
-                        <span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
-                {% if is_granted('ROLE_USER') %}
-                <li>
-                    <a href="{{ path('profile', {'id': app.user.Id }) }}"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
-                </li>
-                <li>
-                    <a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-off"> </span> Logout</a>
-                </li>
-                {% else %}
-                <li>
-                        <form class="navbar-form navbar-right" role="form" method="post" id="loginform"
-                              name="loginform" enctype="multipart/form-data" action="{{ path('security_login') }}" >
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"> </span>
-                                </span>
-                                <input type="text" class="form-control"
-                                        {% if last_username is defined %}
-                                            value="{{ last_username }}"
-                                        {% endif %}
-                                       name="_username" id="_username" placeholder="Utilizator" />
-                            </div>
-                            <div class="input-group ">
-                                <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input type="password" class="form-control" name="_password"
-                                       id="_password" placeholder="Parola" />
-                            </div>
-                            <button type="submit" class="btn bnt-info"> Autentifica</button>
-                        </form>
-                </li>
-                {%  endif %}
-                <li>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('article_list') }}"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <span class="glyphicon glyphicon-exclamation-sign"></span> Admin </a>
-                    {% endif %}
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-{% endblock %}
 {% block body %}
-<div class="container">
-    {% block jumbo %}
-    <div class="jumbotron">
-        {% if app.request.attributes.get('_route') == 'security_login'  %}
-            {% if error %}
-                <div class="alert alert-danger alert-dismissible" role="alert" style="text-align: right">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
-                </div>
-            {% endif %}
-        {% endif %}
-        <h1 class="text-right">The Daily Grunt</h1>
-        {% if is_granted('ROLE_USER') %}
-            <p class="text-right">
-                <em>...noah bine ca esti  <strong>autentificat</strong> amu poti <strong> comenta </strong> :) </em></p>
-        {%  else %}
-            <p class="text-right">
-                <em>...daca vrei sa <strong>comentezi</strong> e musai sa te <strong>
-                        <a href="{{ path ('grunt_register') }}" class="btn btn-info">inregistrezi</a></strong> </em></p>
-        {% endif %}
-    </div>
-    {% endblock jumbo %}
-{% endblock %}
+<body>
+{% block navigation %}
+    {% include 'Grunt/header/navigation.html.twig' %}
+{% endblock navigation %}
+
+{% block header %}
+    {% include 'Grunt/header/header.html.twig' %}
+{% endblock header %}
+
+{% block mainContent %}
+
+{% endblock mainContent %}
+
 {% block footer %}
-    <div class="row">
-        <div class="col-md-12" id="footer">
-            Copyright {{ "now"|date('Y') }}. FildEs Flight Co.
-        </div>
-    </div>
-</div>
-{% endblock %}
+    {% include 'Grunt/footer/footer.html.twig' %}
+{% endblock footer %}
 
+{% block javascript %}
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<!-- jQuery -->
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ asset ('js/bootstrap.min.js') }}"></script>
 
-{% block javascripts %}
-    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
-    <script src="{{ asset ('js/bootstrap.min.js') }}"></script>
+<!-- Contact Form JavaScript -->
+<script src="{{ asset('js/BootstrapValidation.js') }}"></script>
+<script src="{{ asset('js/contact.js') }}"></script>
+
+<!-- Theme JavaScript -->
+<script src="{{ asset('js/grunt.js') }}"></script>
+
+{% endblock javascript %}
+
+{% block extraJs %}
     <script>
-
         (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v2.8";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
         lightbox.option({
             'disableScrolling' : true,
@@ -156,28 +79,33 @@
             'fitImagesInViewport' : true
         });
 
-        $(".media img").each(function() {
+        $(" img ").each(function() {
             $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
+            $(this).attr("width", "100%");
+            $(this).attr("height", "auto");
         });
 
-        $(".media iframe").each(function(){
+        $(".post-subtitle iframe").each(function(){
             $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
         });
-
+        $(".post iframe").each(function(){
+            $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
+        });
         /*$(".thumbnail img").each(function() {
-            $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
+         $(this).wrap('<a href= '+this.src+' data-lightbox= '+this.src+' ></a >');
+         });*/
+
+        /*$(".thumbnail iframe").each(function(){
+            $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
         });*/
 
-        $(".thumbnail iframe").each(function(){
-            $(this).wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
-        });
-
         $("#deletepic").click(function(){
-           $("#form_picture").attr('value', '/upload/no_photo.png');
+            $("#form_picture").attr('value', '/upload/no_photo.png');
         });
 
     </script>
+{% endblock extraJs %}
 
-{% endblock %}
 </body>
+{% endblock %}
 </html>

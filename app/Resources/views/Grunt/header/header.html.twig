@@ -1,0 +1,57 @@
+{% if 'list' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% elseif 'article' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% elseif 'view' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% elseif 'edit' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% elseif 'sidebar' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% elseif 'user' in app.request.uri %}
+    <div class="intro-header" style="background-image: none; background-color: #0a0a0a; height: 170px;">
+
+    </div>
+{% else %}
+<header class="intro-header" style="background-image: url('{{ asset('images/home.jpg') }}')">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <div class="site-heading">
+                    <h1>The Dayli Grunt</h1>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('article_list') }}">
+                                <button class="btn btn-default">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span> Admin Area
+                                </button>
+                            </a>
+                        </li>
+                    {% else %}
+                        <span class="subheading">...daca vrei sa <strong>comentezi</strong> e musai sa te
+                            <a href="{{ path('grunt_register') }}"  >
+                                <button class="btn btn-default" style="color: white; background-color: transparent">
+                                    inregistrezi
+                                </button>
+                            </a>
+                        </span>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+{% endif %}

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                Meniu<i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="/">
+                <i class="fa fa-motorcycle" aria-hidden="true"></i> PAB
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li{% if 'home' in app.request.uri %} class = "active" {% endif%}>
+                    <a href="{{ path ('home') }}">
+                        <i class="fa fa-home" aria-hidden="true"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path ('grunt', {'pagina' : 'garaj'}) }}">
+                        <i class="fa fa-wrench" aria-hidden="true"></i> Garaj
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path ('grunt', {'pagina' : 'jurnal'}) }}">
+                        <i class="fa fa-road" aria-hidden="true"></i> Jurnal de Bord
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path ('grunt', {'pagina' : 'diy'}) }}">
+                        <i class="fa fa-scissors" aria-hidden="true"></i> Proiecte DiY
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('grunt_contact') }}">
+                        <i class="fa fa-envelope" aria-hidden="true"></i> Contact
+                    </a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li id="user">
+                        <a href="{{ path('profile', {'id': app.user.Id }) }}"><i class="fa fa-user" aria-hidden="true"></i> {{ app.user.username }}</a>
+                    </li>
+                    <li id="logout">
+                        <a href="{{ path('security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <form class="navbar-form navbar-right" role="form" method="post" id="loginform"
+                              name="loginform" enctype="multipart/form-data" action="{{ path('security_login') }}" >
+                            <div class="input-group col-lg-3 col-xs-8 offset-xs-2">
+                                <span class="input-group-addon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <input type="text" class="form-control input-sm"
+                                        {% if last_username is defined %}
+                                            value="{{ last_username }}"
+                                        {% endif %}
+                                       name="_username" id="_username" placeholder="Utilizator" />
+                            </div>
+                            <div class="input-group col-lg-3 col-xs-8 offset-xs-2">
+                                <span class="input-group-addon">
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                </span>
+                                <input type="password" class="form-control input-sm" name="_password"
+                                       id="_password" placeholder="Parola" />
+                            </div>
+                            <button type="submit" class="btn btn-default login_button"><i class="fa fa-sign-in" aria-hidden="true"></i>Autentifica</button>
+                        </form>
+                    </li>
+                {%  endif %}
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    {% if app.request.attributes.get('_route') == 'security_login'  %}
+        {% if error %}
+            <div class="alert alert-danger alert-dismissible" role="alert" style="text-align: right">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
+            </div>
+        {% endif %}
+    {% endif %}
+    <!-- /.container -->
+</nav>

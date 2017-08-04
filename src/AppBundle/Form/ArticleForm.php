@@ -31,6 +31,7 @@ class ArticleForm extends AbstractType
                 'label' => 'Titlu Articol:'
             ))
            ->add('postData', CKEditorType::class, array(
+               'label' => 'Continut Articol:',
                'base_path' => 'ckeditor',
                'js_path'   => 'ckeditor/ckeditor.js',
                'config' => array(

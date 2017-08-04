@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block mainContent %}
+<div class="container-fluid">
+    <div class="row">
+        {% include 'Grunt/adminarea/content/sidebar.html.twig' %}
+
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{ form_start(responseForm) }}
+                    {{ form_errors(responseForm) }}
+                    <p><strong><em>Comenatriul cu numarul: </em></strong> {{ response.id }}</p>
+                    <p><strong><em>Scris de: </em></strong> {{ response.user.username }}</p>
+                    <p><strong><em>In categoria: </em></strong> {{ response.commentCategory }}</p>
+                    <hr>
+                    {{ form_row(responseForm.commentresponse, {'label' : 'Modifica comentariul:'}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="btn btn-default">Modifica</button>
+                    {{ form_end(responseForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

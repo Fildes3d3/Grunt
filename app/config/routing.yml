@@ -25,6 +25,9 @@ article_list:
 article_edit:
     path:     /edit/{id}
     defaults: { _controller: AppBundle:Admin:editArticle}
+article_view:
+    path:     /view/{id}
+    defaults: { _controller: AppBundle:Admin:viewArticle}
 article_delete:
     path:     /delete/{id}
     defaults: { _controller: AppBundle:Admin:deleteArticle}

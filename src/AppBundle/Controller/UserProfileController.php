@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use FM\ElfinderBundle\Form\Type\ElFinderType;
+use Symfony\Component\VarDumper\VarDumper;
 
 class UserProfileController extends Controller
 {
@@ -21,7 +22,7 @@ class UserProfileController extends Controller
 
         $userform = $this->createFormBuilder($user)
             ->add('username', TextType::class, array(
-                'label' => 'introdu nume nou'
+                'label' => 'Nume Utilizator Nou:'
             ))
             ->add('email', EmailType::class, array(
                 'label' => 'introdu eMail nou'
@@ -33,12 +34,13 @@ class UserProfileController extends Controller
             ->add('picture', ElFinderType::class, array(
                 'instance'=>'form',
                 'enable'=>true,
-                'label' => 'Alege',
+                'label' => 'selecteaza foto utilizator',
 
                 ))
             ->getForm();
 
         $userform->handleRequest($request);
+
 
         if ($userform->isSubmitted() && $userform->isValid()) {
             $em->flush();
@@ -47,7 +49,9 @@ class UserProfileController extends Controller
             ]);
         }
 
-        return $this->render('Grunt/profile.html.twig',[
+
+
+        return $this->render('Grunt/pages/profile.html.twig',[
 
             'user' => $user,
             'userForm' => $userform->createView(),

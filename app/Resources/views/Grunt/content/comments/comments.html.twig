@@ -1,0 +1,8 @@
+{% if is_granted('ROLE_USER') %}
+    <div class="row ">
+            {{ include('Grunt/content/comments/addcomment.html.twig') }}
+    </div>
+    <div class="row">
+            {{ include('Grunt/content/comments/registredcomments.html.twig') }}
+    </div>
+{% endif %}

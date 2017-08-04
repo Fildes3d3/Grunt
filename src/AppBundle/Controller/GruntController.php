@@ -39,7 +39,7 @@ class GruntController extends Controller
 
 
 
-        return $this->render(':Grunt:garaj.html.twig', [
+        return $this->render('Grunt/content/article.html.twig', [
             'articles' => $articles,
             'responses' => $responses,
             'comments' => $comments,
@@ -55,7 +55,7 @@ class GruntController extends Controller
 
 
         $em = $this->get('doctrine.orm.entity_manager');
-        $dql = "SELECT a FROM AppBundle:Article a";
+        $dql = "SELECT a FROM AppBundle:Article a ORDER BY a.article_date DESC";
         $querry = $em->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');
@@ -66,7 +66,7 @@ class GruntController extends Controller
         );
 
 
-        return $this->render(':Grunt:home.html.twig', [
+        return $this->render('Grunt/pages/home.html.twig', [
             'Main' => $pagination,
             'articles' => $articles
         ]);
@@ -74,7 +74,7 @@ class GruntController extends Controller
 
     public function contactAction ()
     {
-        return $this->render('Grunt/contact.html.twig');
+        return $this->render('Grunt/pages/contact.html.twig');
     }
 
 }

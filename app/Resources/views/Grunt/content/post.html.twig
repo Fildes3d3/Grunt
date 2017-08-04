@@ -1,0 +1,46 @@
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post">
+                <p><em>{{ foundArticle.postData|raw }}</em></p>
+                <h4><em><strong>Scris maiastru in anul domnului: {{ foundArticle.ArticleDate|date('Y d M') }}</strong></em></h4>
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post">
+            <div class="fb-like" data-href="{{ path(app.request.attributes.get('_route'),
+                        app.request.attributes.get('_route_params')) }}"
+                 data-layout="button" data-action="like" data-size="large"
+                 data-show-faces="true" data-share="true">
+            </div>
+
+        </div>
+        {% set count = 0 %}
+        {% for key, comment in comments if foundArticle.Id == comment.ArticleId %}
+            {% set count = count + 1 %}
+        {% endfor %}
+        {{ count }}<em> comentarii </em>
+    </div>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post">
+            {{ include('Grunt/content/comments/comments.html.twig') }}
+        </div>
+    </div>
+</div>
+
+
+
+
+

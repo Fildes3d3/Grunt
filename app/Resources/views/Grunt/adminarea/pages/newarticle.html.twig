@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+{% block mainContent %}
+<div class="container-fluid">
+    <div class="row">
+        {% include 'Grunt/adminarea/content/sidebar.html.twig' %}
+
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1">
+            <h2 class="sub-header">Articol Nou</h2>
+            <hr>
+            {% if article is defined %}
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form_start(articleForm) }}
+                        {{ form_errors(articleForm) }}
+                        {{ form_row(articleForm.postCategory, {'value' : article.postCategory}) }}
+                        {{ form_row(articleForm.postTitle, {'value' : article.PostTitle }) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form_row(articleForm.postData, {'value' : article.postData}) }}
+                        <button class="btn btn-default">Modifica</button>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="hidden">
+                        {{ form_row(articleForm.articleDate) }}
+                    </div>
+                    {{ form_end(articleForm) }}
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form_start(articleForm) }}
+                        {{ form_row(articleForm.postCategory) }}
+                        {{ form_row(articleForm.postTitle) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form_row(articleForm.postData) }}
+                        <button class="btn btn-default">Adauga</button>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="hidden">
+                        {{ form_row(articleForm.articleDate) }}
+                    </div>
+                    {{ form_end(articleForm) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -16,9 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
-
-
-
 class AdminController extends Controller
 {
     public function newArticleAction(Request $request)
@@ -40,7 +37,7 @@ class AdminController extends Controller
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        return $this->render(':Grunt:admin.html.twig', ['articleForm' => $form->createView()]);
+        return $this->render('Grunt/adminarea/pages/newarticle.html.twig', ['articleForm' => $form->createView()]);
     }
 
     public function listArticleAction(Request $request)
@@ -55,10 +52,10 @@ class AdminController extends Controller
         $pagination = $paginator->paginate(
             $querry,
             $request->query->getInt('page', 1),
-            2
+            10
         );
 
-        return $this->render(':Grunt:list.html.twig', [
+        return $this->render('Grunt/adminarea/pages/articlelist.html.twig', [
             'pagination' => $pagination
         ]);
     }
@@ -82,8 +79,20 @@ class AdminController extends Controller
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        return $this->render(':Grunt:admin.html.twig', [
+        return $this->render('Grunt/adminarea/pages/newarticle.html.twig', [
             'articleForm' => $form->createView(),
+            'article' => $article
+        ]);
+
+    }
+
+    public function  viewArticleAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('AppBundle:Article')->findOneById($id);
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('Grunt/adminarea/pages/viewarticle.html.twig', [
             'article' => $article
         ]);
 
@@ -117,7 +126,7 @@ class AdminController extends Controller
             8
         );
 
-        return $this->render(':Grunt:listUsers.html.twig', [
+        return $this->render('Grunt/adminarea/pages/userlist.html.twig', [
 
             'pagination' => $pagination
         ]);

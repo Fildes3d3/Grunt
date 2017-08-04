@@ -1,0 +1,20 @@
+<div class="col-lg-2 col-md-2">
+    <ul class="nav nav-sidebar">
+        <li style="text-align: center">
+            <img id="admin-pict" src="{{ app.user.picture }}" class="img-thumbnail">
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-user">  {{ app.user.username }} &nbsp;</span>
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-envelope"> {{ app.user.email }} </span>
+            <hr>
+        </li>
+        <li><a href="{{ path('article_list') }}">Articole</a></li>
+        {% if is_granted('ROLE_BOSS') %}
+        <li><a href="{{ path('comment_list') }}">Comentarii</a></li>
+        <li><a href="{{ path('user_list') }}">Utilizatori</a></li>
+        {% endif %}
+    <hr>
+    </ul>
+</div>

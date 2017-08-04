@@ -99,10 +99,10 @@ class CommentController extends Controller
         $commentspagination = $paginator->paginate(
             $commentsquerry,
             $request->query->getInt('page', 1),
-            3
+            10
         );
 
-        return $this->render('Grunt/listComments.html.twig', [
+        return $this->render('Grunt/adminarea/pages/commentlist.html.twig', [
             'responses' => $responses,
             'comments' => $commentspagination
 
@@ -130,7 +130,8 @@ class CommentController extends Controller
 
         }
 
-        return $this->render(':Grunt:editComments.html.twig', [
+        return $this->render('Grunt/adminarea/pages/editcomment.html.twig', [
+            'comment' => $comment,
             'commentForm' => $form->createView(),
         ]);
     }

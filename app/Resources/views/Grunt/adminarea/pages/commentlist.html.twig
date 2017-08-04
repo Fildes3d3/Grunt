@@ -1,0 +1,169 @@
+{% extends '::base.html.twig' %}
+{% block mainContent %}
+    {% for comments in comments %}
+        <div class="modal fade" id="deleteCommentModal{{ comments.Id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ comments.Id }}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Sterge Comentariu</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Esti sigur ca stii ce faci !?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ path('comment_delete', {'id':comments.id}) }}">
+                            <button type="button" class="btn btn-default">Sterge!</button>
+                        </a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Inchide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for comments in comments %}
+        <div class="modal fade" id="{{ comments.id }}" tabindex="-1" role="dialog"
+             aria-labelledby="responseModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">
+                            Raspuns Comentariu: <strong>Id:{{ comments.id }}</strong> </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% for responses in responses if comments.id == responses.commentId.id %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p><strong><em>Utilizator: </em></strong>{{ responses.articleId }}</p>
+                                    <p><strong><em>Categorie: </em></strong>{{ responses.commentCategory }}</p>
+                                    <p><strong><em>Data: </em></strong>{{ responses.commentDate|date('Y d M') }}</p>
+                                    <p><strong><em>Raspuns: </em></strong>{{ responses.commentresponse }}</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p>
+                                        <a href="{{ path('response_edit', {'id':responses.id}) }}">
+                                            <span class="glyphicon glyphicon-pencil"> Modifica </span>
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="#" data-toggle="modal" data-target="#deleteResponseModal{{ responses.id}}" type="button">
+                                            <span class="glyphicon glyphicon-remove"> Sterge </span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for flashMessage in app.session.flashbag.get('succes') %}
+            <div class="panel-heading">
+                <div class="alert alert-success alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4>{{ flashMessage }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+        {% include 'Grunt/adminarea/content/sidebar.html.twig' %}
+
+
+        <div class="col-lg-9  col-md-9">
+            <h2 class="sub-header">Lista Comentarii <span class="badge"> Count: {{ comments.getTotalItemCount }}</span></h2>
+            <hr>
+                       <div class="table-responsive">
+                <table class="table table-striped admin-table">
+                    <thead>
+                    <tr>
+                        <th>{{ knp_pagination_sortable(comments, 'Com', 'a.id') }}</th>
+                        <th>{{ knp_pagination_sortable(comments, 'Articol', 'a.articleId') }}</th>
+                        <th>{{ knp_pagination_sortable(comments, 'Utilizator', 'a.id') }}</th>{# find solution to sort by username#}
+                        <th>{{ knp_pagination_sortable(comments, 'Categorie', 'a.comment_category') }}</th>
+                        <th>{{ knp_pagination_sortable(comments, 'Data', 'a.comment_date') }}</th>
+                        <th>{{ knp_pagination_sortable(comments, 'Comentariu', 'a.comment') }}</th>
+                        <th colspan="3" style="text-align: center;">Actiuni</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for comments in comments %}
+                        <tr>
+                            <td> {{ comments.id}}</td>
+                            <td> {{ comments.articleId}}</td>
+                            <td> {{ comments.user.username }}</td>
+                            <td> {{ comments.commentCategory }}</td>
+                            <td> {{ comments.commentDate|date('Y d M')}}</td>
+                            <td> {{ comments.comment }}</td>
+                            <td>
+                                {% for responses in responses %}
+                                    {% if comments.id == responses.commentId.id %}
+                                        {% if loop.first %}
+                                            <a href="#" type="button" data-toggle="modal" data-target="#{{ comments.id }}">
+                                                <span class="glyphicon glyphicon-eye-open"> Raspunsuri</span>
+                                            </a>
+                                        {% endif %}
+                                    {% else %}
+                                        {% if loop.first %}
+                                            <a href="#" type="button" data-toggle="modal" data-target="#">
+                                                <span class="glyphicon glyphicon-eye-close">
+                                                    <strike> Raspunsuri</strike>
+                                                </span>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{{ path('comment_edit', {'id':comments.id}) }}">
+                                    <span class="glyphicon glyphicon-pencil"> Modifica</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" data-toggle="modal" data-target="#deleteCommentModal{{ comments.Id}}"
+                                   type="button">
+                                    <span class="glyphicon glyphicon-remove"> Sterge</span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(comments) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% for responses in responses %}
+        <div class="modal fade" id="deleteResponseModal{{ responses.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ responses.Id }}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Sterge Raspuns Comentariu</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Esti sigur ca stii ce faci !?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ path('response_delete', {'id':responses.id}) }}">
+                            <button type="button" class="btn btn-default">Sterge!</button>
+                        </a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Inchide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

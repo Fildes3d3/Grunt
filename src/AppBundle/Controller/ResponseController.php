@@ -107,8 +107,9 @@ class ResponseController extends Controller
         }
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        return $this->render('Grunt/editResponses.html.twig', [
+        return $this->render('Grunt/adminarea/pages/editcommentresponse.html.twig', [
             'responseForm' => $form->createView(),
+            'response' => $response,
         ]);
     }
 

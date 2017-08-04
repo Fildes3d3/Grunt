@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block mainContent %}
+<div class="container-fluid">
+    <div class="row">
+        {% include 'Grunt/adminarea/content/sidebar.html.twig' %}
+
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1">
+            <h2 class="sub-header">Vizualizare Articol</h2>
+            <hr>
+            {% if article is defined %}
+                <div class="container-fluid">
+                    <div class="row">
+                            <p><strong><em>Categorie Articol: </em></strong>{{ article.postCategory }}</p>
+                            <p><strong><em>Data Articol: </em></strong>{{ article.ArticleDate|date('Y d M') }}</p>
+                            <p><strong><em>Titlu Articol: </em></strong>{{ article.postTitle }}</p>
+                    </div>
+                    <br>
+                    <div class="row admin-table">
+                            <p><em>{{ article.postData|raw }}</em></p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

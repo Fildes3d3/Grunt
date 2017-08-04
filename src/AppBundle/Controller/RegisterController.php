@@ -48,7 +48,7 @@ class RegisterController extends Controller
                     'Nu e chiar ok ca parola sa fie aceeasi cu numele... Mai incearca odata :) '
                 );
 
-                return $this->render(':Grunt:register.html.twig');
+                return $this->render('Grunt/pages/register.html.twig');
             }
 
             $user = new User();
@@ -56,6 +56,7 @@ class RegisterController extends Controller
             $user->setUnsafePassword($password);
             $user->setEmail($email);
             $user->setNews($news);
+            $user->setPicture('/images/no_photo.png');
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -74,6 +75,6 @@ class RegisterController extends Controller
 
         }
 
-        return $this->render(':Grunt:register.html.twig');
+        return $this->render('Grunt/pages/register.html.twig');
     }
 }

@@ -80,4 +80,5 @@ class LoginFormAuteticator extends AbstractFormLoginAuthenticator
     {
         return $this->router->generate('home');
     }
+
 }
